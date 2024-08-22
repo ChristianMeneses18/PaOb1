@@ -1,0 +1,368 @@
+2024-08-21 21:28:24,177 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is not available. Remote download required.
+2024-08-21 22:48:48,976 [ModalContext] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/github/gantsign/maven/archetypes/java-application-maven-archetype/5.0.0/java-application-maven-archetype-5.0.0.pom
+2024-08-21 22:48:48,993 [ModalContext] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/github/gantsign/maven/archetypes/java-application-maven-archetype/5.0.0/java-application-maven-archetype-5.0.0.pom
+2024-08-21 22:48:49,188 [ModalContext] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/github/gantsign/maven/archetypes/java-application-maven-archetype/5.0.0/java-application-maven-archetype-5.0.0.jar
+2024-08-21 22:48:49,192 [ModalContext] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/github/gantsign/maven/archetypes/java-application-maven-archetype/5.0.0/java-application-maven-archetype-5.0.0.jar
+2024-08-21 22:51:17,564 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313 [644])
+2024-08-21 22:51:17,567 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313
+2024-08-21 22:51:17,568 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\aopalliance-1.0.jar
+2024-08-21 22:51:17,568 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\guice-5.1.0.jar
+2024-08-21 22:51:17,568 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\httpclient-4.5.14.jar
+2024-08-21 22:51:17,568 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\httpcore-4.4.16.jar
+2024-08-21 22:51:17,568 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\jansi-2.4.1.jar
+2024-08-21 22:51:17,568 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\jcl-over-slf4j-1.7.36.jar
+2024-08-21 22:51:17,569 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-artifact-3.9.7.jar
+2024-08-21 22:51:17,569 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-builder-support-3.9.7.jar
+2024-08-21 22:51:17,569 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-compat-3.9.7.jar
+2024-08-21 22:51:17,569 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-core-3.9.7.jar
+2024-08-21 22:51:17,569 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-embedder-3.9.7.jar
+2024-08-21 22:51:17,569 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-model-3.9.7.jar
+2024-08-21 22:51:17,569 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-model-builder-3.9.7.jar
+2024-08-21 22:51:17,570 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-plugin-api-3.9.7.jar
+2024-08-21 22:51:17,570 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-repository-metadata-3.9.7.jar
+2024-08-21 22:51:17,570 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-api-1.9.20.jar
+2024-08-21 22:51:17,570 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-connector-basic-1.9.20.jar
+2024-08-21 22:51:17,570 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-impl-1.9.20.jar
+2024-08-21 22:51:17,570 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-named-locks-1.9.20.jar
+2024-08-21 22:51:17,570 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-provider-3.9.7.jar
+2024-08-21 22:51:17,571 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-spi-1.9.20.jar
+2024-08-21 22:51:17,571 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-file-1.9.20.jar
+2024-08-21 22:51:17,571 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-http-1.9.20.jar
+2024-08-21 22:51:17,571 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-wagon-1.9.20.jar
+2024-08-21 22:51:17,572 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-util-1.9.20.jar
+2024-08-21 22:51:17,572 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-settings-3.9.7.jar
+2024-08-21 22:51:17,572 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-settings-builder-3.9.7.jar
+2024-08-21 22:51:17,572 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-shared-utils-3.4.2.jar
+2024-08-21 22:51:17,573 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\org.eclipse.sisu.inject-0.9.0.M2.jar
+2024-08-21 22:51:17,573 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\org.eclipse.sisu.plexus-0.9.0.M2.jar
+2024-08-21 22:51:17,573 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-build-api-0.0.7.jar
+2024-08-21 22:51:17,573 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-build-api-1.2.0.jar
+2024-08-21 22:51:17,574 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-cipher-2.0.jar
+2024-08-21 22:51:17,574 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-classworlds-2.8.0.jar
+2024-08-21 22:51:17,575 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-component-annotations-2.1.0.jar
+2024-08-21 22:51:17,575 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-interpolation-1.27.jar
+2024-08-21 22:51:17,575 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-sec-dispatcher-2.0.jar
+2024-08-21 22:51:17,576 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-utils-3.5.1.jar
+2024-08-21 22:51:17,576 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-file-3.5.3.jar
+2024-08-21 22:51:17,576 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-http-3.5.3.jar
+2024-08-21 22:51:17,576 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-http-shared-3.5.3.jar
+2024-08-21 22:51:17,576 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-provider-api-3.5.3.jar
+2024-08-21 22:51:17,580 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.2.0.jre [16])
+2024-08-21 22:51:17,580 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\com.google.guava_33.2.0.jre.jar
+2024-08-21 22:51:17,580 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.16 [1009])
+2024-08-21 22:51:17,581 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\slf4j.api_2.0.16.jar
+2024-08-21 22:51:17,581 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [33])
+2024-08-21 22:51:17,581 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\jakarta.inject.jakarta.inject-api_1.0.5.jar
+2024-08-21 22:51:17,581 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=javax.annotation_1.3.5.v20200909-1856 [44])
+2024-08-21 22:51:17,582 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\javax.annotation_1.3.5.v20200909-1856.jar
+2024-08-21 22:51:17,582 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.8.0 [78])
+2024-08-21 22:51:17,582 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.apache.commons.cli_1.8.0.jar
+2024-08-21 22:51:17,582 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [81])
+2024-08-21 22:51:17,583 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.apache.commons.commons-codec_1.16.0.jar
+2024-08-21 22:51:17,583 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.lang3_3.14.0 [89])
+2024-08-21 22:51:17,583 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.apache.commons.lang3_3.14.0.jar
+2024-08-21 22:51:17,583 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [17])
+2024-08-21 22:51:17,584 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\com.google.guava.failureaccess_1.0.2.jar
+2024-08-21 22:51:17,591 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\USUARIO\AppData\Local\Temp\m2e-archetypeGenerator2445377939157489564":
+2024-08-21 22:51:17,594 [Worker-33: Launching mavenrun-6b58dbbf-dccb-43e9-a90d-da427aecab57] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -DprojectName=Ayudamos.uy -DorganizationName=utu -DarchetypeGroupId=com.github.gantsign.maven.archetypes -DarchetypeArtifactId=java-application-maven-archetype -DarchetypeVersion=5.0.0 -DgroupId=com.ayudamos -DartifactId=AyudamosUy -Dversion=0.0.1-SNAPSHOT -Dpackage=com.ayudamos.AyudamosUy -DoutputDirectory=C:\Users\USUARIO\Desktop\PaOb1 -Dstyle.color=always -U archetype:generate
+2024-08-21 23:08:32,471 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313 [644])
+2024-08-21 23:08:32,482 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313
+2024-08-21 23:08:32,484 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\aopalliance-1.0.jar
+2024-08-21 23:08:32,485 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\guice-5.1.0.jar
+2024-08-21 23:08:32,488 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\httpclient-4.5.14.jar
+2024-08-21 23:08:32,488 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\httpcore-4.4.16.jar
+2024-08-21 23:08:32,489 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\jansi-2.4.1.jar
+2024-08-21 23:08:32,490 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\jcl-over-slf4j-1.7.36.jar
+2024-08-21 23:08:32,491 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-artifact-3.9.7.jar
+2024-08-21 23:08:32,491 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-builder-support-3.9.7.jar
+2024-08-21 23:08:32,492 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-compat-3.9.7.jar
+2024-08-21 23:08:32,492 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-core-3.9.7.jar
+2024-08-21 23:08:32,493 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-embedder-3.9.7.jar
+2024-08-21 23:08:32,494 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-model-3.9.7.jar
+2024-08-21 23:08:32,495 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-model-builder-3.9.7.jar
+2024-08-21 23:08:32,496 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-plugin-api-3.9.7.jar
+2024-08-21 23:08:32,496 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-repository-metadata-3.9.7.jar
+2024-08-21 23:08:32,497 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-api-1.9.20.jar
+2024-08-21 23:08:32,497 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-connector-basic-1.9.20.jar
+2024-08-21 23:08:32,498 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-impl-1.9.20.jar
+2024-08-21 23:08:32,499 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-named-locks-1.9.20.jar
+2024-08-21 23:08:32,500 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-provider-3.9.7.jar
+2024-08-21 23:08:32,500 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-spi-1.9.20.jar
+2024-08-21 23:08:32,501 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-file-1.9.20.jar
+2024-08-21 23:08:32,502 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-http-1.9.20.jar
+2024-08-21 23:08:32,502 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-wagon-1.9.20.jar
+2024-08-21 23:08:32,503 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-util-1.9.20.jar
+2024-08-21 23:08:32,504 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-settings-3.9.7.jar
+2024-08-21 23:08:32,505 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-settings-builder-3.9.7.jar
+2024-08-21 23:08:32,506 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-shared-utils-3.4.2.jar
+2024-08-21 23:08:32,507 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\org.eclipse.sisu.inject-0.9.0.M2.jar
+2024-08-21 23:08:32,509 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\org.eclipse.sisu.plexus-0.9.0.M2.jar
+2024-08-21 23:08:32,510 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-build-api-0.0.7.jar
+2024-08-21 23:08:32,511 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-build-api-1.2.0.jar
+2024-08-21 23:08:32,512 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-cipher-2.0.jar
+2024-08-21 23:08:32,512 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-classworlds-2.8.0.jar
+2024-08-21 23:08:32,513 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-component-annotations-2.1.0.jar
+2024-08-21 23:08:32,513 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-interpolation-1.27.jar
+2024-08-21 23:08:32,514 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-sec-dispatcher-2.0.jar
+2024-08-21 23:08:32,515 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-utils-3.5.1.jar
+2024-08-21 23:08:32,516 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-file-3.5.3.jar
+2024-08-21 23:08:32,516 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-http-3.5.3.jar
+2024-08-21 23:08:32,517 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-http-shared-3.5.3.jar
+2024-08-21 23:08:32,518 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-provider-api-3.5.3.jar
+2024-08-21 23:08:32,518 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.2.0.jre [16])
+2024-08-21 23:08:32,519 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\com.google.guava_33.2.0.jre.jar
+2024-08-21 23:08:32,519 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.16 [1009])
+2024-08-21 23:08:32,520 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\slf4j.api_2.0.16.jar
+2024-08-21 23:08:32,521 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [33])
+2024-08-21 23:08:32,522 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\jakarta.inject.jakarta.inject-api_1.0.5.jar
+2024-08-21 23:08:32,522 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=javax.annotation_1.3.5.v20200909-1856 [44])
+2024-08-21 23:08:32,523 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\javax.annotation_1.3.5.v20200909-1856.jar
+2024-08-21 23:08:32,524 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.8.0 [78])
+2024-08-21 23:08:32,525 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.apache.commons.cli_1.8.0.jar
+2024-08-21 23:08:32,526 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [81])
+2024-08-21 23:08:32,527 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.apache.commons.commons-codec_1.16.0.jar
+2024-08-21 23:08:32,528 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.lang3_3.14.0 [89])
+2024-08-21 23:08:32,529 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.apache.commons.lang3_3.14.0.jar
+2024-08-21 23:08:32,529 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [17])
+2024-08-21 23:08:32,530 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\com.google.guava.failureaccess_1.0.2.jar
+2024-08-21 23:08:32,532 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\USUARIO\AppData\Local\Temp\m2e-archetypeGenerator11722302686923149430":
+2024-08-21 23:08:32,533 [Worker-39: Launching mavenrun-143722ad-e13e-4baf-8846-7bfd077a3368] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.1 -DgroupId=com.ayudamos -DartifactId=Ayudamos -Dversion=0.0.1-SNAPSHOT -Dpackage=com.ayudamos.Ayudamos -DoutputDirectory=C:\Users\USUARIO\Desktop\PaOb1 -Dstyle.color=always -U archetype:generate
+2024-08-21 23:15:33,410 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313 [644])
+2024-08-21 23:15:33,414 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313
+2024-08-21 23:15:33,414 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\aopalliance-1.0.jar
+2024-08-21 23:15:33,415 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\guice-5.1.0.jar
+2024-08-21 23:15:33,415 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\httpclient-4.5.14.jar
+2024-08-21 23:15:33,416 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\httpcore-4.4.16.jar
+2024-08-21 23:15:33,416 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\jansi-2.4.1.jar
+2024-08-21 23:15:33,417 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\jcl-over-slf4j-1.7.36.jar
+2024-08-21 23:15:33,418 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-artifact-3.9.7.jar
+2024-08-21 23:15:33,419 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-builder-support-3.9.7.jar
+2024-08-21 23:15:33,419 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-compat-3.9.7.jar
+2024-08-21 23:15:33,420 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-core-3.9.7.jar
+2024-08-21 23:15:33,421 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-embedder-3.9.7.jar
+2024-08-21 23:15:33,422 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-model-3.9.7.jar
+2024-08-21 23:15:33,422 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-model-builder-3.9.7.jar
+2024-08-21 23:15:33,422 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-plugin-api-3.9.7.jar
+2024-08-21 23:15:33,422 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-repository-metadata-3.9.7.jar
+2024-08-21 23:15:33,423 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-api-1.9.20.jar
+2024-08-21 23:15:33,424 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-connector-basic-1.9.20.jar
+2024-08-21 23:15:33,425 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-impl-1.9.20.jar
+2024-08-21 23:15:33,425 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-named-locks-1.9.20.jar
+2024-08-21 23:15:33,426 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-provider-3.9.7.jar
+2024-08-21 23:15:33,427 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-spi-1.9.20.jar
+2024-08-21 23:15:33,427 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-file-1.9.20.jar
+2024-08-21 23:15:33,427 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-http-1.9.20.jar
+2024-08-21 23:15:33,428 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-wagon-1.9.20.jar
+2024-08-21 23:15:33,429 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-util-1.9.20.jar
+2024-08-21 23:15:33,429 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-settings-3.9.7.jar
+2024-08-21 23:15:33,430 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-settings-builder-3.9.7.jar
+2024-08-21 23:15:33,431 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-shared-utils-3.4.2.jar
+2024-08-21 23:15:33,431 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\org.eclipse.sisu.inject-0.9.0.M2.jar
+2024-08-21 23:15:33,432 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\org.eclipse.sisu.plexus-0.9.0.M2.jar
+2024-08-21 23:15:33,432 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-build-api-0.0.7.jar
+2024-08-21 23:15:33,433 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-build-api-1.2.0.jar
+2024-08-21 23:15:33,433 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-cipher-2.0.jar
+2024-08-21 23:15:33,434 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-classworlds-2.8.0.jar
+2024-08-21 23:15:33,434 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-component-annotations-2.1.0.jar
+2024-08-21 23:15:33,435 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-interpolation-1.27.jar
+2024-08-21 23:15:33,435 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-sec-dispatcher-2.0.jar
+2024-08-21 23:15:33,436 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-utils-3.5.1.jar
+2024-08-21 23:15:33,436 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-file-3.5.3.jar
+2024-08-21 23:15:33,437 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-http-3.5.3.jar
+2024-08-21 23:15:33,437 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-http-shared-3.5.3.jar
+2024-08-21 23:15:33,437 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-provider-api-3.5.3.jar
+2024-08-21 23:15:33,437 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.2.0.jre [16])
+2024-08-21 23:15:33,438 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\com.google.guava_33.2.0.jre.jar
+2024-08-21 23:15:33,438 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.16 [1009])
+2024-08-21 23:15:33,440 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\slf4j.api_2.0.16.jar
+2024-08-21 23:15:33,442 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [33])
+2024-08-21 23:15:33,443 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\jakarta.inject.jakarta.inject-api_1.0.5.jar
+2024-08-21 23:15:33,444 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=javax.annotation_1.3.5.v20200909-1856 [44])
+2024-08-21 23:15:33,444 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\javax.annotation_1.3.5.v20200909-1856.jar
+2024-08-21 23:15:33,445 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.8.0 [78])
+2024-08-21 23:15:33,445 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.apache.commons.cli_1.8.0.jar
+2024-08-21 23:15:33,445 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [81])
+2024-08-21 23:15:33,446 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.apache.commons.commons-codec_1.16.0.jar
+2024-08-21 23:15:33,446 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.lang3_3.14.0 [89])
+2024-08-21 23:15:33,446 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.apache.commons.lang3_3.14.0.jar
+2024-08-21 23:15:33,447 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [17])
+2024-08-21 23:15:33,448 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\com.google.guava.failureaccess_1.0.2.jar
+2024-08-21 23:15:33,450 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\USUARIO\AppData\Local\Temp\m2e-archetypeGenerator3595617652997144405":
+2024-08-21 23:15:33,451 [Worker-38: Launching mavenrun-42444ffa-1a78-4067-b4c9-6e1a53e48a4a] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.1 -DgroupId=com.ayudamos -DartifactId=Ayudamos -Dversion=0.0.1-SNAPSHOT -Dpackage=com.ayudamos.Ayudamos -DoutputDirectory=C:\Users\USUARIO\Desktop\PaOb1 -B -Dstyle.color=always -U archetype:generate
+2024-08-21 23:15:39,167 [Worker-39: Creating maven-archetype-quickstart] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Collecting project info '/pom.xml' C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\pom.xml
+2024-08-21 23:15:39,918 [Worker-39: Creating maven-archetype-quickstart] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ayudamos:Ayudamos:0.0.1-SNAPSHOT @ C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\pom.xml.
+2024-08-21 23:15:39,987 [Worker-39: Creating maven-archetype-quickstart] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/junit/junit/3.8.1/junit-3.8.1.jar
+2024-08-21 23:15:40,009 [Worker-39: Creating maven-archetype-quickstart] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/junit/junit/3.8.1/junit-3.8.1.jar
+2024-08-21 23:15:40,970 [Worker-39: Creating maven-archetype-quickstart] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Ayudamos/src/main/java
+2024-08-21 23:15:40,975 [Worker-39: Creating maven-archetype-quickstart] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Ayudamos/src/main/resources
+2024-08-21 23:15:40,986 [Worker-39: Creating maven-archetype-quickstart] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Ayudamos/src/test/java
+2024-08-21 23:15:40,988 [Worker-39: Creating maven-archetype-quickstart] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Ayudamos/src/test/resources
+2024-08-21 23:15:41,132 [Worker-39: Creating maven-archetype-quickstart] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 1 sec
+2024-08-21 23:15:41,728 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/junit/junit/3.8.1/junit-3.8.1-sources.jar
+2024-08-21 23:15:41,750 [Worker-37: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/junit/junit/3.8.1/junit-3.8.1-sources.jar
+2024-08-21 23:15:41,759 [Worker-37: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for junit:junit:3.8.1
+2024-08-21 23:15:42,798 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:15:42,819 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:16:06,615 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:16:06,619 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:17:09,853 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-08-21 23:17:26,283 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:17:26,290 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:23:50,754 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-08-21 23:25:41,440 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:25:41,447 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:25:57,400 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:25:57,405 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:26:14,724 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:26:14,728 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:27:17,565 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:27:17,568 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:27:45,855 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:27:45,858 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:29:18,959 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:29:18,963 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:29:42,669 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-08-21 23:30:12,953 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:30:12,962 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:30:17,930 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:30:17,932 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:30:20,861 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:30:20,864 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:30:52,015 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:30:52,018 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:31:03,166 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:31:03,168 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:31:13,304 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:31:13,306 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:31:20,029 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:31:20,030 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:31:27,628 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:31:27,632 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:31:32,889 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:31:32,892 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:32:00,030 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:32:00,033 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:32:09,028 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:32:09,032 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:33:29,915 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:33:29,917 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:33:54,549 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:33:54,553 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:34:29,661 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:34:29,662 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:36:54,469 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:36:54,470 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:36:59,196 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:36:59,198 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:38:08,884 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:38:08,887 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-21 23:45:33,323 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-21 23:45:33,328 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-22 00:01:57,956 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
+2024-08-22 00:01:57,959 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
+
+	Configuration values for static components:
+
+		background-executor.all-tasks-monitoring.enabled=\
+			true
+		background-executor.all-tasks-monitoring.interval=\
+			30000
+		background-executor.all-tasks-monitoring.logger.enabled=\
+			false
+		background-executor.all-tasks-monitoring.minimum-elapsed-time-to-consider-a-task-as-probable-dead-locked=\
+			300000
+		background-executor.all-tasks-monitoring.probable-dead-locked-tasks-handling.policy=\
+			log only
+		background-executor.queued-task-executor[0].name=\
+			Low priority tasks
+		background-executor.queued-task-executor[0].priority=\
+			1
+		background-executor.queued-task-executor[1].name=\
+			Normal priority tasks
+		background-executor.queued-task-executor[1].priority=\
+			5
+		background-executor.queued-task-executor[2].name=\
+			High priority tasks
+		background-executor.queued-task-executor[2].priority=\
+			10
+		background-executor.task-creation-tracking.enabled=\
+			${background-executor.all-tasks-monitoring.enabled}
+		banner.additonal-informations=\
+			${Implementation-Title} ${Implementation-Version}
+		banner.additonal-informations.retrieve-from-manifest-file-with-implementation-title=\
+			Burningwave Core
+		banner.file=\
+			org/burningwave/banner.bwb
+		banner.hide=\
+			true
+		buffer-handler.default-allocation-mode=\
+			ByteBuffer::allocateDirect
+		buffer-handler.default-buffer-size=\
+			1024
+		group-name-for-named-elements=\
+			Burningwave
+		iterable-object-helper.default-values-separator=\
+			;
+		iterable-object-helper.parallel-iteration.applicability.default-minimum-collection-size=\
+			2
+		iterable-object-helper.parallel-iteration.applicability.max-runtime-thread-count-threshold=\
+			autodetect
+		iterable-object-helper.parallel-iteration.applicability.output-collection-enabled-types=\
+			java.util.concurrent.ConcurrentHashMap$CollectionView;\
+			java.util.Collections$SynchronizedCollection;\
+			java.util.concurrent.CopyOnWriteArrayList;\
+			java.util.concurrent.CopyOnWriteArraySet;\
+			java.util.concurrent.BlockingQueue;\
+			java.util.concurrent.ConcurrentSkipListSet;\
+			java.util.concurrent.ConcurrentSkipListMap$EntrySet;\
+			java.util.concurrent.ConcurrentSkipListMap$KeySet;\
+			java.util.concurrent.ConcurrentSkipListMap$Values;
+		jvm.driver.init=\
+			false
+		managed-logger.repository=\
+			autodetect
+		managed-logger.repository.enabled=\
+			true
+		managed-logger.repository.logging.warn.disabled-for=\
+			org.burningwave.core.assembler.ComponentContainer$ClassLoader;\
+			org.burningwave.core.classes.MemoryClassLoader;\
+			org.burningwave.core.classes.PathScannerClassLoader;
+		modules.export-all-to-all=\
+			true
+		resource-releaser.enabled=\
+			true
+		synchronizer.all-threads-monitoring.enabled=\
+			false
+		synchronizer.all-threads-monitoring.interval=\
+			90000
+		thread-supplier.default-daemon-flag-value=\
+			true
+		thread-supplier.default-thread-priority=\
+			5
+		thread-supplier.max-detached-thread-count=\
+			${thread-supplier.max-poolable-thread-count}
+		thread-supplier.max-detached-thread-count.elapsed-time-threshold-from-last-increase-for-gradual-decreasing-to-initial-value=\
+			30000
+		thread-supplier.max-detached-thread-count.increasing-step=\
+			autodetect
+		thread-supplier.max-poolable-thread-count=\
+			autodetect
+		thread-supplier.poolable-thread-request-timeout=\
+			6000
+
+
+2024-08-22 00:01:57,961 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
+2024-08-22 00:01:57,962 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
+2024-08-22 00:01:57,967 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
+2024-08-22 00:01:57,993 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.1168944 seconds
+2024-08-22 00:02:00,700 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-08-22 00:02:47,166 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-22 00:02:47,177 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-22 00:07:06,212 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:391) - ... Waiting for all tasks ending
+2024-08-22 00:07:06,218 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:397) - Closing all component containers
+2024-08-22 00:07:06,222 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:403) - Closing FileSystemHelper
+2024-08-22 00:07:06,225 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:409) - ... Waiting for all tasks ending before shutting down the BackgroundExecutor
+2024-08-22 00:07:06,227 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:414) - Shutting down BackgroundExecutor
+2024-08-22 00:07:06,230 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
+2024-08-22 00:07:06,231 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
+2024-08-22 00:07:06,232 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier

@@ -1,0 +1,20 @@
+package com.ayudamos.datatypes;
+
+
+public class DtRepartidor extends DtUsuario {
+	private String numeroLicencia;
+	
+	public DtRepartidor(String nombre, String email, String numeroLicencia) {
+		super(nombre, email);
+		this.numeroLicencia = numeroLicencia;
+	}
+	public String getNumeroLicencia() {
+		return numeroLicencia;
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + "Numero de licencia:" + numeroLicencia;
+	}
+	
+}

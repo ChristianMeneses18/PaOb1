@@ -594,3 +594,5 @@
 2024-08-22 21:22:15,142 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
 2024-08-22 21:24:10,184 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
 2024-08-22 21:24:10,187 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-22 21:27:24,841 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-22 21:27:24,844 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources

@@ -1,0 +1,58 @@
+package com.ayudamos.presentacion;
+
+import java.awt.EventQueue;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+
+public class AgregarUsuario extends JInternalFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JTextField txtCedula;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AgregarUsuario frame = new AgregarUsuario();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public AgregarUsuario() {
+		setBounds(100, 100, 370, 468);
+		getContentPane().setLayout(null);
+		
+		txtCedula = new JTextField();
+		txtCedula.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		txtCedula.setToolTipText("Ingrese la cedula del usuario");
+		txtCedula.setBounds(136, 91, 119, 20);
+		getContentPane().add(txtCedula);
+		txtCedula.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Alta de Usuario");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblNewLabel.setBounds(61, 11, 229, 37);
+		getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Cedula:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1.setBounds(23, 89, 68, 17);
+		getContentPane().add(lblNewLabel_1);
+
+	}
+}

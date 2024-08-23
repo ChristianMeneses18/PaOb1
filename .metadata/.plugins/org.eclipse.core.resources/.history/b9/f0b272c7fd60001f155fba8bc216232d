@@ -40,9 +40,8 @@ public class Principal extends JFrame {
      * Create the frame.
      */
     public Principal() {
-    	setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 520, 626);
+        setBounds(100, 100, 520, 596);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -50,7 +49,7 @@ public class Principal extends JFrame {
         contentPane.setLayout(null);
 
         JMenuBar menuBar = new JMenuBar();
-        menuBar.setBounds(0, 0, 504, 28);
+        menuBar.setBounds(0, 0, 472, 28);
         contentPane.add(menuBar);
 
         JMenu mnAltas = new JMenu("Altas");

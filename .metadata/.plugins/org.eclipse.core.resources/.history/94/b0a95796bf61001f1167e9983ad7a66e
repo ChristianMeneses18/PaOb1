@@ -1,0 +1,175 @@
+package com.ayudamos.presentacion;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JInternalFrame;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
+import java.util.Calendar;
+import com.ayudamos.enums.EstadoBeneficiario;
+import com.ayudamos.enums.Barrio;
+import com.toedter.calendar.JDateChooser;
+
+public class AgregarUsuario extends JInternalFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JTextField txtCedula;
+    private JTextField txtEmail;
+    private JTextField txtDireccion;
+    private JTextField txtLicencia;
+    private JComboBox<String> comboBoxTipo;
+    private JComboBox<String> comboBoxBarrio;
+    private JComboBox<String> comboBoxEstado;
+    private JLabel lblDireccion;
+    private JLabel lblFechaNacimiento;
+    private JLabel lblBarrio;
+    private JLabel lblEstado;
+    private JLabel lblLicencia;
+
+    /**
+     * Create the frame.
+     */
+    public AgregarUsuario() {
+        setTitle("Alta de Usuario");
+        setBounds(100, 100, 503, 594);
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+        getContentPane().setLayout(null);
+
+        JLabel lblTitulo = new JLabel("Alta de Usuario");
+        lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 30));
+        lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+        lblTitulo.setBounds(10, 10, 470, 40);
+        getContentPane().add(lblTitulo);
+
+        JLabel lblCedula = new JLabel("Cedula:");
+        lblCedula.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblCedula.setBounds(10, 60, 100, 30);
+        getContentPane().add(lblCedula);
+
+        txtCedula = new JTextField();
+        txtCedula.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        txtCedula.setBounds(120, 60, 350, 30);
+        getContentPane().add(txtCedula);
+        txtCedula.setColumns(10);
+
+        JLabel lblEmail = new JLabel("Email:");
+        lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblEmail.setBounds(10, 100, 100, 30);
+        getContentPane().add(lblEmail);
+
+        txtEmail = new JTextField();
+        txtEmail.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        txtEmail.setBounds(120, 100, 350, 30);
+        getContentPane().add(txtEmail);
+        txtEmail.setColumns(10);
+
+        JLabel lblTipoUsuario = new JLabel("Tipo de Usuario:");
+        lblTipoUsuario.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblTipoUsuario.setBounds(10, 140, 150, 30);
+        getContentPane().add(lblTipoUsuario);
+
+        comboBoxTipo = new JComboBox<>(new String[] {"Beneficiario", "Repartidor"});
+        comboBoxTipo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        comboBoxTipo.setBounds(170, 140, 150, 30);
+        getContentPane().add(comboBoxTipo);
+
+        JLabel lblFechaNacimiento = new JLabel("Fecha de Nacimiento:");
+        lblFechaNacimiento.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblFechaNacimiento.setBounds(10, 180, 200, 30);
+        getContentPane().add(lblFechaNacimiento);
+
+        lblDireccion = new JLabel("Direccion:");
+        lblDireccion.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblDireccion.setBounds(10, 220, 100, 30);
+        getContentPane().add(lblDireccion);
+
+        txtDireccion = new JTextField();
+        txtDireccion.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        txtDireccion.setBounds(120, 220, 350, 30);
+        getContentPane().add(txtDireccion);
+        txtDireccion.setColumns(10);
+
+        lblEstado = new JLabel("Estado:");
+        lblEstado.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblEstado.setBounds(10, 260, 100, 30);
+        getContentPane().add(lblEstado);
+
+        comboBoxEstado = new JComboBox<>(new String[] {"Activo", "Inactivo"}); // Example states
+        comboBoxEstado.setModel(new DefaultComboBoxModel(EstadoBeneficiario.values()));
+        comboBoxEstado.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        comboBoxEstado.setBounds(120, 260, 150, 30);
+        getContentPane().add(comboBoxEstado);
+
+        lblBarrio = new JLabel("Barrio:");
+        lblBarrio.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblBarrio.setBounds(10, 300, 100, 30);
+        getContentPane().add(lblBarrio);
+
+        comboBoxBarrio = new JComboBox<>(new String[] {"Barrio 1", "Barrio 2"}); // Example barrios
+        comboBoxBarrio.setModel(new DefaultComboBoxModel(Barrio.values()));
+        comboBoxBarrio.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        comboBoxBarrio.setBounds(120, 300, 150, 30);
+        getContentPane().add(comboBoxBarrio);
+
+        lblLicencia = new JLabel("Número de Licencia:");
+        lblLicencia.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblLicencia.setBounds(10, 340, 200, 30);
+        getContentPane().add(lblLicencia);
+
+        txtLicencia = new JTextField();
+        txtLicencia.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        txtLicencia.setBounds(220, 340, 250, 30);
+        getContentPane().add(txtLicencia);
+        txtLicencia.setColumns(10);
+        
+        JDateChooser dateChooser = new JDateChooser();
+        dateChooser.setBounds(195, 192, 150, 20);
+        getContentPane().add(dateChooser);
+
+        comboBoxTipo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actualizarCamposVisibles();
+            }
+        });
+
+        // Initial call to set the correct visibility based on the default selection
+        actualizarCamposVisibles();
+    }
+
+    private void actualizarCamposVisibles() {
+        if (comboBoxTipo == null || lblDireccion == null || txtDireccion == null || lblFechaNacimiento == null || dateSpinner == null || lblBarrio == null || comboBoxBarrio == null || lblEstado == null || comboBoxEstado == null || lblLicencia == null || txtLicencia == null) {
+            return; // Check if any component is null to avoid NullPointerException
+        }
+        
+        String tipoUsuario = (String) comboBoxTipo.getSelectedItem();
+        boolean esBeneficiario = "Beneficiario".equals(tipoUsuario);
+
+        lblDireccion.setVisible(esBeneficiario);
+        txtDireccion.setVisible(esBeneficiario);
+
+        lblFechaNacimiento.setVisible(esBeneficiario);
+
+        lblBarrio.setVisible(esBeneficiario);
+        comboBoxBarrio.setVisible(esBeneficiario);
+
+        lblEstado.setVisible(esBeneficiario);
+        comboBoxEstado.setVisible(esBeneficiario);
+
+        lblLicencia.setVisible(!esBeneficiario);
+        txtLicencia.setVisible(!esBeneficiario);
+
+        revalidate(); 
+        repaint(); 
+    }
+}

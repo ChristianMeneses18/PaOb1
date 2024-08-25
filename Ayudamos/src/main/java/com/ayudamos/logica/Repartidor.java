@@ -10,7 +10,7 @@ public class Repartidor extends Usuario {
 	
 	public Repartidor(String numeroLicencia) {
 		super();
-		this.setNumeroLicencia(numeroLicencia);
+		this.numeroLicencia = numeroLicencia;
 	}
 
 	public String getNumeroLicencia() {

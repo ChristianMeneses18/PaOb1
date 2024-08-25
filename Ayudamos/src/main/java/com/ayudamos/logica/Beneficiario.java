@@ -4,11 +4,12 @@ import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.enums.EstadoBeneficiario;
 import com.ayudamos.enums.Barrio;
 
-public class Beneficiario {
+public class Beneficiario extends Usuario {
 	private String direccion;
 	private DtFecha fechaNacimiento;
 	private EstadoBeneficiario estado;
 	private Barrio barrio;
+	private Distribucion distribucion;
 	
 	public Beneficiario() {
 		super();
@@ -52,6 +53,14 @@ public class Beneficiario {
 
 	public void setBarrio(Barrio barrio) {
 		this.barrio = barrio;
+	}
+
+	public Distribucion getDistribucion() {
+		return distribucion;
+	}
+
+	public void setDistribucion(Distribucion distribucion) {
+		this.distribucion = distribucion;
 	}
 	
 	

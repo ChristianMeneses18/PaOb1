@@ -1,0 +1,16 @@
+package com.ayudamos.logica;
+
+import com.ayudamos.datatypes.DtUsuario;
+import com.ayudamos.interfaces.IControlador;
+import com.ayudamos.logica.ManejadorUsuario;
+
+public class Controlador implements IControlador {
+
+	@Override
+	public void agregarUsuario(DtUsuario usuario) {
+		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
+		
+		
+	}
+
+}

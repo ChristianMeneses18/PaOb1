@@ -1,6 +1,12 @@
 # Archivos compilados
 *.class
+.settings/
+.project
+.classpath
+.metadata/
 bin/
+target/
+tmp/
 out/
 
 # Archivos del entorno de desarrollo

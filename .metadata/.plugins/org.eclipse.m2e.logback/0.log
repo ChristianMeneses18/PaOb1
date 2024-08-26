@@ -1459,3 +1459,414 @@
 2024-08-25 01:19:30,269 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
 2024-08-25 01:19:30,269 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
 2024-08-25 01:19:30,270 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier
+2024-08-25 01:25:36,113 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
+2024-08-25 01:25:36,116 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
+
+	Configuration values for static components:
+
+		background-executor.all-tasks-monitoring.enabled=\
+			true
+		background-executor.all-tasks-monitoring.interval=\
+			30000
+		background-executor.all-tasks-monitoring.logger.enabled=\
+			false
+		background-executor.all-tasks-monitoring.minimum-elapsed-time-to-consider-a-task-as-probable-dead-locked=\
+			300000
+		background-executor.all-tasks-monitoring.probable-dead-locked-tasks-handling.policy=\
+			log only
+		background-executor.queued-task-executor[0].name=\
+			Low priority tasks
+		background-executor.queued-task-executor[0].priority=\
+			1
+		background-executor.queued-task-executor[1].name=\
+			Normal priority tasks
+		background-executor.queued-task-executor[1].priority=\
+			5
+		background-executor.queued-task-executor[2].name=\
+			High priority tasks
+		background-executor.queued-task-executor[2].priority=\
+			10
+		background-executor.task-creation-tracking.enabled=\
+			${background-executor.all-tasks-monitoring.enabled}
+		banner.additonal-informations=\
+			${Implementation-Title} ${Implementation-Version}
+		banner.additonal-informations.retrieve-from-manifest-file-with-implementation-title=\
+			Burningwave Core
+		banner.file=\
+			org/burningwave/banner.bwb
+		banner.hide=\
+			true
+		buffer-handler.default-allocation-mode=\
+			ByteBuffer::allocateDirect
+		buffer-handler.default-buffer-size=\
+			1024
+		group-name-for-named-elements=\
+			Burningwave
+		iterable-object-helper.default-values-separator=\
+			;
+		iterable-object-helper.parallel-iteration.applicability.default-minimum-collection-size=\
+			2
+		iterable-object-helper.parallel-iteration.applicability.max-runtime-thread-count-threshold=\
+			autodetect
+		iterable-object-helper.parallel-iteration.applicability.output-collection-enabled-types=\
+			java.util.concurrent.ConcurrentHashMap$CollectionView;\
+			java.util.Collections$SynchronizedCollection;\
+			java.util.concurrent.CopyOnWriteArrayList;\
+			java.util.concurrent.CopyOnWriteArraySet;\
+			java.util.concurrent.BlockingQueue;\
+			java.util.concurrent.ConcurrentSkipListSet;\
+			java.util.concurrent.ConcurrentSkipListMap$EntrySet;\
+			java.util.concurrent.ConcurrentSkipListMap$KeySet;\
+			java.util.concurrent.ConcurrentSkipListMap$Values;
+		jvm.driver.init=\
+			false
+		managed-logger.repository=\
+			autodetect
+		managed-logger.repository.enabled=\
+			true
+		managed-logger.repository.logging.warn.disabled-for=\
+			org.burningwave.core.assembler.ComponentContainer$ClassLoader;\
+			org.burningwave.core.classes.MemoryClassLoader;\
+			org.burningwave.core.classes.PathScannerClassLoader;
+		modules.export-all-to-all=\
+			true
+		resource-releaser.enabled=\
+			true
+		synchronizer.all-threads-monitoring.enabled=\
+			false
+		synchronizer.all-threads-monitoring.interval=\
+			90000
+		thread-supplier.default-daemon-flag-value=\
+			true
+		thread-supplier.default-thread-priority=\
+			5
+		thread-supplier.max-detached-thread-count=\
+			${thread-supplier.max-poolable-thread-count}
+		thread-supplier.max-detached-thread-count.elapsed-time-threshold-from-last-increase-for-gradual-decreasing-to-initial-value=\
+			30000
+		thread-supplier.max-detached-thread-count.increasing-step=\
+			autodetect
+		thread-supplier.max-poolable-thread-count=\
+			autodetect
+		thread-supplier.poolable-thread-request-timeout=\
+			6000
+
+
+2024-08-25 01:25:36,118 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
+2024-08-25 01:25:36,120 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
+2024-08-25 01:25:36,124 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
+2024-08-25 01:25:36,153 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.1382527 seconds
+2024-08-25 01:25:39,806 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-08-25 01:25:42,868 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-25 01:25:42,882 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-25 01:26:06,050 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:391) - ... Waiting for all tasks ending
+2024-08-25 01:26:06,051 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:397) - Closing all component containers
+2024-08-25 01:26:06,052 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:403) - Closing FileSystemHelper
+2024-08-25 01:26:06,053 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:409) - ... Waiting for all tasks ending before shutting down the BackgroundExecutor
+2024-08-25 01:26:06,054 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:414) - Shutting down BackgroundExecutor
+2024-08-25 01:26:06,055 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
+2024-08-25 01:26:06,056 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
+2024-08-25 01:26:06,056 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier
+2024-08-25 18:53:22,166 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
+2024-08-25 18:53:22,171 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
+
+	Configuration values for static components:
+
+		background-executor.all-tasks-monitoring.enabled=\
+			true
+		background-executor.all-tasks-monitoring.interval=\
+			30000
+		background-executor.all-tasks-monitoring.logger.enabled=\
+			false
+		background-executor.all-tasks-monitoring.minimum-elapsed-time-to-consider-a-task-as-probable-dead-locked=\
+			300000
+		background-executor.all-tasks-monitoring.probable-dead-locked-tasks-handling.policy=\
+			log only
+		background-executor.queued-task-executor[0].name=\
+			Low priority tasks
+		background-executor.queued-task-executor[0].priority=\
+			1
+		background-executor.queued-task-executor[1].name=\
+			Normal priority tasks
+		background-executor.queued-task-executor[1].priority=\
+			5
+		background-executor.queued-task-executor[2].name=\
+			High priority tasks
+		background-executor.queued-task-executor[2].priority=\
+			10
+		background-executor.task-creation-tracking.enabled=\
+			${background-executor.all-tasks-monitoring.enabled}
+		banner.additonal-informations=\
+			${Implementation-Title} ${Implementation-Version}
+		banner.additonal-informations.retrieve-from-manifest-file-with-implementation-title=\
+			Burningwave Core
+		banner.file=\
+			org/burningwave/banner.bwb
+		banner.hide=\
+			true
+		buffer-handler.default-allocation-mode=\
+			ByteBuffer::allocateDirect
+		buffer-handler.default-buffer-size=\
+			1024
+		group-name-for-named-elements=\
+			Burningwave
+		iterable-object-helper.default-values-separator=\
+			;
+		iterable-object-helper.parallel-iteration.applicability.default-minimum-collection-size=\
+			2
+		iterable-object-helper.parallel-iteration.applicability.max-runtime-thread-count-threshold=\
+			autodetect
+		iterable-object-helper.parallel-iteration.applicability.output-collection-enabled-types=\
+			java.util.concurrent.ConcurrentHashMap$CollectionView;\
+			java.util.Collections$SynchronizedCollection;\
+			java.util.concurrent.CopyOnWriteArrayList;\
+			java.util.concurrent.CopyOnWriteArraySet;\
+			java.util.concurrent.BlockingQueue;\
+			java.util.concurrent.ConcurrentSkipListSet;\
+			java.util.concurrent.ConcurrentSkipListMap$EntrySet;\
+			java.util.concurrent.ConcurrentSkipListMap$KeySet;\
+			java.util.concurrent.ConcurrentSkipListMap$Values;
+		jvm.driver.init=\
+			false
+		managed-logger.repository=\
+			autodetect
+		managed-logger.repository.enabled=\
+			true
+		managed-logger.repository.logging.warn.disabled-for=\
+			org.burningwave.core.assembler.ComponentContainer$ClassLoader;\
+			org.burningwave.core.classes.MemoryClassLoader;\
+			org.burningwave.core.classes.PathScannerClassLoader;
+		modules.export-all-to-all=\
+			true
+		resource-releaser.enabled=\
+			true
+		synchronizer.all-threads-monitoring.enabled=\
+			false
+		synchronizer.all-threads-monitoring.interval=\
+			90000
+		thread-supplier.default-daemon-flag-value=\
+			true
+		thread-supplier.default-thread-priority=\
+			5
+		thread-supplier.max-detached-thread-count=\
+			${thread-supplier.max-poolable-thread-count}
+		thread-supplier.max-detached-thread-count.elapsed-time-threshold-from-last-increase-for-gradual-decreasing-to-initial-value=\
+			30000
+		thread-supplier.max-detached-thread-count.increasing-step=\
+			autodetect
+		thread-supplier.max-poolable-thread-count=\
+			autodetect
+		thread-supplier.poolable-thread-request-timeout=\
+			6000
+
+
+2024-08-25 18:53:22,175 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
+2024-08-25 18:53:22,176 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
+2024-08-25 18:53:22,182 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
+2024-08-25 18:53:22,215 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.192013 seconds
+2024-08-25 18:53:25,828 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-08-25 19:56:39,245 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:391) - ... Waiting for all tasks ending
+2024-08-25 19:56:39,249 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:397) - Closing all component containers
+2024-08-25 19:56:39,251 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:403) - Closing FileSystemHelper
+2024-08-25 19:56:39,252 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:409) - ... Waiting for all tasks ending before shutting down the BackgroundExecutor
+2024-08-25 19:56:39,252 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:414) - Shutting down BackgroundExecutor
+2024-08-25 19:56:39,254 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
+2024-08-25 19:56:39,255 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
+2024-08-25 19:56:39,256 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier
+2024-08-25 22:33:07,463 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
+2024-08-25 22:33:07,469 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
+
+	Configuration values for static components:
+
+		background-executor.all-tasks-monitoring.enabled=\
+			true
+		background-executor.all-tasks-monitoring.interval=\
+			30000
+		background-executor.all-tasks-monitoring.logger.enabled=\
+			false
+		background-executor.all-tasks-monitoring.minimum-elapsed-time-to-consider-a-task-as-probable-dead-locked=\
+			300000
+		background-executor.all-tasks-monitoring.probable-dead-locked-tasks-handling.policy=\
+			log only
+		background-executor.queued-task-executor[0].name=\
+			Low priority tasks
+		background-executor.queued-task-executor[0].priority=\
+			1
+		background-executor.queued-task-executor[1].name=\
+			Normal priority tasks
+		background-executor.queued-task-executor[1].priority=\
+			5
+		background-executor.queued-task-executor[2].name=\
+			High priority tasks
+		background-executor.queued-task-executor[2].priority=\
+			10
+		background-executor.task-creation-tracking.enabled=\
+			${background-executor.all-tasks-monitoring.enabled}
+		banner.additonal-informations=\
+			${Implementation-Title} ${Implementation-Version}
+		banner.additonal-informations.retrieve-from-manifest-file-with-implementation-title=\
+			Burningwave Core
+		banner.file=\
+			org/burningwave/banner.bwb
+		banner.hide=\
+			true
+		buffer-handler.default-allocation-mode=\
+			ByteBuffer::allocateDirect
+		buffer-handler.default-buffer-size=\
+			1024
+		group-name-for-named-elements=\
+			Burningwave
+		iterable-object-helper.default-values-separator=\
+			;
+		iterable-object-helper.parallel-iteration.applicability.default-minimum-collection-size=\
+			2
+		iterable-object-helper.parallel-iteration.applicability.max-runtime-thread-count-threshold=\
+			autodetect
+		iterable-object-helper.parallel-iteration.applicability.output-collection-enabled-types=\
+			java.util.concurrent.ConcurrentHashMap$CollectionView;\
+			java.util.Collections$SynchronizedCollection;\
+			java.util.concurrent.CopyOnWriteArrayList;\
+			java.util.concurrent.CopyOnWriteArraySet;\
+			java.util.concurrent.BlockingQueue;\
+			java.util.concurrent.ConcurrentSkipListSet;\
+			java.util.concurrent.ConcurrentSkipListMap$EntrySet;\
+			java.util.concurrent.ConcurrentSkipListMap$KeySet;\
+			java.util.concurrent.ConcurrentSkipListMap$Values;
+		jvm.driver.init=\
+			false
+		managed-logger.repository=\
+			autodetect
+		managed-logger.repository.enabled=\
+			true
+		managed-logger.repository.logging.warn.disabled-for=\
+			org.burningwave.core.assembler.ComponentContainer$ClassLoader;\
+			org.burningwave.core.classes.MemoryClassLoader;\
+			org.burningwave.core.classes.PathScannerClassLoader;
+		modules.export-all-to-all=\
+			true
+		resource-releaser.enabled=\
+			true
+		synchronizer.all-threads-monitoring.enabled=\
+			false
+		synchronizer.all-threads-monitoring.interval=\
+			90000
+		thread-supplier.default-daemon-flag-value=\
+			true
+		thread-supplier.default-thread-priority=\
+			5
+		thread-supplier.max-detached-thread-count=\
+			${thread-supplier.max-poolable-thread-count}
+		thread-supplier.max-detached-thread-count.elapsed-time-threshold-from-last-increase-for-gradual-decreasing-to-initial-value=\
+			30000
+		thread-supplier.max-detached-thread-count.increasing-step=\
+			autodetect
+		thread-supplier.max-poolable-thread-count=\
+			autodetect
+		thread-supplier.poolable-thread-request-timeout=\
+			6000
+
+
+2024-08-25 22:33:07,473 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
+2024-08-25 22:33:07,475 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
+2024-08-25 22:33:07,484 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
+2024-08-25 22:33:07,526 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.1771239 seconds
+2024-08-25 22:33:11,392 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-08-25 22:35:28,816 [Worker-15: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.ayudamos:Ayudamos:0.0.1-SNAPSHOT @ C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\pom.xml.
+2024-08-25 22:35:29,029 [Worker-15: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/jgoodies/jgoodies-common/1.8.1/jgoodies-common-1.8.1.pom
+2024-08-25 22:35:29,047 [Worker-15: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/jgoodies/jgoodies-common/1.8.1/jgoodies-common-1.8.1.pom
+2024-08-25 22:35:29,074 [Worker-15: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/jgoodies/jgoodies-forms/1.9.0/jgoodies-forms-1.9.0.pom
+2024-08-25 22:35:29,078 [Worker-15: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/jgoodies/jgoodies-forms/1.9.0/jgoodies-forms-1.9.0.pom
+2024-08-25 22:35:29,099 [Worker-15: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/toedter/jcalendar/1.4/jcalendar-1.4.pom
+2024-08-25 22:35:29,102 [Worker-15: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/toedter/jcalendar/1.4/jcalendar-1.4.pom
+2024-08-25 22:35:29,129 [Worker-15: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/jgoodies/jgoodies-common/1.8.1/jgoodies-common-1.8.1.jar
+2024-08-25 22:35:29,173 [Worker-15: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/jgoodies/jgoodies-common/1.8.1/jgoodies-common-1.8.1.jar
+2024-08-25 22:35:29,193 [BasicRepositoryConnector-repo.maven.apache.org-0-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/toedter/jcalendar/1.4/jcalendar-1.4.jar
+2024-08-25 22:35:29,223 [BasicRepositoryConnector-repo.maven.apache.org-0-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/toedter/jcalendar/1.4/jcalendar-1.4.jar
+2024-08-25 22:35:29,232 [BasicRepositoryConnector-repo.maven.apache.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/jgoodies/jgoodies-forms/1.9.0/jgoodies-forms-1.9.0.jar
+2024-08-25 22:35:29,263 [BasicRepositoryConnector-repo.maven.apache.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/jgoodies/jgoodies-forms/1.9.0/jgoodies-forms-1.9.0.jar
+2024-08-25 22:35:30,161 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-25 22:35:30,169 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-25 22:35:31,041 [Worker-1: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/jgoodies/jgoodies-common/1.8.1/jgoodies-common-1.8.1-sources.jar
+2024-08-25 22:35:31,059 [Worker-1: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/jgoodies/jgoodies-common/1.8.1/jgoodies-common-1.8.1-sources.jar
+2024-08-25 22:35:31,062 [Worker-1: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.jgoodies:jgoodies-common:1.8.1
+2024-08-25 22:35:31,107 [Worker-1: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/jgoodies/jgoodies-forms/1.9.0/jgoodies-forms-1.9.0-sources.jar
+2024-08-25 22:35:31,136 [Worker-1: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/jgoodies/jgoodies-forms/1.9.0/jgoodies-forms-1.9.0-sources.jar
+2024-08-25 22:35:31,138 [Worker-1: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.jgoodies:jgoodies-forms:1.9.0
+2024-08-25 22:35:31,194 [Worker-1: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/toedter/jcalendar/1.4/jcalendar-1.4-sources.jar
+2024-08-25 22:35:31,218 [Worker-1: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/toedter/jcalendar/1.4/jcalendar-1.4-sources.jar
+2024-08-25 22:35:31,222 [Worker-1: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.toedter:jcalendar:1.4
+2024-08-25 22:35:31,621 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-25 22:35:31,624 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-25 22:35:48,673 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313 [644])
+2024-08-25 22:35:48,674 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313
+2024-08-25 22:35:48,676 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\aopalliance-1.0.jar
+2024-08-25 22:35:48,676 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\guice-5.1.0.jar
+2024-08-25 22:35:48,676 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\httpclient-4.5.14.jar
+2024-08-25 22:35:48,676 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\httpcore-4.4.16.jar
+2024-08-25 22:35:48,676 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\jansi-2.4.1.jar
+2024-08-25 22:35:48,677 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\jcl-over-slf4j-1.7.36.jar
+2024-08-25 22:35:48,677 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-artifact-3.9.7.jar
+2024-08-25 22:35:48,677 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-builder-support-3.9.7.jar
+2024-08-25 22:35:48,677 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-compat-3.9.7.jar
+2024-08-25 22:35:48,677 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-core-3.9.7.jar
+2024-08-25 22:35:48,677 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-embedder-3.9.7.jar
+2024-08-25 22:35:48,677 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-model-3.9.7.jar
+2024-08-25 22:35:48,677 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-model-builder-3.9.7.jar
+2024-08-25 22:35:48,678 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-plugin-api-3.9.7.jar
+2024-08-25 22:35:48,678 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-repository-metadata-3.9.7.jar
+2024-08-25 22:35:48,678 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-api-1.9.20.jar
+2024-08-25 22:35:48,678 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-connector-basic-1.9.20.jar
+2024-08-25 22:35:48,678 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-impl-1.9.20.jar
+2024-08-25 22:35:48,678 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-named-locks-1.9.20.jar
+2024-08-25 22:35:48,678 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-provider-3.9.7.jar
+2024-08-25 22:35:48,678 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-spi-1.9.20.jar
+2024-08-25 22:35:48,678 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-file-1.9.20.jar
+2024-08-25 22:35:48,679 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-http-1.9.20.jar
+2024-08-25 22:35:48,679 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-wagon-1.9.20.jar
+2024-08-25 22:35:48,679 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-util-1.9.20.jar
+2024-08-25 22:35:48,680 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-settings-3.9.7.jar
+2024-08-25 22:35:48,680 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-settings-builder-3.9.7.jar
+2024-08-25 22:35:48,680 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-shared-utils-3.4.2.jar
+2024-08-25 22:35:48,680 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\org.eclipse.sisu.inject-0.9.0.M2.jar
+2024-08-25 22:35:48,681 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\org.eclipse.sisu.plexus-0.9.0.M2.jar
+2024-08-25 22:35:48,681 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-build-api-0.0.7.jar
+2024-08-25 22:35:48,681 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-build-api-1.2.0.jar
+2024-08-25 22:35:48,681 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-cipher-2.0.jar
+2024-08-25 22:35:48,681 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-classworlds-2.8.0.jar
+2024-08-25 22:35:48,682 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-component-annotations-2.1.0.jar
+2024-08-25 22:35:48,682 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-interpolation-1.27.jar
+2024-08-25 22:35:48,682 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-sec-dispatcher-2.0.jar
+2024-08-25 22:35:48,682 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-utils-3.5.1.jar
+2024-08-25 22:35:48,683 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-file-3.5.3.jar
+2024-08-25 22:35:48,683 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-http-3.5.3.jar
+2024-08-25 22:35:48,683 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-http-shared-3.5.3.jar
+2024-08-25 22:35:48,683 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-provider-api-3.5.3.jar
+2024-08-25 22:35:48,684 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.2.0.jre [16])
+2024-08-25 22:35:48,685 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\com.google.guava_33.2.0.jre.jar
+2024-08-25 22:35:48,685 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.16 [1009])
+2024-08-25 22:35:48,686 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\slf4j.api_2.0.16.jar
+2024-08-25 22:35:48,686 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [33])
+2024-08-25 22:35:48,686 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\jakarta.inject.jakarta.inject-api_1.0.5.jar
+2024-08-25 22:35:48,686 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=javax.annotation_1.3.5.v20200909-1856 [44])
+2024-08-25 22:35:48,687 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\javax.annotation_1.3.5.v20200909-1856.jar
+2024-08-25 22:35:48,687 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.8.0 [78])
+2024-08-25 22:35:48,688 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.apache.commons.cli_1.8.0.jar
+2024-08-25 22:35:48,688 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [81])
+2024-08-25 22:35:48,688 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.apache.commons.commons-codec_1.16.0.jar
+2024-08-25 22:35:48,688 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.lang3_3.14.0 [89])
+2024-08-25 22:35:48,688 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\org.apache.commons.lang3_3.14.0.jar
+2024-08-25 22:35:48,688 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [17])
+2024-08-25 22:35:48,689 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\USUARIO\.p2\pool\plugins\com.google.guava.failureaccess_1.0.2.jar
+2024-08-25 22:35:48,693 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\Users\USUARIO\Desktop\PaOb1\Ayudamos":
+2024-08-25 22:35:48,698 [Worker-15: Launching Executing install in C__Users_USUARIO_Desktop_PaOb1_Ayudamos] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always install
+2024-08-25 22:36:12,199 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2024-08-25 22:36:25,073 [Worker-12: Launching Principal] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\main\resources
+2024-08-25 22:36:25,078 [Worker-12: Launching Principal] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\USUARIO\Desktop\PaOb1\Ayudamos\src\test\resources
+2024-08-25 22:37:24,242 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:391) - ... Waiting for all tasks ending
+2024-08-25 22:37:24,243 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:397) - Closing all component containers
+2024-08-25 22:37:24,245 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:403) - Closing FileSystemHelper
+2024-08-25 22:37:24,246 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:409) - ... Waiting for all tasks ending before shutting down the BackgroundExecutor
+2024-08-25 22:37:24,246 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:414) - Shutting down BackgroundExecutor
+2024-08-25 22:37:24,248 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
+2024-08-25 22:37:24,248 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
+2024-08-25 22:37:24,249 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier

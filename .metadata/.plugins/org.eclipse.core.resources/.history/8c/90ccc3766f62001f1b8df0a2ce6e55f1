@@ -1,5 +1,0 @@
-package com.ayudamos.excepciones;
-
-public class UsuarioRepetidoExcepcion extends Exception{
-
-}

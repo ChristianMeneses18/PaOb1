@@ -1,8 +1,0 @@
-INDEX VERSION 1.134+C:\Users\bsres\OneDrive\Escritorio\prog\PaOb1\.metadata\.plugins\org.eclipse.jdt.core
-3610466576.index
-3802923537.index
-1614156832.index
-2700004621.index
-3612623986.index
-1865797976.index
-822682435.index

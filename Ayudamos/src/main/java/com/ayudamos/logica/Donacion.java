@@ -1,16 +1,16 @@
 package com.ayudamos.logica;
 
-import java.util.Date;
+import com.ayudamos.datatypes.DtFecha;
 
 public class Donacion {
 	private Integer id;
-	private Date fechaIngresada;
+	private DtFecha fechaIngresada;
 	
 	public Donacion() {
 		super();
 	}
 	
-	public Donacion(Integer id, Date fechaIngresada) {
+	public Donacion(Integer id, DtFecha fechaIngresada) {
 		super();
 		this.id = id;
 		this.fechaIngresada = fechaIngresada;
@@ -24,11 +24,11 @@ public class Donacion {
 		this.id = id;
 	}
 
-	public Date getFechaIngresada() {
+	public DtFecha getFechaIngresada() {
 		return fechaIngresada;
 	}
 
-	public void setFechaIngresada(Date fechaIngresada) {
+	public void setFechaIngresada(DtFecha fechaIngresada) {
 		this.fechaIngresada = fechaIngresada;
 	}
 	

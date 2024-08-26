@@ -6,8 +6,11 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="ManejadorUsuario"/>
+		<item key="selection" value="comboBoxTipo"/>
 		<list key="findhistory">
+			<item value="comboBoxTipo"/>
+			<item value="lblNombre"/>
+			<item value="txtNombre"/>
 			<item value="ManejadorBeneficiario"/>
 			<item value="Exception in thread &quot;AWT-EventQueue-0&quot; java.lang.NullPointerException: Cannot invoke &quot;com.ayudamos.presentacion.AgregarUsuario.setVisible(boolean)&quot; because the return value of &quot;com.ayudamos.presentacion.Principal.access$0(com.ayudamos.presentacion.Principal)&quot; is null"/>
 		</list>
@@ -16,10 +19,10 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1074"/>
-		<item key="DIALOG_Y_ORIGIN" value="264"/>
-		<item key="DIALOG_WIDTH" value="457"/>
-		<item key="DIALOG_HEIGHT" value="459"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|12.0|0|WINDOWS|1|-16|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		<item key="DIALOG_X_ORIGIN" value="941"/>
+		<item key="DIALOG_Y_ORIGIN" value="266"/>
+		<item key="DIALOG_WIDTH" value="322"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 </section>

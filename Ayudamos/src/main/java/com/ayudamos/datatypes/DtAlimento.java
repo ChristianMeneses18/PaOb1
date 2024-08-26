@@ -1,12 +1,10 @@
 package com.ayudamos.datatypes;
 
-import java.util.Date;
-
 public class DtAlimento extends DtDonacion {
 	private String descripcionProducto;
 	private Integer cantElementos;
 
-	public DtAlimento(Integer id , Date fechaIngresada , String descripcionProducto, Integer cantElementos) {
+	public DtAlimento(Integer id , DtFecha fechaIngresada , String descripcionProducto, Integer cantElementos) {
 		super(id, fechaIngresada);
 		this.descripcionProducto = descripcionProducto;
 		this.cantElementos = cantElementos;

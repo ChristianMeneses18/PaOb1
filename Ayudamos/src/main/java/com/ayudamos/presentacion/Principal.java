@@ -17,6 +17,7 @@ public class Principal {
 
 	private JFrame frame;
 	private AgregarUsuario agregarUsuarioInternalFrame;
+	private AltaDonacion altaDonacionInternalFrame;
 
 	/**
 	 * Launch the application.
@@ -53,6 +54,12 @@ public class Principal {
 		agregarUsuarioInternalFrame.setVisible(false);
 		frame.getContentPane().add(agregarUsuarioInternalFrame);
 		
+		altaDonacionInternalFrame = new AltaDonacion(icon);
+		jInternalFrameSize = altaDonacionInternalFrame.getSize();
+		altaDonacionInternalFrame.setLocation(59,
+		    11);
+		altaDonacionInternalFrame.setVisible(false);
+		frame.getContentPane().add(altaDonacionInternalFrame);
 		
 		
 	}
@@ -77,7 +84,17 @@ public class Principal {
 				agregarUsuarioInternalFrame.setVisible(true);
 			}
 		});
+		
+		JMenuItem mntmDonacion = new JMenuItem("Alta Donacion");
+		mntmDonacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				altaDonacionInternalFrame.setVisible(true);
+			}
+		});
+		
+		
 		mnAltas.add(mntmUsuario);
+		mnAltas.add(mntmDonacion);
 		frame.getContentPane().setLayout(null);
 	}
 }

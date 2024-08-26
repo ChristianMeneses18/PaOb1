@@ -1,0 +1,87 @@
+package com.ayudamos.presentacion;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import com.toedter.calendar.JDateChooser;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+
+public class AltaDonacion extends JInternalFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JTextField textId;
+	private JComboBox<String> comboBoxTipo;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AltaDonacion frame = new AltaDonacion();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public AltaDonacion() {
+		setTitle("Alta de Donacion");
+        setBounds(100, 100, 583, 514);
+        setClosable(false);
+        setIconifiable(false);
+        setMaximizable(false);
+        setResizable(false);
+        getContentPane().setLayout(null);
+
+        JLabel lblTitulo = new JLabel("Alta de Donacion");
+        lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 30));
+        lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+        lblTitulo.setBounds(0, 10, 567, 40);
+        getContentPane().add(lblTitulo);
+        
+        JLabel lblId = new JLabel("Id:");
+        lblId.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblId.setBounds(10, 60, 100, 30);
+        getContentPane().add(lblId);
+        
+        textId = new JTextField();
+        textId.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        textId.setBounds(182, 60, 350, 30);
+        getContentPane().add(textId);
+        textId.setColumns(10);
+        
+        JLabel lblFechaIng = new JLabel("Fecha Ingreso:");
+        lblFechaIng.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblFechaIng.setBounds(10, 100, 162, 30);
+        getContentPane().add(lblFechaIng);
+        
+        JDateChooser dateChooser = new JDateChooser();
+        dateChooser.setBounds(182, 101, 145, 30);
+        getContentPane().add(dateChooser);
+        
+        JLabel lblTipoDonacion = new JLabel("Tipo de Donación:");
+        lblTipoDonacion.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblTipoDonacion.setBounds(10, 140, 150, 30);
+        getContentPane().add(lblTipoDonacion);
+        
+        comboBoxTipo = new JComboBox<>(new String[] {"Alimento", "Artículo"});
+        comboBoxTipo.setModel(new DefaultComboBoxModel(new String[] {"Alimento", "Artículo"}));
+        comboBoxTipo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        comboBoxTipo.setBounds(182, 140, 150, 30);
+        getContentPane().add(comboBoxTipo);
+
+	}
+}

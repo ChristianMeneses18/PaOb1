@@ -3,16 +3,16 @@ package com.ayudamos.logica;
 
 public class Alimento extends Donacion {
 	private String descripcionProductos;
-	private Integer cantElemntos;
+	private Integer cantElementos;
 	
 	public Alimento() {
 		super();
 	}
 	
-	public Alimento(String descripcionProductos, Integer cantElemntos) {
+	public Alimento(String descripcionProductos, Integer cantElementos) {
 		super();
 		this.descripcionProductos = descripcionProductos;
-		this.cantElemntos = cantElemntos;
+		this.cantElementos = cantElementos;
 	}
 
 	public String getDescripcionProductos() {
@@ -24,11 +24,11 @@ public class Alimento extends Donacion {
 	}
 
 	public Integer getCantElemntos() {
-		return cantElemntos;
+		return cantElementos;
 	}
 
-	public void setCantElemntos(Integer cantElemntos) {
-		this.cantElemntos = cantElemntos;
+	public void setCantElemntos(Integer cantElementos) {
+		this.cantElementos = cantElementos;
 	}
 	
 	

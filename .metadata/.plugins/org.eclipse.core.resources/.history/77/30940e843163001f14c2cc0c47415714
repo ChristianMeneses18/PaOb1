@@ -1,0 +1,21 @@
+package com.ayudamos.logica;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ManejadorDonacion {
+	private static ManejadorDonacion instancia = null;
+	private List<Donacion> donaciones = new ArrayList<>();
+	
+	
+	public static ManejadorDonacion getInstancia() {
+		if (instancia == null)
+			instancia = new ManejadorDonacion();
+		return instancia;
+	}
+	
+	public void altaDonacion(Donacion donacion) {
+		donaciones.add(donacion);
+	}
+
+}

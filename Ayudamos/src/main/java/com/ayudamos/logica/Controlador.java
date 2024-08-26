@@ -1,11 +1,15 @@
 package com.ayudamos.logica;
 
 import com.ayudamos.datatypes.DtBeneficiario;
+import com.ayudamos.datatypes.DtDonacion;
 import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.datatypes.DtRepartidor;
+import com.ayudamos.datatypes.DtAlimento;
+import com.ayudamos.datatypes.DtArticulo;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 import com.ayudamos.interfaces.IControlador;
 import com.ayudamos.logica.ManejadorUsuario;
+import com.ayudamos.logica.ManejadorDonacion;
 
 public class Controlador implements IControlador {
 
@@ -27,6 +31,21 @@ public class Controlador implements IControlador {
 			mU.agregarUsuario(nuevoUsuario);
 			
 		}
+		
+	}
+
+	@Override
+	public void altaDonacion(DtDonacion donacion) {
+		ManejadorDonacion mD = ManejadorDonacion.getInstancia();
+		Donacion nuevaDonacion = null;
+		if(donacion instanceof DtAlimento) {
+			nuevaDonacion = new Alimento(((DtAlimento) donacion).getDescripcionProductos(), ((DtAlimento) donacion).getCantElementos());
+		} else if (donacion instanceof DtArticulo) {
+			nuevaDonacion = new Articulo(((DtArticulo) donacion).getDescripcion(), ((DtArticulo) donacion).getPeso(), ((DtArticulo) donacion).getDimensiones());
+			
+		}
+		nuevaDonacion.setId(mD.getUltimoId()+1);
+		nuevaDonacion.setFechaIngresada(donacion.getFechaIngresada());
 		
 	}
 

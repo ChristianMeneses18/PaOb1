@@ -26,8 +26,6 @@ import javax.swing.JButton;
 
 public class AgregarUsuario extends JInternalFrame {
 
-	private static final String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-	
 	private IControlador icon;
 	
     private static final long serialVersionUID = 1L;

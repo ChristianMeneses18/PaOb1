@@ -48,8 +48,9 @@ public class Principal {
 		
 		agregarUsuarioInternalFrame = new AgregarUsuario(icon);
 		jInternalFrameSize = agregarUsuarioInternalFrame.getSize();
-		agregarUsuarioInternalFrame.setLocation(59,
-		    11);
+		 int x = (desktopSize.width - jInternalFrameSize.width) / 2;
+		 int y = (desktopSize.height - jInternalFrameSize.height) / 2;
+		agregarUsuarioInternalFrame.setLocation(x, y);
 		agregarUsuarioInternalFrame.setVisible(false);
 		frame.getContentPane().add(agregarUsuarioInternalFrame);
 		

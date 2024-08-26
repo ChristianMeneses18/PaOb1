@@ -8,8 +8,8 @@ public class Repartidor extends Usuario {
 		super();
 	};
 	
-	public Repartidor(String numeroLicencia) {
-		super();
+	public Repartidor(String nombre, String email, String numeroLicencia) {
+		super(nombre,email);
 		this.numeroLicencia = numeroLicencia;
 	}
 

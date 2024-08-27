@@ -14,5 +14,7 @@ public interface IControlador {
 	public ArrayList<DtBeneficiario> listarBeneficiarios();
 	
 	public ArrayList<DtBeneficiario> listarBeneficiariosZona(String Barrio);
+	
+	public ArrayList<DtBeneficiario> listarBeneficiariosEstado(String estado);
 
 }

@@ -20,6 +20,7 @@ public class Principal {
 	private AgregarUsuario agregarUsuarioInternalFrame;
 	private ListarBeneficiarios listarBeneficiariosInternalFrame;
 	private ListarBeneficiariosZona listarBeneficiariosZonaInternalFrame;
+	private ListarBeneficiariosEstado listarBeneficiariosEstadoInternalFrame;
 
 	/**
 	 * Launch the application.
@@ -69,6 +70,12 @@ public class Principal {
 		listarBeneficiariosZonaInternalFrame.setVisible(false);
 		frame.getContentPane().add(listarBeneficiariosZonaInternalFrame);
 		
+		listarBeneficiariosEstadoInternalFrame = new ListarBeneficiariosEstado(icon);
+		jInternalFrameSize = listarBeneficiariosEstadoInternalFrame.getSize();
+		listarBeneficiariosEstadoInternalFrame.setLocation(x, y);
+		listarBeneficiariosEstadoInternalFrame.setVisible(false);
+		frame.getContentPane().add(listarBeneficiariosEstadoInternalFrame);
+		
 		
 		
 		
@@ -94,6 +101,7 @@ public class Principal {
 				agregarUsuarioInternalFrame.setVisible(true);
 				listarBeneficiariosInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
+				listarBeneficiariosEstadoInternalFrame.setVisible(false);
 				
 			}
 		});
@@ -108,6 +116,7 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(true);
 				agregarUsuarioInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
+				listarBeneficiariosEstadoInternalFrame.setVisible(false);
 			}
 		});
 		mnListar.add(mntmBeneficiario);
@@ -118,10 +127,22 @@ public class Principal {
 				listarBeneficiariosZonaInternalFrame.setVisible(true);
 				listarBeneficiariosInternalFrame.setVisible(false);
 				agregarUsuarioInternalFrame.setVisible(false);
+				listarBeneficiariosEstadoInternalFrame.setVisible(false);
 				
 			}
 		});
 		mnListar.add(mntmBeneficiarioZona);
+		
+		JMenuItem mntmBeneficiarioEstado = new JMenuItem("Listar Beneficiarios por Estado");
+		mntmBeneficiarioEstado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listarBeneficiariosEstadoInternalFrame.setVisible(true);
+				listarBeneficiariosZonaInternalFrame.setVisible(false);
+				listarBeneficiariosInternalFrame.setVisible(false);
+				agregarUsuarioInternalFrame.setVisible(false);
+			}
+		});
+		mnListar.add(mntmBeneficiarioEstado);
 		frame.getContentPane().setLayout(null);
 	}
 }

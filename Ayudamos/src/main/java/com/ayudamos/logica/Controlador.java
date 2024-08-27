@@ -59,5 +59,24 @@ public class Controlador implements IControlador {
 		
 		 
 	}
+	
+	@Override
+	public ArrayList<DtBeneficiario> listarBeneficiariosEstado(String estado) {
+		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
+		ArrayList<DtBeneficiario> aRetornar = new ArrayList<>();
+		ArrayList<Beneficiario> beneficiarios = mU.obtenerBeneficiarios();
+		for (Beneficiario b : beneficiarios) {
+			if (b.getEstado().toString().equals(estado)) {
+				DtBeneficiario dtBeneficiario = new DtBeneficiario(b.getNombre(),b.getEmail(), b.getDireccion(), b.getFechaNacimiento() , b.getEstado(), b.getBarrio());
+				aRetornar.add(dtBeneficiario);	
+			}
+			
+		}
+		
+		
+		return aRetornar;
+		
+		 
+	}
 
 }

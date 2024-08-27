@@ -19,6 +19,7 @@ public class Principal {
 	private JFrame frame;
 	private AgregarUsuario agregarUsuarioInternalFrame;
 	private ListarBeneficiarios listarBeneficiariosInternalFrame;
+	private ListarBeneficiariosZona listarBeneficiariosZonaInternalFrame;
 
 	/**
 	 * Launch the application.
@@ -62,6 +63,12 @@ public class Principal {
 		listarBeneficiariosInternalFrame.setVisible(false);
 		frame.getContentPane().add(listarBeneficiariosInternalFrame);
 		
+		listarBeneficiariosZonaInternalFrame = new ListarBeneficiariosZona(icon);
+		jInternalFrameSize = listarBeneficiariosZonaInternalFrame.getSize();
+		listarBeneficiariosZonaInternalFrame.setLocation(x, y);
+		listarBeneficiariosZonaInternalFrame.setVisible(false);
+		frame.getContentPane().add(listarBeneficiariosZonaInternalFrame);
+		
 		
 		
 		
@@ -86,6 +93,7 @@ public class Principal {
 			public void actionPerformed(ActionEvent e) {
 				agregarUsuarioInternalFrame.setVisible(true);
 				listarBeneficiariosInternalFrame.setVisible(false);
+				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				
 			}
 		});
@@ -99,9 +107,21 @@ public class Principal {
 			public void actionPerformed(ActionEvent e) {
 				listarBeneficiariosInternalFrame.setVisible(true);
 				agregarUsuarioInternalFrame.setVisible(false);
+				listarBeneficiariosZonaInternalFrame.setVisible(false);
 			}
 		});
 		mnListar.add(mntmBeneficiario);
+		
+		JMenuItem mntmBeneficiarioZona = new JMenuItem("Listar Beneficiarios por Zona");
+		mntmBeneficiarioZona.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listarBeneficiariosZonaInternalFrame.setVisible(true);
+				listarBeneficiariosInternalFrame.setVisible(false);
+				agregarUsuarioInternalFrame.setVisible(false);
+				
+			}
+		});
+		mnListar.add(mntmBeneficiarioZona);
 		frame.getContentPane().setLayout(null);
 	}
 }

@@ -12,5 +12,7 @@ public interface IControlador {
 	public void agregarUsuario(DtUsuario usuario) throws UsuarioRepetidoExcepcion;
 	
 	public ArrayList<DtBeneficiario> listarBeneficiarios();
+	
+	public ArrayList<DtBeneficiario> listarBeneficiariosZona(String Barrio);
 
 }

@@ -42,6 +42,7 @@ public class AgregarUsuario extends JInternalFrame {
     private JLabel lblBarrio;
     private JLabel lblEstado;
     private JLabel lblLicencia;
+    private JButton btnAgregar;
     private JButton btnCancelar;
 
     /**
@@ -147,7 +148,7 @@ public class AgregarUsuario extends JInternalFrame {
         getContentPane().add(txtLicencia);
         txtLicencia.setColumns(10);
         
-        JButton btnAgregar = new JButton("Agregar");
+        btnAgregar = new JButton("Agregar");
         btnAgregar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		agregarUsuarioAceptarActionPerformed(arg0);
@@ -158,6 +159,12 @@ public class AgregarUsuario extends JInternalFrame {
         getContentPane().add(btnAgregar);
         
         btnCancelar = new JButton("Cancelar");
+        btnCancelar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		agregarUsuarioCancelarActionPerformed(arg0);
+        		
+        	}
+        });
         btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
         btnCancelar.setBounds(315, 413, 117, 30);
         getContentPane().add(btnCancelar);
@@ -215,7 +222,7 @@ public class AgregarUsuario extends JInternalFrame {
 		
 			int dia , mes , anio;
 			
-			String nombre = this.txtNombre.getName();
+			String nombre = this.txtNombre.getText();
 			String email = this.txtEmail.getText();
 			String direccion = this.txtDireccion.getText();
 			String licencia = this.txtLicencia.getText();

@@ -8,6 +8,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
+
 import com.ayudamos.interfaces.Fabrica;
 import com.ayudamos.interfaces.IControlador;
 import java.awt.event.ActionListener;
@@ -17,6 +18,7 @@ public class Principal {
 
 	private JFrame frame;
 	private AgregarUsuario agregarUsuarioInternalFrame;
+	private ListarBeneficiarios listarBeneficiariosInternalFrame;
 
 	/**
 	 * Launch the application.
@@ -54,6 +56,13 @@ public class Principal {
 		agregarUsuarioInternalFrame.setVisible(false);
 		frame.getContentPane().add(agregarUsuarioInternalFrame);
 		
+		listarBeneficiariosInternalFrame = new ListarBeneficiarios(icon);
+		jInternalFrameSize = listarBeneficiariosInternalFrame.getSize();
+		listarBeneficiariosInternalFrame.setLocation(x, y);
+		listarBeneficiariosInternalFrame.setVisible(false);
+		frame.getContentPane().add(listarBeneficiariosInternalFrame);
+		
+		
 		
 		
 	}
@@ -76,9 +85,23 @@ public class Principal {
 		mntmUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				agregarUsuarioInternalFrame.setVisible(true);
+				listarBeneficiariosInternalFrame.setVisible(false);
+				
 			}
 		});
 		mnAltas.add(mntmUsuario);
+		
+		JMenu mnListar = new JMenu("Listar");
+		menuBar.add(mnListar);
+		
+		JMenuItem mntmBeneficiario = new JMenuItem("Listar Beneficiario");
+		mntmBeneficiario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listarBeneficiariosInternalFrame.setVisible(true);
+				agregarUsuarioInternalFrame.setVisible(false);
+			}
+		});
+		mnListar.add(mntmBeneficiario);
 		frame.getContentPane().setLayout(null);
 	}
 }

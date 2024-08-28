@@ -44,8 +44,10 @@ public class Controlador implements IControlador {
 			nuevaDonacion = new Articulo(((DtArticulo) donacion).getDescripcion(), ((DtArticulo) donacion).getPeso(), ((DtArticulo) donacion).getDimensiones());
 			
 		}
-		nuevaDonacion.setId(mD.getUltimoId()+1);
+		mD.setUltimoId(mD.getUltimoId()+1);
+		nuevaDonacion.setId(mD.getUltimoId());
 		nuevaDonacion.setFechaIngresada(donacion.getFechaIngresada());
+		mD.altaDonacion(nuevaDonacion);
 		
 	}
 

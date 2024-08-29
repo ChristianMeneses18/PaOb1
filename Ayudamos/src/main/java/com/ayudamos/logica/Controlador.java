@@ -81,7 +81,30 @@ public class Controlador implements IControlador {
 	
 	@Override
 	public ArrayList<DtUsuario> listarUsuarios() {
-		//implementar 
+		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
+		ArrayList<DtUsuario> listaDT = new ArrayList<>();
+		ArrayList<Usuario> usuarios = mU.obtenerUsuarios();
+		
+		
+		
+		for (Usuario u : usuarios) {
+			if (u instanceof Beneficiario) {
+				DtBeneficiario dtBeneficiario = new DtBeneficiario(u.getNombre(), u.getEmail(), u.getDireccion(), u.getFechaNacimiento() , u.getEstado(), u.getBarrio());
+				listaDT.add(dtBeneficiario);
+	        } else {
+	        	DtUsuario dtUsuario = new DtUsuario(u.getNombre(), u.getEmail(), u.getDireccion(), u.getFechaNacimiento() , b.getEstado(), b.getBarrio());
+				listaDT.add(dtUsuario);
+	        }
+			
+		}
+		
+		for (Usuario u : usuarios) {
+			DtUsuario dtUsuario = new DtUsuario(u.getNombre(), u.getEmail(), u.getDireccion(), u.getFechaNacimiento() , b.getEstado(), b.getBarrio());
+			listaDT.add(dtUsuario);
+		}
+		
+		return listaDT;
+		
 	}
 
 }

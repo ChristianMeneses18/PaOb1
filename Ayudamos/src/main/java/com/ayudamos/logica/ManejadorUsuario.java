@@ -40,6 +40,15 @@ public class ManejadorUsuario {
 	    }
 	    return aRetornar;
 	}
-
+	
+	public ArrayList<Usuario> obtenerUsuarios() {
+	    ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+	    
+	    for (Usuario u : usuarios) {
+	        listaUsuarios.add((Usuario) u); //probar sin (Usuario)
+	    }
+	    
+	    return listaUsuarios;
+	}
 
 }

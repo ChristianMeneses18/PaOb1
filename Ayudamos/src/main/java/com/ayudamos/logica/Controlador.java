@@ -78,5 +78,10 @@ public class Controlador implements IControlador {
 		
 		 
 	}
+	
+	@Override
+	public ArrayList<DtUsuario> listarUsuarios() {
+		//implementar 
+	}
 
 }

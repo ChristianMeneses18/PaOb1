@@ -8,6 +8,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -20,13 +22,16 @@ import javax.persistence.Table;
 @DiscriminatorColumn(name="TIPODONACION")
 @Table(name="DONACIONES")
 public class Donacion {
+	
 	@Id
-	@Column(name="ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
 	private Integer id;
+	
 	@Column(name="FECHAINGRESADA")
 	private Date fechaIngresada;
 	
-	@OneToMany(mappedBy="Beneficiario",cascade=CascadeType.ALL,orphanRemoval=true)
+	@OneToMany(mappedBy = "donacion", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Distribucion> distribucion = new ArrayList<>();
 	
 	public List<Distribucion> getDistribucion() {

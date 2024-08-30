@@ -1,8 +1,19 @@
 package com.ayudamos.logica;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("ART")
 public class Articulo extends Donacion {
+	@Column(name = "Descripcion")
 	private String descripcion;
+	
+	@Column(name = "Peso")
 	private float peso;
+	
+	@Column(name = "Dimensiones")
 	private String dimensiones;
 	
 	public Articulo() {

@@ -1,6 +1,8 @@
 package com.ayudamos.datatypes;
 
+import javax.persistence.Embeddable;
 
+@Embeddable
 public class DtFecha {
 	private int dia;
 	private int mes;

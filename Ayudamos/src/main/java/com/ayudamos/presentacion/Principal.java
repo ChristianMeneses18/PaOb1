@@ -3,6 +3,10 @@ package com.ayudamos.presentacion;
 import java.awt.EventQueue;
 import java.awt.Dimension;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -75,6 +79,22 @@ public class Principal {
 		listarBeneficiariosEstadoInternalFrame.setLocation(x, y);
 		listarBeneficiariosEstadoInternalFrame.setVisible(false);
 		frame.getContentPane().add(listarBeneficiariosEstadoInternalFrame);
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Conexion");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        
+        try {
+            tx.begin();
+            // Puedes agregar aquí operaciones adicionales si lo deseas.
+            tx.commit();
+        } catch (Exception e) {
+            tx.rollback();
+            e.printStackTrace();
+        } finally {
+            em.close();
+            emf.close();
+        }
 		
 		
 		

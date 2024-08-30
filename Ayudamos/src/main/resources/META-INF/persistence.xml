@@ -7,16 +7,16 @@
 
 	<persistence-unit name="Conexion">
 
-		<class>logica.Alimento</class>
-		<class>logica.Articulo</class>
-		<class>logica.Beneficiario</class>
-		<class>logica.Distribucion</class>
-		<class>logica.Donacion</class>
-		<class>logica.Repartidor</class>
-		<class>logica.Usuario</class>
+		<class>com.ayudamos.logica.Alimento</class>
+		<class>com.ayudamos.logica.Articulo</class>
+		<class>com.ayudamos.logica.Beneficiario</class>
+		<class>com.ayudamos.logica.Distribucion</class>
+		<class>com.ayudamos.logica.Donacion</class>
+		<class>com.ayudamos.logica.Repartidor</class>
+		<class>com.ayudamos.logica.Usuario</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/prueba" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/a" />
             <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.password" value="Bal187108." />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />

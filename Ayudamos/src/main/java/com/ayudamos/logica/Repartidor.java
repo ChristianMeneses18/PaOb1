@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("R")
 public class Repartidor extends Usuario {
+	
 	@Column(name="NumeroLicencia")
 	private String numeroLicencia;
 

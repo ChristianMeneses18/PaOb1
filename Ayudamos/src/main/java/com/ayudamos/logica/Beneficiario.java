@@ -16,16 +16,20 @@ import com.ayudamos.enums.Barrio;
 @Entity
 @DiscriminatorValue("B")
 public class Beneficiario extends Usuario {
+	
 	@Column(name="DIRECCION")
 	private String direccion;
+	
 	@Column(name="FECHANACIMIENTO")
 	private DtFecha fechaNacimiento;
+	
 	@Column(name="ESTADO")
 	private EstadoBeneficiario estado;
+	
 	@Column(name="BARRIO")
 	private Barrio barrio;
 	
-	@OneToMany(mappedBy="Beneficiario",cascade=CascadeType.ALL,orphanRemoval=true)
+	@OneToMany(mappedBy="beneficiario", cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<Distribucion> distribucion = new ArrayList<>();
 	
 	

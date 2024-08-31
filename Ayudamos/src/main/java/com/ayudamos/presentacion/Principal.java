@@ -80,21 +80,7 @@ public class Principal {
 		listarBeneficiariosEstadoInternalFrame.setVisible(false);
 		frame.getContentPane().add(listarBeneficiariosEstadoInternalFrame);
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Conexion");
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        
-        try {
-            tx.begin();
-            // Puedes agregar aquí operaciones adicionales si lo deseas.
-            tx.commit();
-        } catch (Exception e) {
-            tx.rollback();
-            e.printStackTrace();
-        } finally {
-            em.close();
-            emf.close();
-        }
+		
 		
 		
 		

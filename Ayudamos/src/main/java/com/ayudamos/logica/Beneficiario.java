@@ -5,11 +5,13 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import com.ayudamos.datatypes.DtFecha;
+import com.ayudamos.datatypes.DtFechaConverter;
 import com.ayudamos.enums.EstadoBeneficiario;
 import com.ayudamos.enums.Barrio;
 
@@ -17,16 +19,17 @@ import com.ayudamos.enums.Barrio;
 @DiscriminatorValue("B")
 public class Beneficiario extends Usuario {
 	
-	@Column(name="DIRECCION")
+	@Column(name="Direccion")
 	private String direccion;
 	
-	@Column(name="FECHANACIMIENTO")
+	@Convert(converter = DtFechaConverter.class)
+	@Column(name = "Fecha_Nacimiento", columnDefinition = "DATE")
 	private DtFecha fechaNacimiento;
 	
-	@Column(name="ESTADO")
+	@Column(name="Estado")
 	private EstadoBeneficiario estado;
 	
-	@Column(name="BARRIO")
+	@Column(name="Barrio")
 	private Barrio barrio;
 	
 	@OneToMany(mappedBy="beneficiario", cascade=CascadeType.ALL, orphanRemoval=true)

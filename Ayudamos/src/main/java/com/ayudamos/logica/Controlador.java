@@ -20,13 +20,9 @@ public class Controlador implements IControlador {
 
 	@Override
     public void agregarUsuario(DtUsuario usuario) throws UsuarioRepetidoExcepcion {
-		emf = Persistence.createEntityManagerFactory("Conexion");
-        
-        EntityManager em = emf.createEntityManager();
-        
-        em.getTransaction().begin();
-        
-        Usuario nuevoUsuario = em.find(Usuario.class, usuario.getEmail());
+		
+		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
+		Usuario nuevoUsuario = mU.buscarUsuario(usuario.getEmail());
         
         if (nuevoUsuario != null) {
             throw new UsuarioRepetidoExcepcion("El usuario con email: " + usuario.getEmail() + " ya está registrado");
@@ -47,21 +43,16 @@ public class Controlador implements IControlador {
             );
         }
         
-        em.persist(nuevoUsuario);
-        
-       
-        em.getTransaction().commit();
-        
-        em.close();
+        mU.agregarUsuario(nuevoUsuario);
     }
 
 	@Override
 	public ArrayList<DtBeneficiario> listarBeneficiarios() {
-		emf = Persistence.createEntityManagerFactory("Conexion");
-        EntityManager em = emf.createEntityManager();
-        
+		
+		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
+		
 		ArrayList<DtBeneficiario> aRetornar = new ArrayList<>();
-		List<Beneficiario> beneficiarios = em.createQuery("SELECT b FROM Beneficiario b", Beneficiario.class).getResultList();
+		List<Beneficiario> beneficiarios = mU.obtenerBeneficiarios();
 		for (Beneficiario b : beneficiarios) {
 			DtBeneficiario dtBeneficiario = new DtBeneficiario(b.getNombre(),b.getEmail(), b.getDireccion(), b.getFechaNacimiento() , b.getEstado(), b.getBarrio());
 			aRetornar.add(dtBeneficiario);
@@ -75,11 +66,11 @@ public class Controlador implements IControlador {
 	
 	@Override
 	public ArrayList<DtBeneficiario> listarBeneficiariosZona(String Barrio) {
-		emf = Persistence.createEntityManagerFactory("Conexion");
-        EntityManager em = emf.createEntityManager();
+		
+		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
         
 		ArrayList<DtBeneficiario> aRetornar = new ArrayList<>();
-		List<Beneficiario> beneficiarios = em.createQuery("SELECT b FROM Beneficiario b", Beneficiario.class).getResultList();
+		List<Beneficiario> beneficiarios = mU.obtenerBeneficiarios();
 		for (Beneficiario b : beneficiarios) {
 			if (b.getBarrio().toString().equals(Barrio)) {
 				DtBeneficiario dtBeneficiario = new DtBeneficiario(b.getNombre(),b.getEmail(), b.getDireccion(), b.getFechaNacimiento() , b.getEstado(), b.getBarrio());
@@ -96,11 +87,11 @@ public class Controlador implements IControlador {
 	
 	@Override
 	public ArrayList<DtBeneficiario> listarBeneficiariosEstado(String estado) {
-		emf = Persistence.createEntityManagerFactory("Conexion");
-        EntityManager em = emf.createEntityManager();
+		
+		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
         
 		ArrayList<DtBeneficiario> aRetornar = new ArrayList<>();
-		List<Beneficiario> beneficiarios = em.createQuery("SELECT b FROM Beneficiario b", Beneficiario.class).getResultList();
+		List<Beneficiario> beneficiarios = mU.obtenerBeneficiarios();
 		for (Beneficiario b : beneficiarios) {
 			if (b.getEstado().toString().equals(estado)) {
 				DtBeneficiario dtBeneficiario = new DtBeneficiario(b.getNombre(),b.getEmail(), b.getDireccion(), b.getFechaNacimiento() , b.getEstado(), b.getBarrio());

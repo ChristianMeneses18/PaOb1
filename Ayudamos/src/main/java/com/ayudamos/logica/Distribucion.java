@@ -21,7 +21,7 @@ import com.ayudamos.enums.EstadoDistribucion;
 
 
 @Entity
-@IdClass(DistribucionID.class)
+@IdClass(com.ayudamos.persistencia.DistribucionID.class)
 public class Distribucion {
 	
 	@Id 

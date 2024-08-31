@@ -3,9 +3,14 @@ package com.ayudamos.logica;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import com.ayudamos.persistencia.Conexion;
+
+
 public class ManejadorUsuario {
 	private static ManejadorUsuario instancia = null;
-	private List<Usuario> usuarios = new ArrayList<>();
 	
 	
 	public static ManejadorUsuario getInstancia() {
@@ -15,31 +20,32 @@ public class ManejadorUsuario {
 	}
 	
 	public void agregarUsuario(Usuario usuario) {
-		usuarios.add(usuario);
+		Conexion conexion = Conexion.getInstancia();
+		EntityManager em = conexion.getEntityManager();
+		em.getTransaction().begin();
+		
+		em.persist(usuario);
+		
+		em.getTransaction().commit();
 	}
 	
-	public Usuario BuscarUsuario(String email) {
-		Usuario aretornar=null;
-		if (email == null) {
-	        return null; 
-	    }
+	
+	public Usuario buscarUsuario(String email) {
+		Conexion conexion = Conexion.getInstancia();
+		EntityManager em = conexion.getEntityManager();
 		
-		for(Usuario u: usuarios) {
-			if (u.getEmail().equals(email))
-				aretornar=u;
-		}
-		return aretornar;
+		Usuario usuario = em.find(Usuario.class, email);
+		return usuario;
 	}
+	
 	
 	public ArrayList<Beneficiario> obtenerBeneficiarios() {
-	    ArrayList<Beneficiario> aRetornar = new ArrayList<>();
-	    for (Usuario u : usuarios) {
-	        if (u instanceof Beneficiario) {
-	            aRetornar.add((Beneficiario) u);
-	        }
-	    }
-	    return aRetornar;
+		Conexion conexion = Conexion.getInstancia();
+		EntityManager em = conexion.getEntityManager();
+		
+		Query query = em.createQuery("SELECT b FROM Beneficiario b", Beneficiario.class);
+		List<Beneficiario> beneficiarios = query.getResultList();
+
+		return new ArrayList<>(beneficiarios);
 	}
-
-
 }

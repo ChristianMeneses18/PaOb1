@@ -1,4 +1,4 @@
-package com.ayudamos.logica;
+package com.ayudamos.persistencia;
 
 import java.io.Serializable;
 

@@ -86,7 +86,7 @@ public class Controlador implements IControlador {
 		ArrayList<Usuario> usuarios = mU.obtenerUsuarios();
 		
 		
-		
+		/*
 		for (Usuario u : usuarios) {
 			if (u instanceof Beneficiario) {
 				DtBeneficiario dtBeneficiario = new DtBeneficiario(u.getNombre(), u.getEmail(), u.getDireccion(), u.getFechaNacimiento() , u.getEstado(), u.getBarrio());
@@ -97,9 +97,10 @@ public class Controlador implements IControlador {
 	        }
 			
 		}
+		*/
 		
 		for (Usuario u : usuarios) {
-			DtUsuario dtUsuario = new DtUsuario(u.getNombre(), u.getEmail(), u.getDireccion(), u.getFechaNacimiento() , b.getEstado(), b.getBarrio());
+			DtUsuario dtUsuario = new DtUsuario(u.getNombre(), u.getEmail());
 			listaDT.add(dtUsuario);
 		}
 		

@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -19,7 +21,7 @@ import java.util.ArrayList;
 import java.awt.FlowLayout;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
-import com.ayudamos.datatypes.DtBeneficiario;
+import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.interfaces.IControlador;
 
 import java.awt.Component;
@@ -70,7 +72,7 @@ public class ModificarUsuario extends JFrame {
 		lblNewLabel.setBounds(10, 11, 535, 47);
 		getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Que usuario desea modificar?");
+		JLabel lblNewLabel_1 = new JLabel("Seleccione un usuario: ");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_1.setBounds(29, 79, 244, 14);
 		getContentPane().add(lblNewLabel_1);
@@ -83,19 +85,23 @@ public class ModificarUsuario extends JFrame {
 		
 		model.addColumn("Nombre");
 		model.addColumn("Email");
-		model.addColumn("Tipo");
 		
 		scrollPane.setViewportView(tablaUsuarios);
 		
 		lista = icon.listarUsuarios();
 		
-		for (DtUsuario u : lista) {
-			Object[] fila = new Object[3];
-			fila[0] = u.getNombre();
-			fila[1] = u.getEmail();
-			//fila[2] = u.getBarrio().toString();  buscar lo de como saber que hijo es dado en clase
-			
-			model.addRow(fila);
-		
+		if (lista.isEmpty()) {
+			JOptionPane.showMessageDialog(this, "No existen Usuarios a listar", "Listar Usuario", JOptionPane.INFORMATION_MESSAGE);
+		}else {
+			for (DtUsuario u : lista) {
+				Object[] fila = new Object[2];
+				fila[0] = u.getNombre();
+				fila[1] = u.getEmail();
+				//	fila[2] = u.getBarrio().toString();  buscar lo de como saber que hijo es dado en clase
+					
+				model.addRow(fila);
+				
+			}
 		}
+	}
 }

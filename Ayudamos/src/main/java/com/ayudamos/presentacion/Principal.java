@@ -21,6 +21,7 @@ public class Principal {
 	private ListarBeneficiarios listarBeneficiariosInternalFrame;
 	private ListarBeneficiariosZona listarBeneficiariosZonaInternalFrame;
 	private ListarBeneficiariosEstado listarBeneficiariosEstadoInternalFrame;
+	private ModificarUsuario modificarUsuarioFrame;
 
 	/**
 	 * Launch the application.
@@ -76,7 +77,13 @@ public class Principal {
 		listarBeneficiariosEstadoInternalFrame.setVisible(false);
 		frame.getContentPane().add(listarBeneficiariosEstadoInternalFrame);
 		
-		
+		modificarUsuarioFrame = new ModificarUsuario(icon);
+		jInternalFrameSize = modificarUsuarioFrame.getSize();
+		//int w = (desktopSize.width - jInternalFrameSize.width) / 2;
+		//int z = (desktopSize.height - jInternalFrameSize.height) / 2;
+		modificarUsuarioFrame.setLocation(x, y);
+		modificarUsuarioFrame.setVisible(false);
+		frame.getContentPane().add(modificarUsuarioFrame);
 		
 		
 	}
@@ -106,6 +113,24 @@ public class Principal {
 			}
 		});
 		mnAltas.add(mntmUsuario);
+		
+		
+		JMenu mnModificaciones = new JMenu("Modificaciones");
+		menuBar.add(mnModificaciones);
+		
+		JMenuItem mntmModUsuario = new JMenuItem("Modificar Usuario");
+		mntmModUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				agregarUsuarioInternalFrame.setVisible(true);
+				listarBeneficiariosInternalFrame.setVisible(false);
+				listarBeneficiariosZonaInternalFrame.setVisible(false);
+				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				
+			}
+		});
+		mnAltas.add(mntmUsuario);
+		
+		
 		
 		JMenu mnListar = new JMenu("Listar");
 		menuBar.add(mnListar);

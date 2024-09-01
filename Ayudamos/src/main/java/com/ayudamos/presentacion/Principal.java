@@ -79,8 +79,6 @@ public class Principal {
 		
 		modificarUsuarioFrame = new ModificarUsuario(icon);
 		jInternalFrameSize = modificarUsuarioFrame.getSize();
-		//int w = (desktopSize.width - jInternalFrameSize.width) / 2;
-		//int z = (desktopSize.height - jInternalFrameSize.height) / 2;
 		modificarUsuarioFrame.setLocation(x, y);
 		modificarUsuarioFrame.setVisible(false);
 		frame.getContentPane().add(modificarUsuarioFrame);
@@ -109,6 +107,7 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				modificarUsuarioFrame.setVisible(false);
 				
 			}
 		});
@@ -121,14 +120,15 @@ public class Principal {
 		JMenuItem mntmModUsuario = new JMenuItem("Modificar Usuario");
 		mntmModUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				agregarUsuarioInternalFrame.setVisible(true);
+				modificarUsuarioFrame.setVisible(true);
+				agregarUsuarioInternalFrame.setVisible(false);
 				listarBeneficiariosInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
 				
 			}
 		});
-		mnAltas.add(mntmUsuario);
+		mnModificaciones.add(mntmModUsuario);
 		
 		
 		
@@ -142,6 +142,7 @@ public class Principal {
 				agregarUsuarioInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				modificarUsuarioFrame.setVisible(false);
 			}
 		});
 		mnListar.add(mntmBeneficiario);
@@ -153,6 +154,7 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(false);
 				agregarUsuarioInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				modificarUsuarioFrame.setVisible(false);
 				
 			}
 		});
@@ -165,6 +167,7 @@ public class Principal {
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosInternalFrame.setVisible(false);
 				agregarUsuarioInternalFrame.setVisible(false);
+				modificarUsuarioFrame.setVisible(false);
 			}
 		});
 		mnListar.add(mntmBeneficiarioEstado);

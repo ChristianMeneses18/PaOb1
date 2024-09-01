@@ -2,7 +2,7 @@ package com.ayudamos.presentacion;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 import java.awt.Rectangle;
 import java.util.ArrayList;
@@ -25,15 +26,25 @@ import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.interfaces.IControlador;
 
 import java.awt.Component;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class ModificarUsuario extends JFrame {
+public class ModificarUsuario extends JInternalFrame {
 
 	private static final long serialVersionUID = 1L;
+    private JTextField txtNombre;
 	private IControlador icon;
 	private JPanel contentPane;
 	private JTable tablaUsuarios;
 	private DefaultTableModel model;
 	private ArrayList<DtUsuario> lista;
+	private JButton btnListar;
+	private JButton btnSeleccionar;
+	private JButton btnModificar;
+	private JButton btnAtras;
+	private JTextField txtEmail;
+	private String emailSeleccionado;
 
 	/**
 	 * Launch the application.
@@ -56,7 +67,6 @@ public class ModificarUsuario extends JFrame {
 	 */
 	public ModificarUsuario(IControlador icon) {
 		this.icon = icon;
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 583, 514);
 		getContentPane().setLayout(null);
 		
@@ -88,20 +98,125 @@ public class ModificarUsuario extends JFrame {
 		
 		scrollPane.setViewportView(tablaUsuarios);
 		
-		lista = icon.listarUsuarios();
+		JLabel lblNombre = new JLabel("Nombre: ");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNombre.setBounds(20, 126, 100, 30);
+		getContentPane().add(lblNombre);
+		lblNombre.setVisible(false);
 		
-		if (lista.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "No existen Usuarios a listar", "Listar Usuario", JOptionPane.INFORMATION_MESSAGE);
-		}else {
-			for (DtUsuario u : lista) {
-				Object[] fila = new Object[2];
-				fila[0] = u.getNombre();
-				fila[1] = u.getEmail();
-				//	fila[2] = u.getBarrio().toString();  buscar lo de como saber que hijo es dado en clase
-					
-				model.addRow(fila);
+		JLabel lblEmail = new JLabel("Email: ");
+		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblEmail.setBounds(20, 156, 100, 30);
+		getContentPane().add(lblEmail);
+		lblEmail.setVisible(false);
+		
+		txtNombre = new JTextField();
+        txtNombre.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        txtNombre.setBounds(155, 126, 350, 30);
+        getContentPane().add(txtNombre);
+        txtNombre.setColumns(10);
+        txtNombre.setVisible(false);
+        
+        txtEmail = new JTextField();
+		txtEmail.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtEmail.setColumns(10);
+		txtEmail.setBounds(155, 156, 350, 30);
+		getContentPane().add(txtEmail);
+		txtEmail.setVisible(false);
+		
+		
+		btnListar = new JButton("Listar");
+		btnListar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				model.setRowCount(0);
 				
+				lista = icon.listarUsuarios();
+				
+				if (lista.isEmpty()) {
+					//JOptionPane.showMessageDialog(this, "No existen Usuarios a listar", "Listar Usuario", JOptionPane.INFORMATION_MESSAGE);
+					System.out.println("a");
+				}else {
+					for (DtUsuario u : lista) {
+						Object[] fila = new Object[2];
+						fila[0] = u.getNombre();
+						fila[1] = u.getEmail();
+						//	fila[2] = u.getBarrio().toString();  buscar lo de como saber que hijo es dado en clase
+							
+						model.addRow(fila);
+						
+					}
+				}
 			}
-		}
+		});
+		btnListar.setBounds(477, 77, 67, 23);
+		getContentPane().add(btnListar);
+		
+		
+		btnSeleccionar = new JButton("Seleccionar");
+		btnSeleccionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				int selectedRow = tablaUsuarios.getSelectedRow();
+		        
+				if (selectedRow != -1) {
+		        	String nombreSeleccionado = (String) model.getValueAt(selectedRow, 0);
+		        	emailSeleccionado = (String) model.getValueAt(selectedRow, 1);
+		            
+		        	txtNombre.setText(nombreSeleccionado);
+		            txtEmail.setText(emailSeleccionado);
+		            
+		            btnSeleccionar.setVisible(false);
+					lblNewLabel_1.setVisible(false);
+					btnListar.setVisible(false);
+					scrollPane.setVisible(false);
+					
+					txtNombre.setVisible(true);
+					txtEmail.setVisible(true);
+					lblNombre.setVisible(true);
+					lblEmail.setVisible(true);
+					btnModificar.setVisible(true);
+					btnAtras.setVisible(true);
+		            
+				} else {
+		            JOptionPane.showMessageDialog(null, "Por favor, selecciona un usuario de la tabla.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+		        }
+			}
+		});
+		btnSeleccionar.setBounds(450, 434, 107, 39);
+		getContentPane().add(btnSeleccionar);
+		
+		
+		btnModificar = new JButton("Modificar");
+		btnModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//emailSeleccionado;  clave del usuario
+			}
+		});
+		btnModificar.setBounds(450, 434, 107, 39);
+		getContentPane().add(btnModificar);
+		btnModificar.setVisible(false);
+		
+		
+		btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnSeleccionar.setVisible(true);
+				lblNewLabel_1.setVisible(true);
+				btnListar.setVisible(true);
+				scrollPane.setVisible(true);
+				
+				txtNombre.setVisible(false);
+				txtEmail.setVisible(false);
+				lblNombre.setVisible(false);
+				lblEmail.setVisible(false);
+				btnModificar.setVisible(false);
+				btnAtras.setVisible(false);
+			}
+		});
+		btnAtras.setBounds(5, 434, 107, 39);
+		getContentPane().add(btnAtras);
+		btnAtras.setVisible(false);
+
+		
 	}
 }

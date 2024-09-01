@@ -18,5 +18,7 @@ public interface IControlador {
 	public ArrayList<DtBeneficiario> listarBeneficiariosEstado(String estado);
 	
 	public ArrayList<DtUsuario> listarUsuarios();
+	
+	public void modificarUsaurio(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion;
 
 }

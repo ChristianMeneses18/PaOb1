@@ -1,6 +1,10 @@
 package com.ayudamos.logica;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
+@Entity
+@DiscriminatorValue("ALIM")
 public class Alimento extends Donacion {
 	private String descripcionProductos;
 	private Integer cantElemntos;

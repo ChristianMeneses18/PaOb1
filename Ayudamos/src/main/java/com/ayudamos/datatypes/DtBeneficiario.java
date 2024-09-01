@@ -22,7 +22,7 @@ public class DtBeneficiario extends DtUsuario {
 		return direccion;
 	}
 	
-	public DtFecha fechaNacimiento() {
+	public DtFecha getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 	

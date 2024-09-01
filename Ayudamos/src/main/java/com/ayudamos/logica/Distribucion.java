@@ -4,28 +4,59 @@ package com.ayudamos.logica;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.EnumType;
+
 import com.ayudamos.datatypes.DtFechaHora;
 import com.ayudamos.enums.EstadoDistribucion;
 
+
+@Entity
+@IdClass(com.ayudamos.persistencia.DistribucionID.class)
 public class Distribucion {
+	
+	@Id 
+	@ManyToOne
+    @JoinColumn(name = "donacion_id", insertable=false, updatable=false)
+    private Donacion donacion;
+	
+	@Id 
+	@ManyToOne
+    @JoinColumn(name = "beneficiario_id", insertable=false, updatable=false)
+    private Beneficiario beneficiario;
+	
+    @Convert(converter = com.ayudamos.datatypes.DtFechaHoraConverter.class)
+    @Column(name = "fecha_preparacion")
 	private	DtFechaHora fechaPreparacion;
+	
+    @Convert(converter = com.ayudamos.datatypes.DtFechaHoraConverter.class)
+    @Column(name = "fecha_entrega")
 	private DtFechaHora fechaEntrega;
+	
+	@Enumerated(EnumType.STRING)
 	private EstadoDistribucion estado;
 	
-	private List<Beneficiario> beneficiarios;
-    private List<Donacion> donaciones;
 	
 	public Distribucion() {
 		super();
 	}
 	
-	public Distribucion(DtFechaHora fechaPreparacion, DtFechaHora fechaEntrega, EstadoDistribucion estado) {
+	public Distribucion(DtFechaHora fechaPreparacion, DtFechaHora fechaEntrega, EstadoDistribucion estado , Beneficiario beneficiario, Donacion donacion) {
 		super();
 		this.fechaPreparacion = fechaPreparacion;
 		this.fechaEntrega = fechaEntrega;
 		this.estado = estado;
-		this.beneficiarios = new ArrayList<>();
-		this.donaciones = new ArrayList<>();
+		this.beneficiario = beneficiario;
+		this.donacion = donacion;
 	}
 	
 	
@@ -46,6 +77,22 @@ public class Distribucion {
 	}
 	public void setEstado(EstadoDistribucion estado) {
 		this.estado = estado;
+	}
+
+	public Donacion getDonacion() {
+		return donacion;
+	}
+
+	public void setDonacion(Donacion donacion) {
+		this.donacion = donacion;
+	}
+
+	public Beneficiario getBeneficiario() {
+		return beneficiario;
+	}
+
+	public void setBeneficiario(Beneficiario beneficiario) {
+		this.beneficiario = beneficiario;
 	}
 	
 	

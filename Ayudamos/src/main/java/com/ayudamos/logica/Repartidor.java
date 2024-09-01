@@ -1,6 +1,14 @@
 package com.ayudamos.logica;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("R")
 public class Repartidor extends Usuario {
+	
+	@Column(name="NumeroLicencia")
 	private String numeroLicencia;
 
 	

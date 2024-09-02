@@ -62,7 +62,17 @@ public class ManejadorUsuario {
 	    return listaUsuarios;
 	}
 	
-	
+	public void modificarUsuario(Usuario usuario) {
+	    Conexion conexion = Conexion.getInstancia();
+	    EntityManager em = conexion.getEntityManager();
+	    em.getTransaction().begin();
+	    
+	    // Usamos merge para actualizar el usuario existente
+	    em.merge(usuario);
+	    
+	    em.getTransaction().commit();
+	}
+
 	public void modificarUsuario(String emailViejo, DtUsuario usuario) {
 		
 		

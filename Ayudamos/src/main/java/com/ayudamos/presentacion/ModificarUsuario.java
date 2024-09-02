@@ -22,7 +22,9 @@ import java.util.ArrayList;
 import java.awt.FlowLayout;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
+import com.ayudamos.datatypes.DtRepartidor;
 import com.ayudamos.datatypes.DtUsuario;
+import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 import com.ayudamos.interfaces.IControlador;
 
 import java.awt.Component;
@@ -133,14 +135,12 @@ public class ModificarUsuario extends JInternalFrame {
 				lista = icon.listarUsuarios();
 				
 				if (lista.isEmpty()) {
-					//JOptionPane.showMessageDialog(this, "No existen Usuarios a listar", "Listar Usuario", JOptionPane.INFORMATION_MESSAGE);
-					System.out.println("a");
+					JOptionPane.showMessageDialog(ModificarUsuario.this, "No existen Usuarios a listar", "Listar Usuario", JOptionPane.INFORMATION_MESSAGE);
 				}else {
 					for (DtUsuario u : lista) {
 						Object[] fila = new Object[2];
 						fila[0] = u.getNombre();
 						fila[1] = u.getEmail();
-						//	fila[2] = u.getBarrio().toString();  buscar lo de como saber que hijo es dado en clase
 							
 						model.addRow(fila);
 						
@@ -188,8 +188,17 @@ public class ModificarUsuario extends JInternalFrame {
 		
 		btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//emailSeleccionado;  clave del usuario
+			public void actionPerformed(ActionEvent ev) {
+				DtUsuario usr = new DtUsuario(txtNombre.getText(), txtEmail.getText());
+				
+				try {
+					icon.modificarUsuario(emailSeleccionado, usr);
+					JOptionPane.showMessageDialog(ModificarUsuario.this, "Usuario modificado con exito", "Modificar Usuario", JOptionPane.INFORMATION_MESSAGE);
+		            setVisible(false);
+		            //limpiarFormulario();
+	            } catch (UsuarioRepetidoExcepcion e) {
+		                JOptionPane.showMessageDialog(ModificarUsuario.this, e.getMessage(), "Modificar Usuario", JOptionPane.ERROR_MESSAGE);
+	            }
 			}
 		});
 		btnModificar.setBounds(450, 434, 107, 39);

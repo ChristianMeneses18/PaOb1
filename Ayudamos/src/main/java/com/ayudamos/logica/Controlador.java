@@ -121,11 +121,13 @@ public class Controlador implements IControlador {
 		
 	}
 	
-	public void modificarUsaurio(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion {
+	public void modificarUsuario(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion {
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
 		Usuario usuarioAModificar = mU.buscarUsuario(emailViejo);
+		usuarioAModificar.setEmail(usuario.getEmail()); 
+		usuarioAModificar.setNombre(usuario.getNombre());
 		
-		
+		mU.modificarUsuario(usuarioAModificar);
 	}
 	
 }

@@ -22,7 +22,7 @@ public class Controlador implements IControlador {
     public void agregarUsuario(DtUsuario usuario) throws UsuarioRepetidoExcepcion {
 		
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
-		Usuario nuevoUsuario = mU.buscarUsuario(usuario.getEmail());
+		Usuario nuevoUsuario = mU.buscarUsuarioPorEmail(usuario.getEmail());
         
         if (nuevoUsuario != null) {
             throw new UsuarioRepetidoExcepcion("El usuario con email: " + usuario.getEmail() + " ya está registrado");

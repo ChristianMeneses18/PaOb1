@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import com.ayudamos.persistencia.Conexion;
 
@@ -29,13 +31,28 @@ public class ManejadorUsuario {
 		em.getTransaction().commit();
 	}
 	
-	
-	public Usuario buscarUsuario(String email) {
+	public Usuario buscarUsuario(int id) {
 		Conexion conexion = Conexion.getInstancia();
 		EntityManager em = conexion.getEntityManager();
 		
-		Usuario usuario = em.find(Usuario.class, email);
+		Usuario usuario = em.find(Usuario.class, id);
 		return usuario;
+	}
+	
+	
+	public Usuario buscarUsuarioPorEmail(String email) {
+		Conexion conexion = Conexion.getInstancia();
+		EntityManager em = conexion.getEntityManager();
+		
+		TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.email = :email", Usuario.class);
+	    query.setParameter("email", email);
+	    try {
+	        Usuario usuario = (Usuario) query.getSingleResult();
+	        return usuario;
+	    } catch (NoResultException e) {
+	        
+	        return null;
+	    }
 	}
 	
 	

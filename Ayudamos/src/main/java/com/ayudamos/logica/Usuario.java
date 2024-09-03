@@ -15,15 +15,15 @@ import javax.persistence.Table;
 @DiscriminatorColumn(name="TIPOUSUARIO")
 @Table(name="USUARIOS")
 
-public class Usuario {
+public class Usuario{
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-	private Integer id;
+    @Column(name = "IdUsuario")
+    private int idUsuario;
 	
-	@Column(name="Email")
+	@Column(name="Email", unique = true)
 	private String email;
-	
 	@Column(name="Nombre")
 	private String nombre;
 	
@@ -36,15 +36,7 @@ public class Usuario {
 		this.nombre = nombre;
 		this.email = email;
 	}
-	
-	public Integer getId() {
-		return id;
-	}
-	
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
+
 	public String getNombre() {
 		return nombre;
 	}

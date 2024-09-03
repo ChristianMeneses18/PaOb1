@@ -3,6 +3,8 @@ package com.ayudamos.presentacion;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -219,7 +221,9 @@ public class AgregarUsuario extends JInternalFrame {
 		if (ValidarEmail(this.txtEmail.getText()) == false || this.txtEmail.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Verificar correo electronico");
 		}else {
-		
+			
+			Date selectedDate;
+			Calendar calendar;
 			int dia , mes , anio;
 			
 			String nombre = this.txtNombre.getText();
@@ -231,9 +235,13 @@ public class AgregarUsuario extends JInternalFrame {
 			DtUsuario dt = null;
 			
 			if(comboBoxTipo.getSelectedItem().toString().equals("Beneficiario")) {
-				dia = dateChooser.getDate().getDay();
-				mes = dateChooser.getDate().getMonth();
-				anio = dateChooser.getDate().getYear();
+				selectedDate = dateChooser.getDate();
+				calendar = Calendar.getInstance();
+				calendar.setTime(selectedDate);
+				
+				dia = calendar.get(Calendar.DAY_OF_MONTH);
+				mes = calendar.get(Calendar.MONTH) + 1;
+				anio = calendar.get(Calendar.YEAR);
 				DtFecha fechaNacimiento = new DtFecha(dia,mes,anio);
 				dt = new DtBeneficiario(nombre,email,direccion,fechaNacimiento,estado,barrio);
 				

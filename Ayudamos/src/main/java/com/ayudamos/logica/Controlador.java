@@ -20,9 +20,8 @@ public class Controlador implements IControlador {
 
 	@Override
     public void agregarUsuario(DtUsuario usuario) throws UsuarioRepetidoExcepcion {
-		
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
-		Usuario nuevoUsuario = mU.buscarUsuario(usuario.getEmail());
+		Usuario nuevoUsuario = mU.buscarUsuarioPorEmail(usuario.getEmail());
         
         if (nuevoUsuario != null) {
             throw new UsuarioRepetidoExcepcion("El usuario con email: " + usuario.getEmail() + " ya está registrado");
@@ -42,7 +41,6 @@ public class Controlador implements IControlador {
                 ((DtRepartidor) usuario).getNumeroLicencia()
             );
         }
-        
         mU.agregarUsuario(nuevoUsuario);
     }
 
@@ -123,7 +121,7 @@ public class Controlador implements IControlador {
 	
 	public void modificarUsuario(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion {
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
-		Usuario usuarioAModificar = mU.buscarUsuario(emailViejo);
+		Usuario usuarioAModificar = mU.buscarUsuarioPorEmail(emailViejo);
 		usuarioAModificar.setEmail(usuario.getEmail()); 
 		usuarioAModificar.setNombre(usuario.getNombre());
 		

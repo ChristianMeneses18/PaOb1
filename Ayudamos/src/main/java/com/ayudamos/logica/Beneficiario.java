@@ -41,6 +41,7 @@ public class Beneficiario extends Usuario {
 	}
 
 	public Beneficiario(String nombre, String email ,String direccion, DtFecha fechaNacimiento, EstadoBeneficiario estado, Barrio barrio) {
+		super(nombre,email);
 		this.direccion = direccion;
 		this.fechaNacimiento = fechaNacimiento;
 		this.estado = estado;

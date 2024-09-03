@@ -17,6 +17,7 @@ public class Repartidor extends Usuario {
 	};
 	
 	public Repartidor(String nombre, String email, String numeroLicencia) {
+		super(nombre,email);
 		this.numeroLicencia = numeroLicencia;
 	}
 

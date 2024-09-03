@@ -1,18 +1,22 @@
 package com.ayudamos.logica;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
+@Entity
+@DiscriminatorValue("ALIM")
 public class Alimento extends Donacion {
 	private String descripcionProductos;
-	private Integer cantElementos;
+	private Integer cantElemntos;
 	
 	public Alimento() {
 		super();
 	}
 	
-	public Alimento(String descripcionProductos, Integer cantElementos) {
+	public Alimento(String descripcionProductos, Integer cantElemntos) {
 		super();
 		this.descripcionProductos = descripcionProductos;
-		this.cantElementos = cantElementos;
+		this.cantElemntos = cantElemntos;
 	}
 
 	public String getDescripcionProductos() {
@@ -24,11 +28,11 @@ public class Alimento extends Donacion {
 	}
 
 	public Integer getCantElemntos() {
-		return cantElementos;
+		return cantElemntos;
 	}
 
-	public void setCantElemntos(Integer cantElementos) {
-		this.cantElementos = cantElementos;
+	public void setCantElemntos(Integer cantElemntos) {
+		this.cantElemntos = cantElemntos;
 	}
 	
 	

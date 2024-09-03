@@ -16,11 +16,13 @@ public class DtBeneficiario extends DtUsuario {
 		this.estado = estado;
 		this.setBarrio(barrio);
 	}
+	
+	
 	public String getDireccion() {
 		return direccion;
 	}
 	
-	public DtFecha fechaNacimiento() {
+	public DtFecha getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 	

@@ -1,10 +1,13 @@
 package com.ayudamos.datatypes;
 
+
+import java.util.Date;
+
 public class DtDonacion {
 	private Integer id;
-	private DtFecha fechaIngresada;
+	private Date fechaIngresada;
 	
-	public DtDonacion(Integer id , DtFecha fechaIngresada){
+	public DtDonacion(Integer id , Date fechaIngresada){
 		this.id = id;
 		this.fechaIngresada = fechaIngresada;
 	}
@@ -13,7 +16,7 @@ public class DtDonacion {
 		return id;
 	}
 	
-	public DtFecha getFechaIngresada() {
+	public Date getFechaIngresada() {
 		return fechaIngresada;
 	}
 	

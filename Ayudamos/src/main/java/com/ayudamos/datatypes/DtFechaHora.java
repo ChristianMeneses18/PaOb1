@@ -1,5 +1,7 @@
 package com.ayudamos.datatypes;
 
+import javax.persistence.Embeddable;
+
 
 public class DtFechaHora {
 	private int dia;
@@ -7,6 +9,10 @@ public class DtFechaHora {
 	private int anio;
 	private int hora;
 	private int minuto;
+	
+	public DtFechaHora() {
+		
+	};
 	
 	public DtFechaHora(int dia, int mes, int anio, int hora, int minuto) {
 		super();

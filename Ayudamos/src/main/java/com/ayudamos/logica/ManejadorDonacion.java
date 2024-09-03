@@ -1,12 +1,12 @@
 package com.ayudamos.logica;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.EntityManager;
+
+import com.ayudamos.persistencia.Conexion;
+
 
 public class ManejadorDonacion {
 	private static ManejadorDonacion instancia = null;
-	private List<Donacion> donaciones = new ArrayList<>();
-	private Integer ultimoId = 0;
 	
 	
 	public static ManejadorDonacion getInstancia() {
@@ -16,15 +16,12 @@ public class ManejadorDonacion {
 	}
 	
 	public void altaDonacion(Donacion donacion) {
-		donaciones.add(donacion);
+		Conexion conexion = Conexion.getInstancia();
+		EntityManager em = conexion.getEntityManager();
+		em.getTransaction().begin();
+		
+		em.persist(donacion);
+		
+		em.getTransaction().commit();
 	}
-
-	public Integer getUltimoId() {
-		return ultimoId;
-	}
-
-	public void setUltimoId(Integer ultimoId) {
-		this.ultimoId = ultimoId;
-	}
-
 }

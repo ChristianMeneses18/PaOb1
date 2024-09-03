@@ -3,6 +3,8 @@ package com.ayudamos.presentacion;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,8 +28,6 @@ import javax.swing.JButton;
 
 public class AgregarUsuario extends JInternalFrame {
 
-	private static final String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-	
 	private IControlador icon;
 	
     private static final long serialVersionUID = 1L;
@@ -44,6 +44,7 @@ public class AgregarUsuario extends JInternalFrame {
     private JLabel lblBarrio;
     private JLabel lblEstado;
     private JLabel lblLicencia;
+    private JButton btnAgregar;
     private JButton btnCancelar;
 
     /**
@@ -149,7 +150,7 @@ public class AgregarUsuario extends JInternalFrame {
         getContentPane().add(txtLicencia);
         txtLicencia.setColumns(10);
         
-        JButton btnAgregar = new JButton("Agregar");
+        btnAgregar = new JButton("Agregar");
         btnAgregar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		agregarUsuarioAceptarActionPerformed(arg0);
@@ -160,6 +161,12 @@ public class AgregarUsuario extends JInternalFrame {
         getContentPane().add(btnAgregar);
         
         btnCancelar = new JButton("Cancelar");
+        btnCancelar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		agregarUsuarioCancelarActionPerformed(arg0);
+        		
+        	}
+        });
         btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
         btnCancelar.setBounds(315, 413, 117, 30);
         getContentPane().add(btnCancelar);
@@ -214,10 +221,12 @@ public class AgregarUsuario extends JInternalFrame {
 		if (ValidarEmail(this.txtEmail.getText()) == false || this.txtEmail.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Verificar correo electronico");
 		}else {
-		
+			
+			Date selectedDate;
+			Calendar calendar;
 			int dia , mes , anio;
 			
-			String nombre = this.txtNombre.getName();
+			String nombre = this.txtNombre.getText();
 			String email = this.txtEmail.getText();
 			String direccion = this.txtDireccion.getText();
 			String licencia = this.txtLicencia.getText();
@@ -226,9 +235,13 @@ public class AgregarUsuario extends JInternalFrame {
 			DtUsuario dt = null;
 			
 			if(comboBoxTipo.getSelectedItem().toString().equals("Beneficiario")) {
-				dia = dateChooser.getDate().getDay();
-				mes = dateChooser.getDate().getMonth();
-				anio = dateChooser.getDate().getYear();
+				selectedDate = dateChooser.getDate();
+				calendar = Calendar.getInstance();
+				calendar.setTime(selectedDate);
+				
+				dia = calendar.get(Calendar.DAY_OF_MONTH);
+				mes = calendar.get(Calendar.MONTH) + 1;
+				anio = calendar.get(Calendar.YEAR);
 				DtFecha fechaNacimiento = new DtFecha(dia,mes,anio);
 				dt = new DtBeneficiario(nombre,email,direccion,fechaNacimiento,estado,barrio);
 				

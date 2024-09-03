@@ -3,6 +3,8 @@ package com.ayudamos.presentacion;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -199,21 +201,23 @@ protected void altaDonacionCancelarActionPerformed(ActionEvent arg0) {
 protected void altaDonacionAceptarActionPerformed(ActionEvent arg0) {
 	
 	DtDonacion dt = null;
+	Date selectedDate;
+	Calendar calendar;
 	int dia, mes, anio;	
 	String descripcion = this.textAreaDesc.getText();
-	dia = dateChooser.getDate().getDay();
-	mes = dateChooser.getDate().getMonth();
-	anio = dateChooser.getDate().getYear();
-	DtFecha fechaIng = new DtFecha(dia,mes,anio); 
-	
-	
+	selectedDate = dateChooser.getDate();
+	calendar = Calendar.getInstance();
+	calendar.setTime(selectedDate);	
+	dia = calendar.get(Calendar.DAY_OF_MONTH);
+	mes = calendar.get(Calendar.MONTH) + 1;
+	anio = calendar.get(Calendar.YEAR);
 	
 
 	
 	
 	if(comboBoxTipo.getSelectedItem().toString().equals("Alimento")) {
 		Integer elementos = (Integer) this.spinnerCantElem.getValue();
-		dt = new DtAlimento(0,fechaIng,descripcion,elementos);		
+		dt = new DtAlimento(0,selectedDate,descripcion,elementos);		
 	} else {
 		//try {
 			float peso = Float.parseFloat(this.textPeso.getText());
@@ -222,7 +226,7 @@ protected void altaDonacionAceptarActionPerformed(ActionEvent arg0) {
 	     //   System.out.println("La cadena no es un número flotante válido.");
 	    //}	
 		String dimensiones = this.textDimensiones.getText();
-		dt = new DtArticulo(0,fechaIng,descripcion,peso,dimensiones);
+		dt = new DtArticulo(0,selectedDate,descripcion,peso,dimensiones);
 	}
 	
 	this.icon.altaDonacion(dt);

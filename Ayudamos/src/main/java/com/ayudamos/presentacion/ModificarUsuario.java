@@ -19,6 +19,8 @@ import javax.swing.JTextField;
 
 import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.awt.FlowLayout;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
@@ -45,6 +47,7 @@ public class ModificarUsuario extends JInternalFrame {
 	private JButton btnSeleccionar;
 	private JButton btnModificar;
 	private JButton btnAtras;
+	private JButton btnCancelar;
 	private JTextField txtEmail;
 	private String emailSeleccionado;
 
@@ -190,15 +193,31 @@ public class ModificarUsuario extends JInternalFrame {
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				DtUsuario usr = new DtUsuario(txtNombre.getText(), txtEmail.getText());
-				
-				try {
-					icon.modificarUsuario(emailSeleccionado, usr);
-					JOptionPane.showMessageDialog(ModificarUsuario.this, "Usuario modificado con exito", "Modificar Usuario", JOptionPane.INFORMATION_MESSAGE);
-		            setVisible(false);
-		            //limpiarFormulario();
-	            } catch (UsuarioRepetidoExcepcion e) {
-		                JOptionPane.showMessageDialog(ModificarUsuario.this, e.getMessage(), "Modificar Usuario", JOptionPane.ERROR_MESSAGE);
-	            }
+				if (ValidarEmail(usr.getEmail()) == false || usr.getEmail().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Verificar correo electronico");
+				}else {
+					try {
+						icon.modificarUsuario(emailSeleccionado, usr);
+						JOptionPane.showMessageDialog(ModificarUsuario.this, "Usuario modificado con exito", "Modificar Usuario", JOptionPane.INFORMATION_MESSAGE);
+			            setVisible(false);
+			            limpiar();
+			            
+			            btnSeleccionar.setVisible(true);
+						lblNewLabel_1.setVisible(true);
+						btnListar.setVisible(true);
+						scrollPane.setVisible(true);
+						
+						txtNombre.setVisible(false);
+						txtEmail.setVisible(false);
+						lblNombre.setVisible(false);
+						lblEmail.setVisible(false);
+						btnModificar.setVisible(false);
+						btnAtras.setVisible(false);
+						
+		            } catch (UsuarioRepetidoExcepcion e) {
+			                JOptionPane.showMessageDialog(ModificarUsuario.this, e.getMessage(), "Modificar Usuario", JOptionPane.ERROR_MESSAGE);
+		            }
+				}
 			}
 		});
 		btnModificar.setBounds(450, 434, 107, 39);
@@ -209,6 +228,8 @@ public class ModificarUsuario extends JInternalFrame {
 		btnAtras = new JButton("Atras");
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				limpiar();
+				
 				btnSeleccionar.setVisible(true);
 				lblNewLabel_1.setVisible(true);
 				btnListar.setVisible(true);
@@ -225,7 +246,31 @@ public class ModificarUsuario extends JInternalFrame {
 		btnAtras.setBounds(5, 434, 107, 39);
 		getContentPane().add(btnAtras);
 		btnAtras.setVisible(false);
-
 		
+		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				limpiar();
+				setVisible(false);
+			}
+		});
+		btnCancelar.setBounds(5, 434, 107, 39);
+		getContentPane().add(btnCancelar);
+
+
+	}
+
+	private void limpiar() {
+        txtNombre.setText("");
+        txtEmail.setText("");
+        model.setRowCount(0);
+
+	}
+	
+	private boolean ValidarEmail(String email) {
+		Pattern pattern = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+		Matcher matcher = pattern.matcher(email);
+		return matcher.find();
 	}
 }

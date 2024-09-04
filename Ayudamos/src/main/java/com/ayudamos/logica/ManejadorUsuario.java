@@ -55,7 +55,7 @@ public class ManejadorUsuario {
 	        return null;
 	    }
 	}	
-	
+
 	public ArrayList<Beneficiario> obtenerBeneficiarios() {
 		Conexion conexion = Conexion.getInstancia();
 		EntityManager em = conexion.getEntityManager();
@@ -65,8 +65,8 @@ public class ManejadorUsuario {
 
 		return new ArrayList<>(beneficiarios);
 	}
-	
-	
+
+
 	public List<Usuario> obtenerUsuarios() {
 		Conexion conexion = Conexion.getInstancia();
 		EntityManager em = conexion.getEntityManager();

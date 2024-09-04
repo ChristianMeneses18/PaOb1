@@ -43,6 +43,40 @@
       <artifactId>jcalendar</artifactId>
       <version>1.4</version>
     </dependency>
+    
+  	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.33</version>
+	</dependency>
+
+
+	<!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
+	<dependency>
+	    <groupId>javax.persistence</groupId>
+	    <artifactId>javax.persistence-api</artifactId>
+	    <version>2.2</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-vibur -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-vibur</artifactId>
+	    <version>5.3.3.Final</version>
+	    <type>pom</type>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-entitymanager</artifactId>
+	    <version>5.3.5.Final</version>
+	</dependency>
+
+
+
+
 
   </dependencies>
 </project>

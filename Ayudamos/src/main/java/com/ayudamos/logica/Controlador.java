@@ -121,11 +121,17 @@ public class Controlador implements IControlador {
 	
 	public void modificarUsuario(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion {
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
-		Usuario usuarioAModificar = mU.buscarUsuarioPorEmail(emailViejo);
-		usuarioAModificar.setEmail(usuario.getEmail()); 
-		usuarioAModificar.setNombre(usuario.getNombre());
+		Usuario usuarioViejo = mU.buscarUsuarioPorEmail(usuario.getEmail());
 		
-		mU.modificarUsuario(usuarioAModificar);
+		if (usuarioViejo != null) {
+			throw new UsuarioRepetidoExcepcion("El usuario con email: " + usuario.getEmail() + " ya está registrado");
+		} else {
+			Usuario usuarioAModificar = mU.buscarUsuarioPorEmail(emailViejo);
+			usuarioAModificar.setEmail(usuario.getEmail()); 
+			usuarioAModificar.setNombre(usuario.getNombre());
+		
+			mU.modificarUsuario(usuarioAModificar);
+		}
 	}
 	
 }

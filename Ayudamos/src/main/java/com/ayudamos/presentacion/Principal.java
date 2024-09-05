@@ -25,6 +25,7 @@ public class Principal {
 	private ListarBeneficiarios listarBeneficiariosInternalFrame;
 	private ListarBeneficiariosZona listarBeneficiariosZonaInternalFrame;
 	private ListarBeneficiariosEstado listarBeneficiariosEstadoInternalFrame;
+	private ModificarUsuario modificarUsuarioFrame;
 
 	/**
 	 * Launch the application.
@@ -80,7 +81,11 @@ public class Principal {
 		listarBeneficiariosEstadoInternalFrame.setVisible(false);
 		frame.getContentPane().add(listarBeneficiariosEstadoInternalFrame);
 		
-		
+		modificarUsuarioFrame = new ModificarUsuario(icon);
+		jInternalFrameSize = modificarUsuarioFrame.getSize();
+		modificarUsuarioFrame.setLocation(x, y);
+		modificarUsuarioFrame.setVisible(false);
+		frame.getContentPane().add(modificarUsuarioFrame);
 		
 		
 		
@@ -108,10 +113,30 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				modificarUsuarioFrame.setVisible(false);
 				
 			}
 		});
 		mnAltas.add(mntmUsuario);
+		
+		
+		JMenu mnModificaciones = new JMenu("Modificaciones");
+		menuBar.add(mnModificaciones);
+		
+		JMenuItem mntmModUsuario = new JMenuItem("Modificar Usuario");
+		mntmModUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modificarUsuarioFrame.setVisible(true);
+				agregarUsuarioInternalFrame.setVisible(false);
+				listarBeneficiariosInternalFrame.setVisible(false);
+				listarBeneficiariosZonaInternalFrame.setVisible(false);
+				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				
+			}
+		});
+		mnModificaciones.add(mntmModUsuario);
+		
+		
 		
 		JMenu mnListar = new JMenu("Listar");
 		menuBar.add(mnListar);
@@ -123,6 +148,7 @@ public class Principal {
 				agregarUsuarioInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				modificarUsuarioFrame.setVisible(false);
 			}
 		});
 		mnListar.add(mntmBeneficiario);
@@ -134,6 +160,7 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(false);
 				agregarUsuarioInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				modificarUsuarioFrame.setVisible(false);
 				
 			}
 		});
@@ -146,6 +173,7 @@ public class Principal {
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosInternalFrame.setVisible(false);
 				agregarUsuarioInternalFrame.setVisible(false);
+				modificarUsuarioFrame.setVisible(false);
 			}
 		});
 		mnListar.add(mntmBeneficiarioEstado);

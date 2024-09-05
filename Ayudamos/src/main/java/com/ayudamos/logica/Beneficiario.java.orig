@@ -88,7 +88,10 @@ public class Beneficiario extends Usuario {
 		this.distribucion = distribucion;
 	}
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> ModificarUsuario
 	
 	
 	

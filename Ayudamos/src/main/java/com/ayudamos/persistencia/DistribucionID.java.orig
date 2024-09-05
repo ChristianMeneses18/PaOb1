@@ -52,4 +52,8 @@ public class DistribucionID implements Serializable {
     public void setDonacion(int donacion) {
         this.donacion = donacion;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ModificarUsuario

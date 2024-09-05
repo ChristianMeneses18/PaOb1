@@ -30,11 +30,10 @@ public class AltaDonacion extends JInternalFrame {
 
 	private static final long serialVersionUID = 1L;
 	private IControlador icon;
-	private JTextField textId;
-	private JTextField textPeso;
 	private JTextField textDimensiones;
 	private JTextArea textAreaDesc;
 	private JSpinner spinnerCantElem;	
+	private JSpinner spinnerPeso;
 	private JComboBox<String> comboBoxTipo;
 	private JDateChooser dateChooser;
 	
@@ -58,52 +57,41 @@ public class AltaDonacion extends JInternalFrame {
         lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 30));
         lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
         lblTitulo.setBounds(0, 10, 567, 40);
-        getContentPane().add(lblTitulo);
-        
-        JLabel lblId = new JLabel("Id:");
-        lblId.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblId.setBounds(10, 60, 100, 30);
-        getContentPane().add(lblId);
-        
-        textId = new JTextField();
-        textId.setEditable(false);
-        textId.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        textId.setBounds(182, 60, 126, 30);
-        getContentPane().add(textId);
-        textId.setColumns(10);
+        getContentPane().add(lblTitulo);     
+       
         
         JLabel lblFechaIng = new JLabel("Fecha Ingreso:");
         lblFechaIng.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblFechaIng.setBounds(10, 100, 162, 30);
+        lblFechaIng.setBounds(10, 60, 162, 30);
         getContentPane().add(lblFechaIng);
         
         dateChooser = new JDateChooser();
-        dateChooser.setBounds(182, 101, 145, 30);
+        dateChooser.setBounds(182, 61, 145, 30);
         getContentPane().add(dateChooser);
         
         JLabel lblTipoDonacion = new JLabel("Tipo de Donación:");
         lblTipoDonacion.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblTipoDonacion.setBounds(10, 140, 150, 30);
+        lblTipoDonacion.setBounds(10, 100, 150, 30);
         getContentPane().add(lblTipoDonacion);
         
         comboBoxTipo = new JComboBox<>(new String[] {"Alimento", "Artículo"});
         comboBoxTipo.setModel(new DefaultComboBoxModel(new String[] {"Alimento", "Artículo"}));
         comboBoxTipo.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        comboBoxTipo.setBounds(182, 140, 150, 30);
+        comboBoxTipo.setBounds(182, 100, 150, 30);
         getContentPane().add(comboBoxTipo);
         
         JLabel lblDescripcionProd = new JLabel("Descripción:");
         lblDescripcionProd.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblDescripcionProd.setBounds(10, 180, 145, 30);
+        lblDescripcionProd.setBounds(10, 140, 145, 30);
         getContentPane().add(lblDescripcionProd);
         
         textAreaDesc = new JTextArea();
-        textAreaDesc.setBounds(182, 180, 312, 90);
+        textAreaDesc.setBounds(182, 140, 312, 90);
         textAreaDesc.setFont(new Font("Tahoma", Font.PLAIN, 18));
         getContentPane().add(textAreaDesc);
         
         lblCantElem = new JLabel("Elementos:");
-        lblCantElem.setBounds(10, 360, 162, 14);
+        lblCantElem.setBounds(10, 320, 162, 14);
         //lblCantElem.setBounds(10, 280, 162, 14);
         lblCantElem.setFont(new Font("Tahoma", Font.PLAIN, 18));
         getContentPane().add(lblCantElem);
@@ -111,28 +99,27 @@ public class AltaDonacion extends JInternalFrame {
         spinnerCantElem = new JSpinner();
         spinnerCantElem.setFont(new Font("Tahoma", Font.PLAIN, 18));
         spinnerCantElem.setModel(new SpinnerNumberModel(Integer.valueOf(1), null, null, Integer.valueOf(1)));
-        spinnerCantElem.setBounds(182, 360, 30, 20);
-        //spinnerCantElem.setBounds(182, 280, 30, 20);
+        spinnerCantElem.setBounds(182, 320, 30, 20);
         getContentPane().add(spinnerCantElem);
         
-        lblPeso = new JLabel("Peso:");
-        lblPeso.setBounds(10, 280, 162, 14);
+        lblPeso = new JLabel("Peso (KG):");
+        lblPeso.setBounds(10, 240, 162, 14);
         lblPeso.setFont(new Font("Tahoma", Font.PLAIN, 18));
         getContentPane().add(lblPeso);
         
-        textPeso = new JTextField();
-        textPeso.setBounds(182, 280, 130, 20);
-        textPeso.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        getContentPane().add(textPeso);
-        textPeso.setColumns(10);
+        spinnerPeso = new JSpinner();
+        spinnerPeso.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        spinnerPeso.setModel(new SpinnerNumberModel(Float.valueOf((float) 0.1), null, null, Float.valueOf((float) 0.1)));
+        spinnerPeso.setBounds(182, 240, 60, 20);
+        getContentPane().add(spinnerPeso);
         
         lblDimensiones = new JLabel("Dimensiones:");
-        lblDimensiones.setBounds(10, 320, 145, 14);
+        lblDimensiones.setBounds(10, 280, 145, 14);
         lblDimensiones.setFont(new Font("Tahoma", Font.PLAIN, 18));
         getContentPane().add(lblDimensiones);
         
         textDimensiones = new JTextField();
-        textDimensiones.setBounds(182, 320, 86, 20);
+        textDimensiones.setBounds(182, 280, 86, 20);
         textDimensiones.setFont(new Font("Tahoma", Font.PLAIN, 18));
         getContentPane().add(textDimensiones);
         textDimensiones.setColumns(10);
@@ -149,6 +136,12 @@ public class AltaDonacion extends JInternalFrame {
         getContentPane().add(btnAgregar);
         
         btnCancelar = new JButton("Cancelar");
+        btnCancelar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		altaDonacionCancelarActionPerformed(arg0);
+        		
+        	}
+        });
         btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
         btnCancelar.setBounds(315, 413, 117, 30);
         getContentPane().add(btnCancelar);
@@ -178,14 +171,14 @@ public class AltaDonacion extends JInternalFrame {
         spinnerCantElem.setVisible(esAlimento);
         
         lblPeso.setVisible(!esAlimento);
-        textPeso.setVisible(!esAlimento);
+        spinnerPeso.setVisible(!esAlimento);
         
         lblDimensiones.setVisible(!esAlimento);
         textDimensiones.setVisible(!esAlimento);
         
         if(esAlimento) {
-        	spinnerCantElem.setBounds(182, 280, 30, 20);
-        	lblCantElem.setBounds(10, 280, 162, 14);
+        	spinnerCantElem.setBounds(182, 240, 30, 20);
+        	lblCantElem.setBounds(10, 240, 162, 14);
         }    
                 
         
@@ -220,7 +213,7 @@ protected void altaDonacionAceptarActionPerformed(ActionEvent arg0) {
 		dt = new DtAlimento(0,selectedDate,descripcion,elementos);		
 	} else {
 		//try {
-			float peso = Float.parseFloat(this.textPeso.getText());
+			float peso = (float) this.spinnerPeso.getValue();
 		//} catch (NumberFormatException e) {
 	        // Manejo de errores si la cadena no es un número flotante válido
 	     //   System.out.println("La cadena no es un número flotante válido.");
@@ -239,7 +232,8 @@ protected void altaDonacionAceptarActionPerformed(ActionEvent arg0) {
 private void limpiarFormulario() {
 	textAreaDesc.setText("");
 	dateChooser.setCalendar(null);
-    textPeso.setText("");
+    //textPeso.setText("");
+	spinnerPeso.setValue(0.0);
     spinnerCantElem.setValue(1);
     textDimensiones.setText("");    
 }

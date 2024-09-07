@@ -8,6 +8,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import com.ayudamos.datatypes.DtBeneficiario;
+import com.ayudamos.datatypes.DtDistribucion;
+import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.datatypes.DtRepartidor;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
@@ -133,6 +135,11 @@ public class Controlador implements IControlador {
 		
 			mU.modificarUsuario(usuarioAModificar);
 		}
+	}
+	
+	public ArrayList<DtDistribucion> listarDistribucionPorZona(DtFecha fechaInicio, DtFecha fechaFin){
+		//Llamar manejador
+		return null;
 	}
 	
 }

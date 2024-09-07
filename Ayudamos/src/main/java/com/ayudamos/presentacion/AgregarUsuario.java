@@ -105,6 +105,10 @@ public class AgregarUsuario extends JInternalFrame {
         getContentPane().add(lblFechaNacimiento);
 
         dateChooser = new JDateChooser();
+        dateChooser.getCalendarButton().addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        	}
+        });
         dateChooser.setBounds(182, 180, 212, 30);
         getContentPane().add(dateChooser);
 

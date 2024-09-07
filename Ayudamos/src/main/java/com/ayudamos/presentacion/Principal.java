@@ -26,6 +26,7 @@ public class Principal {
 	private ListarBeneficiariosZona listarBeneficiariosZonaInternalFrame;
 	private ListarBeneficiariosEstado listarBeneficiariosEstadoInternalFrame;
 	private ModificarUsuario modificarUsuarioFrame;
+	private ReporteDeZona reporteDeZonaFrame;
 
 	/**
 	 * Launch the application.
@@ -87,7 +88,11 @@ public class Principal {
 		modificarUsuarioFrame.setVisible(false);
 		frame.getContentPane().add(modificarUsuarioFrame);
 		
-		
+		reporteDeZonaFrame = new ReporteDeZona(icon);
+		jInternalFrameSize = reporteDeZonaFrame.getSize();
+		reporteDeZonaFrame.setLocation(x, y);
+		reporteDeZonaFrame.setVisible(false);
+		frame.getContentPane().add(reporteDeZonaFrame);
 		
 		
 	}
@@ -97,7 +102,7 @@ public class Principal {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 703, 619);
+		frame.setBounds(100, 100, 703, 670);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -114,7 +119,7 @@ public class Principal {
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
 				modificarUsuarioFrame.setVisible(false);
-				
+				reporteDeZonaFrame.setVisible(false);
 			}
 		});
 		mnAltas.add(mntmUsuario);
@@ -131,7 +136,7 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
-				
+				reporteDeZonaFrame.setVisible(false);
 			}
 		});
 		mnModificaciones.add(mntmModUsuario);
@@ -149,6 +154,7 @@ public class Principal {
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
 				modificarUsuarioFrame.setVisible(false);
+				reporteDeZonaFrame.setVisible(false);
 			}
 		});
 		mnListar.add(mntmBeneficiario);
@@ -161,7 +167,7 @@ public class Principal {
 				agregarUsuarioInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
 				modificarUsuarioFrame.setVisible(false);
-				
+				reporteDeZonaFrame.setVisible(false);
 			}
 		});
 		mnListar.add(mntmBeneficiarioZona);
@@ -174,9 +180,23 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(false);
 				agregarUsuarioInternalFrame.setVisible(false);
 				modificarUsuarioFrame.setVisible(false);
+				reporteDeZonaFrame.setVisible(false);
 			}
 		});
 		mnListar.add(mntmBeneficiarioEstado);
+		
+		JMenuItem mntmReporteDeZona = new JMenuItem("Reporte de Zonas con Mayor Distribuciones");
+		mntmReporteDeZona.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				reporteDeZonaFrame.setVisible(true);
+				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				listarBeneficiariosZonaInternalFrame.setVisible(false);
+				listarBeneficiariosInternalFrame.setVisible(false);
+				agregarUsuarioInternalFrame.setVisible(false);
+				modificarUsuarioFrame.setVisible(false);
+			}
+		});
+		mnListar.add(mntmReporteDeZona);
 		frame.getContentPane().setLayout(null);
 	}
 }

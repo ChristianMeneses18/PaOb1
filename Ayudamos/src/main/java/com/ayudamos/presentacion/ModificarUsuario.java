@@ -51,25 +51,7 @@ public class ModificarUsuario extends JInternalFrame {
 	private JTextField txtEmail;
 	private String emailSeleccionado;
 
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ModificarUsuario frame = new ModificarUsuario();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	*/
-	/**
-	 * Create the frame.
-	 */
+	
 	public ModificarUsuario(IControlador icon) {
 		this.icon = icon;
 		setBounds(100, 100, 583, 514);

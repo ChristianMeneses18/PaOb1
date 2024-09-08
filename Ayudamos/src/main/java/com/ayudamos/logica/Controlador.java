@@ -15,6 +15,7 @@ import com.ayudamos.datatypes.DtRepartidor;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 import com.ayudamos.interfaces.IControlador;
 import com.ayudamos.logica.ManejadorUsuario;
+import com.ayudamos.logica.ManejadorDistribucion;
 
 public class Controlador implements IControlador {
 	private static EntityManager em;
@@ -122,6 +123,7 @@ public class Controlador implements IControlador {
 		
 	}
 	
+	@Override
 	public void modificarUsuario(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion {
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
 		Usuario usuarioViejo = mU.buscarUsuarioPorEmail(usuario.getEmail());
@@ -137,9 +139,10 @@ public class Controlador implements IControlador {
 		}
 	}
 	
-	public ArrayList<DtDistribucion> listarDistribucionPorZona(DtFecha fechaInicio, DtFecha fechaFin){
-		//Llamar manejador
-		return null;
+	@Override
+	public ArrayList<Object[]> listarDistribucionPorZona(DtFecha fechaInicio, DtFecha fechaFin){
+		ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();
+		return mD.obtenerDistribucionesPorZona(fechaInicio, fechaFin);
 	}
-	
+
 }

@@ -38,7 +38,7 @@ public class ReporteDeZona extends JInternalFrame {
 	private JScrollPane scrollPane;
 	private JTable tablaDistribuciones;
 	private DefaultTableModel model;
-	private ArrayList<DtDistribucion> lista;
+	private ArrayList<Object[]> lista;
 	private JButton btnListar;
 	
 	/**
@@ -100,8 +100,8 @@ public class ReporteDeZona extends JInternalFrame {
 		tablaDistribuciones.setModel(model);
 		
 		model.addColumn("Zona");
-		model.addColumn("2");
-		model.addColumn("3");
+		model.addColumn("Cantidad de Distribuciones");
+		//model.addColumn("Cantidad de Beneficiarios");
 		
 		scrollPane.setViewportView(tablaDistribuciones);
 		
@@ -140,17 +140,15 @@ public class ReporteDeZona extends JInternalFrame {
 				if (lista.isEmpty()) {
 					JOptionPane.showMessageDialog(ReporteDeZona.this, "No existen distribucion en la fecha seleccionada", "Reporte de Zonas", JOptionPane.INFORMATION_MESSAGE);
 				}else {
-					for (DtDistribucion u : lista) {
+					for (Object[] d : lista) {
+						String barrio = (String) d[0];
+						int numDistribuciones = (int) d[1];
+
 						Object[] fila = new Object[2];
-						
-						//Ver como filtrar por zonas las distribuciones
-						
-						//fila[0] = u.get();
-						//fila[1] = u.get();
-						//fila[2] = u.get();
-							
+						fila[0] = barrio;
+						fila[1] = numDistribuciones;
+
 						model.addRow(fila);
-						
 					}
 				}
 			}

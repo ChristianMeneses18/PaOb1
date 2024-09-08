@@ -23,6 +23,6 @@ public interface IControlador {
 	
 	public void modificarUsuario(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion;
 	
-	public ArrayList<DtDistribucion> listarDistribucionPorZona(DtFecha fechaInicio, DtFecha fechaFin);
+	public ArrayList<Object[]> listarDistribucionPorZona(DtFecha fechaInicio, DtFecha fechaFin);
 
 }

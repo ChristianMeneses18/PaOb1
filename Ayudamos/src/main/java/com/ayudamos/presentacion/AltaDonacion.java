@@ -15,9 +15,7 @@ import javax.swing.SwingConstants;
 import com.ayudamos.datatypes.DtAlimento;
 import com.ayudamos.datatypes.DtArticulo;
 import com.ayudamos.datatypes.DtDonacion;
-import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.interfaces.IControlador;
-import com.toedter.calendar.JDateChooser;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -35,7 +33,6 @@ public class AltaDonacion extends JInternalFrame {
 	private JSpinner spinnerCantElem;	
 	private JSpinner spinnerPeso;
 	private JComboBox<String> comboBoxTipo;
-	private JDateChooser dateChooser;
 	
 	private JLabel lblCantElem;
 	private JLabel lblPeso;
@@ -58,16 +55,6 @@ public class AltaDonacion extends JInternalFrame {
         lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
         lblTitulo.setBounds(0, 10, 567, 40);
         getContentPane().add(lblTitulo);     
-       
-        
-        JLabel lblFechaIng = new JLabel("Fecha Ingreso:");
-        lblFechaIng.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblFechaIng.setBounds(10, 60, 162, 30);
-        getContentPane().add(lblFechaIng);
-        
-        dateChooser = new JDateChooser();
-        dateChooser.setBounds(182, 61, 145, 30);
-        getContentPane().add(dateChooser);
         
         JLabel lblTipoDonacion = new JLabel("Tipo de Donación:");
         lblTipoDonacion.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -92,14 +79,13 @@ public class AltaDonacion extends JInternalFrame {
         
         lblCantElem = new JLabel("Elementos:");
         lblCantElem.setBounds(10, 320, 162, 14);
-        //lblCantElem.setBounds(10, 280, 162, 14);
         lblCantElem.setFont(new Font("Tahoma", Font.PLAIN, 18));
         getContentPane().add(lblCantElem);
         
         spinnerCantElem = new JSpinner();
         spinnerCantElem.setFont(new Font("Tahoma", Font.PLAIN, 18));
         spinnerCantElem.setModel(new SpinnerNumberModel(Integer.valueOf(1), null, null, Integer.valueOf(1)));
-        spinnerCantElem.setBounds(182, 320, 30, 20);
+        spinnerCantElem.setBounds(182, 320, 60, 20);
         getContentPane().add(spinnerCantElem);
         
         lblPeso = new JLabel("Peso (KG):");
@@ -147,9 +133,7 @@ public class AltaDonacion extends JInternalFrame {
         getContentPane().add(btnCancelar);
         
         
-        
-        
-        
+     
         
         
      // Add action listener to JComboBox to handle visibility changes
@@ -177,11 +161,11 @@ public class AltaDonacion extends JInternalFrame {
         textDimensiones.setVisible(!esAlimento);
         
         if(esAlimento) {
-        	spinnerCantElem.setBounds(182, 240, 30, 20);
+        	spinnerCantElem.setBounds(182, 240, 60, 20);
         	lblCantElem.setBounds(10, 240, 162, 14);
         }    
                 
-        
+        limpiarFormulario();
         revalidate();
         repaint();
 }
@@ -194,32 +178,19 @@ protected void altaDonacionCancelarActionPerformed(ActionEvent arg0) {
 protected void altaDonacionAceptarActionPerformed(ActionEvent arg0) {
 	
 	DtDonacion dt = null;
-	Date selectedDate;
+	Date fechaActual;
 	Calendar calendar;
-	int dia, mes, anio;	
 	String descripcion = this.textAreaDesc.getText();
-	selectedDate = dateChooser.getDate();
 	calendar = Calendar.getInstance();
-	calendar.setTime(selectedDate);	
-	dia = calendar.get(Calendar.DAY_OF_MONTH);
-	mes = calendar.get(Calendar.MONTH) + 1;
-	anio = calendar.get(Calendar.YEAR);
-	
-
-	
+	fechaActual = calendar.getTime();	
 	
 	if(comboBoxTipo.getSelectedItem().toString().equals("Alimento")) {
 		Integer elementos = (Integer) this.spinnerCantElem.getValue();
-		dt = new DtAlimento(0,selectedDate,descripcion,elementos);		
-	} else {
-		//try {
-			float peso = (float) this.spinnerPeso.getValue();
-		//} catch (NumberFormatException e) {
-	        // Manejo de errores si la cadena no es un número flotante válido
-	     //   System.out.println("La cadena no es un número flotante válido.");
-	    //}	
+		dt = new DtAlimento(0,fechaActual,descripcion,elementos);		
+	} else {		
+		float peso = (float) this.spinnerPeso.getValue();			
 		String dimensiones = this.textDimensiones.getText();
-		dt = new DtArticulo(0,selectedDate,descripcion,peso,dimensiones);
+		dt = new DtArticulo(0,fechaActual,descripcion,peso,dimensiones);
 	}
 	
 	this.icon.altaDonacion(dt);
@@ -231,8 +202,6 @@ protected void altaDonacionAceptarActionPerformed(ActionEvent arg0) {
 
 private void limpiarFormulario() {
 	textAreaDesc.setText("");
-	dateChooser.setCalendar(null);
-    //textPeso.setText("");
 	spinnerPeso.setValue(0.0);
     spinnerCantElem.setValue(1);
     textDimensiones.setText("");    

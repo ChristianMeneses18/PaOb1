@@ -61,6 +61,10 @@ public class Controlador implements IControlador {
 		}
 		nuevaDonacion.setFechaIngresada(donacion.getFechaIngresada());
 		mD.altaDonacion(nuevaDonacion);
+		
+		
+		return aRetornar;
+		
 		 
 	}
 

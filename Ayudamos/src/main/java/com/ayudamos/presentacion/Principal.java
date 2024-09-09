@@ -27,6 +27,7 @@ public class Principal {
 	private ListarBeneficiariosEstado listarBeneficiariosEstadoInternalFrame;
 	private ModificarUsuario modificarUsuarioFrame;
 	private AltaDonacion altaDonacionInternalFrame;
+	private ModificarDonacion modificarDonacionInternalFrame;
 
 	/**
 	 * Launch the application.
@@ -93,6 +94,12 @@ public class Principal {
 		modificarUsuarioFrame.setVisible(false);
 		frame.getContentPane().add(modificarUsuarioFrame);
 		
+		modificarDonacionInternalFrame = new ModificarDonacion(icon);
+		jInternalFrameSize = modificarDonacionInternalFrame.getSize();
+		modificarDonacionInternalFrame.setLocation(x, y);
+		modificarDonacionInternalFrame.setVisible(false);
+		frame.getContentPane().add(modificarDonacionInternalFrame);
+		
 		
 		
 		
@@ -120,6 +127,8 @@ public class Principal {
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
 				modificarUsuarioFrame.setVisible(false);
+				modificarDonacionInternalFrame.setVisible(false);
+				altaDonacionInternalFrame.setVisible(false);
 				
 			}
 		});
@@ -129,6 +138,12 @@ public class Principal {
 		mntmDonacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				altaDonacionInternalFrame.setVisible(true);
+				modificarUsuarioFrame.setVisible(false);
+				agregarUsuarioInternalFrame.setVisible(false);
+				listarBeneficiariosInternalFrame.setVisible(false);
+				listarBeneficiariosZonaInternalFrame.setVisible(false);
+				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				modificarDonacionInternalFrame.setVisible(false);
 			}
 		});
 		mnAltas.add(mntmDonacion);
@@ -144,10 +159,27 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				modificarDonacionInternalFrame.setVisible(false);
+				altaDonacionInternalFrame.setVisible(false);
 				
 			}
 		});
 		mnModificaciones.add(mntmModUsuario);
+		
+		JMenuItem mntmModDonacion = new JMenuItem("Modificar Donación");
+		mntmModDonacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modificarDonacionInternalFrame.setVisible(true);
+				modificarUsuarioFrame.setVisible(false);
+				agregarUsuarioInternalFrame.setVisible(false);
+				listarBeneficiariosInternalFrame.setVisible(false);
+				listarBeneficiariosZonaInternalFrame.setVisible(false);
+				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				altaDonacionInternalFrame.setVisible(false);
+				
+			}
+		});
+		mnModificaciones.add(mntmModDonacion);
 		
 		
 		JMenu mnListar = new JMenu("Listar");
@@ -161,6 +193,8 @@ public class Principal {
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
 				modificarUsuarioFrame.setVisible(false);
+				modificarDonacionInternalFrame.setVisible(false);
+				altaDonacionInternalFrame.setVisible(false);
 			}
 		});
 		mnListar.add(mntmBeneficiario);
@@ -173,6 +207,8 @@ public class Principal {
 				agregarUsuarioInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
 				modificarUsuarioFrame.setVisible(false);
+				modificarDonacionInternalFrame.setVisible(false);
+				altaDonacionInternalFrame.setVisible(false);
 				
 			}
 		});
@@ -186,6 +222,8 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(false);
 				agregarUsuarioInternalFrame.setVisible(false);
 				modificarUsuarioFrame.setVisible(false);
+				modificarDonacionInternalFrame.setVisible(false);
+				altaDonacionInternalFrame.setVisible(false);
 			}
 		});
 		mnListar.add(mntmBeneficiarioEstado);

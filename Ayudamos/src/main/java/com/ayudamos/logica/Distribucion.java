@@ -34,6 +34,7 @@ public class Distribucion {
     @JoinColumn(name = "beneficiario_id", insertable=false, updatable=false)
     private Beneficiario beneficiario;
 	
+	//@Id
     @Convert(converter = com.ayudamos.datatypes.DtFechaHoraConverter.class)
     @Column(name = "fecha_preparacion")
 	private	DtFechaHora fechaPreparacion;

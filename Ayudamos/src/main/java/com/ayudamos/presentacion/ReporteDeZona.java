@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,6 +23,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.ayudamos.datatypes.DtDistribucion;
 import com.ayudamos.datatypes.DtFecha;
+import com.ayudamos.enums.Barrio;
 import com.ayudamos.interfaces.IControlador;
 import com.toedter.calendar.JDateChooser;
 
@@ -40,6 +42,7 @@ public class ReporteDeZona extends JInternalFrame {
 	private DefaultTableModel model;
 	private ArrayList<Object[]> lista;
 	private JButton btnListar;
+	private JButton btnCancelar;
 	
 	/**
 	 * Create the frame.
@@ -90,7 +93,7 @@ public class ReporteDeZona extends JInternalFrame {
         
         
         scrollPane = new JScrollPane();
-		scrollPane.setBounds(30, 181, 515, 292);
+		scrollPane.setBounds(30, 181, 515, 244);
 		getContentPane().add(scrollPane);
 		
 		tablaDistribuciones = new JTable();
@@ -101,7 +104,7 @@ public class ReporteDeZona extends JInternalFrame {
 		
 		model.addColumn("Zona");
 		model.addColumn("Cantidad de Distribuciones");
-		//model.addColumn("Cantidad de Beneficiarios");
+		model.addColumn("Cantidad de Beneficiarios");
 		
 		scrollPane.setViewportView(tablaDistribuciones);
 		
@@ -141,12 +144,14 @@ public class ReporteDeZona extends JInternalFrame {
 					JOptionPane.showMessageDialog(ReporteDeZona.this, "No existen distribucion en la fecha seleccionada", "Reporte de Zonas", JOptionPane.INFORMATION_MESSAGE);
 				}else {
 					for (Object[] d : lista) {
-						String barrio = (String) d[0];
-						int numDistribuciones = (int) d[1];
+						int barrio = (int) d[0];
+						int numDistribuciones = ((BigInteger) d[1]).intValue();
+						int numBeneficiarios = ((BigInteger) d[2]).intValue();
 
-						Object[] fila = new Object[2];
-						fila[0] = barrio;
+						Object[] fila = new Object[3];
+						fila[0] = barrioAString(barrio);
 						fila[1] = numDistribuciones;
+						fila[2] = numBeneficiarios;
 
 						model.addRow(fila);
 					}
@@ -155,6 +160,42 @@ public class ReporteDeZona extends JInternalFrame {
 		});
 		btnListar.setBounds(456, 132, 89, 47);
 		getContentPane().add(btnListar);
+		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				limpiar();
+				setVisible(false);
+			}
+		});
+		btnCancelar.setBounds(10, 436, 107, 39);
+		getContentPane().add(btnCancelar);
+
+	}
+	
+	private String barrioAString(int barrio) {
+		String rt = "";
+		
+		if(barrio == 0) {
+			rt = "CIUDAD_VIEJA";
+		}else if (barrio == 1) {
+			rt = "CORDON";
+		}else if (barrio == 2) {
+			rt = "PARQUE_RODO";
+		}else if (barrio == 3) {
+			rt = "CENTRO";
+		}else if (barrio == 4) {
+			rt = "PALERMO";
+		}
+		
+		return rt;
+	}
+	
+	private void limpiar() {
+		dateChooserInicio.setCalendar(null);
+		dateChooserFin.setCalendar(null);
+        model.setRowCount(0);
+
 	}
 
 }

@@ -139,6 +139,46 @@ public class Controlador implements IControlador {
 		
 	}
 	
+	@Override
+	public ArrayList<DtAlimento> listarAlimentos() {
+		
+		ManejadorDonacion mD = ManejadorDonacion.getInstancia();
+        
+		ArrayList<DtAlimento> aRetornar = new ArrayList<>();
+		List<Alimento> alimentos = mD.obtenerAlimento();
+		for (Alimento al : alimentos) {
+			DtAlimento dtAl= new DtAlimento(al.getId(), al.getFechaIngresada(), al.getDescripcionProductos(), al.getCantElemntos());
+			aRetornar.add(dtAl);
+			
+		}
+		
+		
+		return aRetornar;
+		
+		 
+	}
+	
+	@Override
+	public ArrayList<DtArticulo> listarArticulos() {
+		
+		ManejadorDonacion mD = ManejadorDonacion.getInstancia();
+        
+		ArrayList<DtArticulo> aRetornar = new ArrayList<>();
+		List<Articulo> articulos = mD.obtenerArticulo();
+		for (Articulo ar : articulos) {
+			DtArticulo dtAr= new DtArticulo(ar.getId(), ar.getFechaIngresada(), ar.getDescripcion(), ar.getPeso(), ar.getDimensiones());
+			aRetornar.add(dtAr);
+			
+		}
+		
+		
+		return aRetornar;
+		
+		 
+	}
+	
+	
+	
 	public void modificarUsuario(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion {
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
 		Usuario usuarioViejo = mU.buscarUsuarioPorEmail(usuario.getEmail());

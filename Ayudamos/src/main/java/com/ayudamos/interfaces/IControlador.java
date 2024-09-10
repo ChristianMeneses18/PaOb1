@@ -3,6 +3,8 @@ package com.ayudamos.interfaces;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.ayudamos.datatypes.DtAlimento;
+import com.ayudamos.datatypes.DtArticulo;
 import com.ayudamos.datatypes.DtBeneficiario;
 import com.ayudamos.datatypes.DtDonacion;
 import com.ayudamos.datatypes.DtUsuario;
@@ -21,6 +23,10 @@ public interface IControlador {
 	public ArrayList<DtBeneficiario> listarBeneficiariosEstado(String estado);
 	
 	public ArrayList<DtUsuario> listarUsuarios();
+	
+	public ArrayList<DtAlimento> listarAlimentos();
+	
+	public ArrayList<DtArticulo> listarArticulos();
 	
 	public void modificarUsuario(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion;
 

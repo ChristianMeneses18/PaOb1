@@ -48,4 +48,22 @@ public class ManejadorDonacion {
 
 		return new ArrayList<>(articulos);
 	}
+	
+	
+	public Donacion buscarDonacion(int id) {
+		Conexion conexion = Conexion.getInstancia();
+		EntityManager em = conexion.getEntityManager();
+		
+		Donacion donacion = em.find(Donacion.class, id);
+		return donacion;
+	}
+	public void modificarDonacion(Donacion donacion) {
+	    Conexion conexion = Conexion.getInstancia();
+	    EntityManager em = conexion.getEntityManager();
+	    em.getTransaction().begin();
+	    
+	    em.merge(donacion);
+	    
+	    em.getTransaction().commit();
+	}
 }

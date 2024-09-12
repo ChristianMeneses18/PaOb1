@@ -7,17 +7,24 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 
 import com.ayudamos.datatypes.DtAlimento;
 import com.ayudamos.datatypes.DtArticulo;
 import com.ayudamos.datatypes.DtUsuario;
+import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 import com.ayudamos.interfaces.IControlador;
 
 public class ModificarDonacion extends JInternalFrame {
@@ -33,6 +40,19 @@ public class ModificarDonacion extends JInternalFrame {
 	private JScrollPane scrollPaneArticulos;
 	ArrayList<DtAlimento> listaAlimentos;
 	ArrayList<DtArticulo> listaArticulos;
+	private int selectedRow = -1;
+	private JButton btnSeleccionar;
+	private JButton btnModificar;
+	private JButton btnAtras;
+	private JLabel lblId;
+	private JLabel lblFecha;
+	private JLabel lblDescripcion;
+	private JLabel lblCantElem;
+	
+	private JTextField txtId;
+	private JTextField txtFecha;
+	private JTextArea txtAreaDesc;
+	private JSpinner spinnerCantElem;
 	
 	public ModificarDonacion(IControlador icon) {
 		this.icon = icon;
@@ -64,6 +84,62 @@ public class ModificarDonacion extends JInternalFrame {
         comboBoxTipo.setBounds(182, 100, 150, 30);
         comboBoxTipo.setSelectedItem("Alimentos");
         getContentPane().add(comboBoxTipo);
+        
+        //label y text ocultos
+        
+        lblId = new JLabel("Id: ");
+        lblId.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblId.setBounds(20, 126, 100, 30);
+		getContentPane().add(lblId);
+		lblId.setVisible(false);
+		
+		lblFecha = new JLabel("Fecha ingreso: ");
+		lblFecha.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblFecha.setBounds(20, 156, 100, 30);
+		getContentPane().add(lblFecha);
+		lblFecha.setVisible(false);
+		
+		lblDescripcion = new JLabel("Descripcion: ");
+		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblDescripcion.setBounds(20, 186, 100, 30);
+		getContentPane().add(lblDescripcion);
+		lblDescripcion.setVisible(false);
+		
+		lblCantElem = new JLabel("Elementos: ");
+		lblCantElem.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCantElem.setBounds(20, 216, 100, 30);
+		getContentPane().add(lblCantElem);
+		lblCantElem.setVisible(false);
+		
+		
+		
+		txtId = new JTextField();
+		txtId.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtId.setBounds(155, 126, 350, 30);
+        getContentPane().add(txtId);
+        txtId.setColumns(10);
+        txtId.setVisible(false);
+        
+        txtFecha = new JTextField();
+        txtFecha.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        txtFecha.setColumns(10);
+        txtFecha.setBounds(155, 156, 350, 30);
+		getContentPane().add(txtFecha);
+		txtFecha.setVisible(false);
+		
+		txtAreaDesc = new JTextArea();
+		txtAreaDesc.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtAreaDesc.setColumns(10);
+		txtAreaDesc.setBounds(155, 186, 350, 30);
+		getContentPane().add(txtAreaDesc);
+		txtAreaDesc.setVisible(false);
+        
+		spinnerCantElem = new JSpinner();
+        spinnerCantElem.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        spinnerCantElem.setModel(new SpinnerNumberModel(Integer.valueOf(1), null, null, Integer.valueOf(1)));
+        spinnerCantElem.setBounds(182, 216, 60, 20);
+        getContentPane().add(spinnerCantElem);
+        
         
         //tabla alimentos
      // Modificar tabla alimentos
@@ -117,9 +193,117 @@ public class ModificarDonacion extends JInternalFrame {
 	        }
 	    });
 	    
+		
+	btnSeleccionar = new JButton("Seleccionar");
+	btnSeleccionar.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			if(comboBoxTipo.getSelectedItem().toString().equals("Alimentos")) {
+				selectedRow = tablaAlimentos.getSelectedRow();
+				if (selectedRow != -1) {
+		        	String idSel = String.valueOf(modelAlimentos.getValueAt(selectedRow, 0));
+		        	String fechaSel = (String) modelAlimentos.getValueAt(selectedRow, 1);
+		        	String descripcionProdSel = (String) modelAlimentos.getValueAt(selectedRow, 2);
+					int cantElemSel = (int)modelAlimentos.getValueAt(selectedRow, 3);
+					
+					
+					txtId.setText(idSel);
+					txtFecha.setText(fechaSel);
+					txtAreaDesc.setText(descripcionProdSel);
+					spinnerCantElem.setValue(cantElemSel);
+					
+					lblTipoDonacion.setVisible(false);
+					btnSeleccionar.setVisible(false);
+					scrollPane.setVisible(false);					
+					comboBoxTipo.setVisible(false);
+					
+					txtId.setVisible(true);					
+					txtFecha.setVisible(true);
+					txtAreaDesc.setVisible(true);
+					spinnerCantElem.setVisible(true);
+					txtId.setEditable(false);
+					txtFecha.setEditable(false);
+					
+					lblId.setVisible(true);
+					lblFecha.setVisible(true);
+					lblDescripcion.setVisible(true);
+					lblCantElem.setVisible(true);
+					
+					btnModificar.setVisible(true);
+					btnAtras.setVisible(true);
+					
+					
+		            
+				} else {
+		            JOptionPane.showMessageDialog(null, "Por favor, selecciona una donacion de la tabla.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+		        }
+				
+				
+			} /*else {
+				selectedRow = tablaArticulos.getSelectedRow();
+				
+				if (selectedRow!= -1) {
+					String idSel = (String) modelAlimentos.getValueAt(selectedRow, 0);
+					String fechaSel = (String) modelAlimentos.getValueAt(selectedRow, 1);
+		        	String descripcionSel = (String) modelAlimentos.getValueAt(selectedRow, 2);
+		        	String elemSel = (String) modelAlimentos.getValueAt(selectedRow, 3);
+		        	String pesoSel = (String) modelAlimentos.getValueAt(selectedRow, 4);
+				} else {
+		            JOptionPane.showMessageDialog(null, "Por favor, selecciona una donacion de la tabla.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+		        }
+			} */
+			
+	        
+			
 		}
+	});
+	btnSeleccionar.setBounds(450, 434, 107, 39);
+	getContentPane().add(btnSeleccionar);
+	
+	btnModificar = new JButton("Modificar");
+	btnModificar.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent ev) {
+			if(comboBoxTipo.getSelectedItem().toString().equals("Alimentos")) {				
+				DtAlimento Dt = new DtAlimento(Integer.parseInt(txtId.getText()),null,txtAreaDesc.getText(),(Integer)spinnerCantElem.getValue());
+				icon.modificarAlimento(Dt);
+				JOptionPane.showMessageDialog(ModificarDonacion.this, "Donacion modificada con exito", "Modificar Donacion", JOptionPane.INFORMATION_MESSAGE);
+	            setVisible(false);
+			}
+		}
+			
+	});
 	
 	
+	btnModificar.setBounds(450, 434, 107, 39);
+	getContentPane().add(btnModificar);
+	btnModificar.setVisible(false);
+	
+	btnAtras = new JButton("Atras");
+	btnAtras.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			limpiarFormulario();
+			
+			btnSeleccionar.setVisible(true);
+			scrollPane.setVisible(true);					
+			comboBoxTipo.setVisible(true);
+			
+			txtId.setVisible(false);					
+			txtFecha.setVisible(false);
+			txtAreaDesc.setVisible(false);
+			spinnerCantElem.setVisible(false);
+			
+			lblId.setVisible(false);
+			lblFecha.setVisible(false);
+			lblDescripcion.setVisible(false);
+			lblCantElem.setVisible(false);
+			
+			btnModificar.setVisible(false);
+			btnAtras.setVisible(false);
+		}
+	});
+	btnAtras.setBounds(5, 434, 107, 39);
+	getContentPane().add(btnAtras);
+	btnAtras.setVisible(false);
+	}
 		private void cargarDatosAlimentos(){
 			modelAlimentos.setRowCount(0);
 			listaAlimentos = icon.listarAlimentos();
@@ -170,5 +354,10 @@ public class ModificarDonacion extends JInternalFrame {
 				}
 			}
 		}
-	
+		private void limpiarFormulario() {
+			txtId.setText("");
+			txtFecha.setText("");
+			txtAreaDesc.setText("");
+			spinnerCantElem.setValue(1);;    
+		}
 }

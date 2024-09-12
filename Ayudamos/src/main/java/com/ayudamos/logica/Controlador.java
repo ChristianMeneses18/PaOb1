@@ -194,4 +194,17 @@ public class Controlador implements IControlador {
 		}
 	}
 	
+	
+	public void modificarAlimento(DtAlimento alimento) {
+		ManejadorDonacion mD = ManejadorDonacion.getInstancia();
+		Alimento aliBuscado = (Alimento) mD.buscarDonacion(alimento.getId());
+		
+		aliBuscado.setDescripcionProductos(alimento.getDescripcionProductos());
+		aliBuscado.setCantElemntos(alimento.getCantElementos());
+		
+		mD.modificarDonacion(aliBuscado);
+		
+		
+	}
+	
 }

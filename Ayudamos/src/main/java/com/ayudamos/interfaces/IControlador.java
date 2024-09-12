@@ -30,4 +30,5 @@ public interface IControlador {
 	
 	public void modificarUsuario(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion;
 
+	public void modificarAlimento(DtAlimento alimento);
 }

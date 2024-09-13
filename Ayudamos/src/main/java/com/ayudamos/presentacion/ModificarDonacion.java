@@ -44,15 +44,20 @@ public class ModificarDonacion extends JInternalFrame {
 	private JButton btnSeleccionar;
 	private JButton btnModificar;
 	private JButton btnAtras;
+	private JButton btnCancelar;
 	private JLabel lblId;
 	private JLabel lblFecha;
 	private JLabel lblDescripcion;
 	private JLabel lblCantElem;
+	private JLabel lblDim;
+	private JLabel lblPeso;
 	
 	private JTextField txtId;
 	private JTextField txtFecha;
 	private JTextArea txtAreaDesc;
 	private JSpinner spinnerCantElem;
+	private JTextField txtDim;
+	private JSpinner spinnerPeso;
 	
 	public ModificarDonacion(IControlador icon) {
 		this.icon = icon;
@@ -87,31 +92,12 @@ public class ModificarDonacion extends JInternalFrame {
         
         //label y text ocultos
         
+        //ambos
         lblId = new JLabel("Id: ");
         lblId.setFont(new Font("Tahoma", Font.PLAIN, 18));
         lblId.setBounds(20, 126, 100, 30);
 		getContentPane().add(lblId);
 		lblId.setVisible(false);
-		
-		lblFecha = new JLabel("Fecha ingreso: ");
-		lblFecha.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblFecha.setBounds(20, 156, 100, 30);
-		getContentPane().add(lblFecha);
-		lblFecha.setVisible(false);
-		
-		lblDescripcion = new JLabel("Descripcion: ");
-		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblDescripcion.setBounds(20, 186, 100, 30);
-		getContentPane().add(lblDescripcion);
-		lblDescripcion.setVisible(false);
-		
-		lblCantElem = new JLabel("Elementos: ");
-		lblCantElem.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblCantElem.setBounds(20, 216, 100, 30);
-		getContentPane().add(lblCantElem);
-		lblCantElem.setVisible(false);
-		
-		
 		
 		txtId = new JTextField();
 		txtId.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -119,13 +105,25 @@ public class ModificarDonacion extends JInternalFrame {
         getContentPane().add(txtId);
         txtId.setColumns(10);
         txtId.setVisible(false);
-        
-        txtFecha = new JTextField();
+		
+		lblFecha = new JLabel("Fecha ingreso: ");
+		lblFecha.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblFecha.setBounds(20, 156, 100, 30);
+		getContentPane().add(lblFecha);
+		lblFecha.setVisible(false);
+		
+		txtFecha = new JTextField();
         txtFecha.setFont(new Font("Tahoma", Font.PLAIN, 18));
         txtFecha.setColumns(10);
         txtFecha.setBounds(155, 156, 350, 30);
 		getContentPane().add(txtFecha);
 		txtFecha.setVisible(false);
+		
+		lblDescripcion = new JLabel("Descripcion: ");
+		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblDescripcion.setBounds(20, 186, 100, 30);
+		getContentPane().add(lblDescripcion);
+		lblDescripcion.setVisible(false);
 		
 		txtAreaDesc = new JTextArea();
 		txtAreaDesc.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -133,12 +131,49 @@ public class ModificarDonacion extends JInternalFrame {
 		txtAreaDesc.setBounds(155, 186, 350, 30);
 		getContentPane().add(txtAreaDesc);
 		txtAreaDesc.setVisible(false);
-        
+		
+		//alimentos
+		lblCantElem = new JLabel("Elementos: ");
+		lblCantElem.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCantElem.setBounds(20, 216, 100, 30);
+		getContentPane().add(lblCantElem);
+		lblCantElem.setVisible(false);
+		
 		spinnerCantElem = new JSpinner();
         spinnerCantElem.setFont(new Font("Tahoma", Font.PLAIN, 18));
         spinnerCantElem.setModel(new SpinnerNumberModel(Integer.valueOf(1), null, null, Integer.valueOf(1)));
         spinnerCantElem.setBounds(182, 216, 60, 20);
         getContentPane().add(spinnerCantElem);
+        spinnerCantElem.setVisible(false);
+        
+		//articulos
+        
+        lblDim= new JLabel("Dimensiones: ");
+        lblDim.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblDim.setBounds(20, 216, 100, 30);
+		getContentPane().add(lblDim);
+		lblDim.setVisible(false);
+		
+		txtDim = new JTextField();
+		txtDim.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtDim.setBounds(155, 216, 350, 30);
+        getContentPane().add(txtDim);
+        txtDim.setColumns(10);
+        txtDim.setVisible(false);
+        
+        lblPeso = new JLabel("Peso: ");
+        lblPeso.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblPeso.setBounds(20, 246, 100, 30);
+		getContentPane().add(lblPeso);
+		lblPeso.setVisible(false);
+		
+		spinnerPeso = new JSpinner();
+		spinnerPeso.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		spinnerPeso.setModel(new SpinnerNumberModel(Float.valueOf((float) 0.1), null, null, Float.valueOf((float) 0.1)));
+		spinnerPeso.setBounds(182, 246, 60, 20);
+        getContentPane().add(spinnerPeso);
+        spinnerPeso.setVisible(false);
+        
         
         
         //tabla alimentos
@@ -238,19 +273,49 @@ public class ModificarDonacion extends JInternalFrame {
 		        }
 				
 				
-			} /*else {
+			} else {
+				//articulos
 				selectedRow = tablaArticulos.getSelectedRow();
 				
 				if (selectedRow!= -1) {
-					String idSel = (String) modelAlimentos.getValueAt(selectedRow, 0);
-					String fechaSel = (String) modelAlimentos.getValueAt(selectedRow, 1);
-		        	String descripcionSel = (String) modelAlimentos.getValueAt(selectedRow, 2);
-		        	String elemSel = (String) modelAlimentos.getValueAt(selectedRow, 3);
-		        	String pesoSel = (String) modelAlimentos.getValueAt(selectedRow, 4);
+					String idSel = String.valueOf(modelArticulos.getValueAt(selectedRow, 0));
+		        	String fechaSel = (String) modelArticulos.getValueAt(selectedRow, 1);
+		        	String descripcionSel = (String) modelArticulos.getValueAt(selectedRow, 2);
+		        	String dimSel = (String) modelArticulos.getValueAt(selectedRow, 3);
+		        	Float pesoSel = (Float) modelArticulos.getValueAt(selectedRow, 4);
+		        	
+		        	txtId.setText(idSel);
+					txtFecha.setText(fechaSel);
+					txtAreaDesc.setText(descripcionSel);
+					txtDim.setText(dimSel);
+					spinnerPeso.setValue(pesoSel);
+					
+					lblTipoDonacion.setVisible(false);
+					btnSeleccionar.setVisible(false);
+					scrollPane.setVisible(false);					
+					comboBoxTipo.setVisible(false);
+					
+					txtId.setVisible(true);					
+					txtFecha.setVisible(true);
+					txtAreaDesc.setVisible(true);
+					txtDim.setVisible(true);
+					spinnerPeso.setVisible(true);
+					txtId.setEditable(false);
+					txtFecha.setEditable(false);
+					
+					lblId.setVisible(true);
+					lblFecha.setVisible(true);
+					lblDescripcion.setVisible(true);
+					lblDim.setVisible(true);
+					lblPeso.setVisible(true);
+					
+					
+					btnModificar.setVisible(true);
+					btnAtras.setVisible(true);
 				} else {
 		            JOptionPane.showMessageDialog(null, "Por favor, selecciona una donacion de la tabla.", "Advertencia", JOptionPane.WARNING_MESSAGE);
 		        }
-			} */
+			} 
 			
 	        
 			
@@ -265,9 +330,13 @@ public class ModificarDonacion extends JInternalFrame {
 			if(comboBoxTipo.getSelectedItem().toString().equals("Alimentos")) {				
 				DtAlimento Dt = new DtAlimento(Integer.parseInt(txtId.getText()),null,txtAreaDesc.getText(),(Integer)spinnerCantElem.getValue());
 				icon.modificarAlimento(Dt);
-				JOptionPane.showMessageDialog(ModificarDonacion.this, "Donacion modificada con exito", "Modificar Donacion", JOptionPane.INFORMATION_MESSAGE);
-	            setVisible(false);
+			} else {
+				DtArticulo Dt = new DtArticulo(Integer.parseInt(txtId.getText()),null,txtAreaDesc.getText(),(Float)spinnerPeso.getValue(),txtDim.getText());
+				icon.modificarArticulo(Dt);
+				
 			}
+			JOptionPane.showMessageDialog(ModificarDonacion.this, "Donacion modificada con exito", "Modificar Donacion", JOptionPane.INFORMATION_MESSAGE);
+            setVisible(false);
 		}
 			
 	});
@@ -290,20 +359,50 @@ public class ModificarDonacion extends JInternalFrame {
 			txtFecha.setVisible(false);
 			txtAreaDesc.setVisible(false);
 			spinnerCantElem.setVisible(false);
+			txtDim.setVisible(false);
+			spinnerPeso.setVisible(false);
+			
 			
 			lblId.setVisible(false);
 			lblFecha.setVisible(false);
 			lblDescripcion.setVisible(false);
 			lblCantElem.setVisible(false);
+			lblDim.setVisible(false);
+			lblPeso.setVisible(false);
 			
 			btnModificar.setVisible(false);
 			btnAtras.setVisible(false);
+			
+			if(comboBoxTipo.getSelectedItem().toString().equals("Alimentos")) {
+    			scrollPane.setViewportView(tablaAlimentos);
+    			cargarDatosAlimentos();
+        	} else {
+        		scrollPane.setViewportView(tablaArticulos);
+        		cargarDatosArticulos();
+        	}
+        revalidate();
+        repaint();
 		}
 	});
 	btnAtras.setBounds(5, 434, 107, 39);
 	getContentPane().add(btnAtras);
 	btnAtras.setVisible(false);
-	}
+	
+	btnCancelar = new JButton("Cancelar");
+	btnCancelar.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			limpiarFormulario();
+			setVisible(false);
+		}
+	});
+	
+	btnCancelar.setBounds(5, 434, 107, 39);
+	getContentPane().add(btnCancelar);
+
+
+}
+	
+	
 		private void cargarDatosAlimentos(){
 			modelAlimentos.setRowCount(0);
 			listaAlimentos = icon.listarAlimentos();
@@ -358,6 +457,8 @@ public class ModificarDonacion extends JInternalFrame {
 			txtId.setText("");
 			txtFecha.setText("");
 			txtAreaDesc.setText("");
-			spinnerCantElem.setValue(1);;    
+			spinnerCantElem.setValue(1);    
+			txtDim.setText("");
+			spinnerPeso.setValue(0);
 		}
 }

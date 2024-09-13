@@ -202,9 +202,18 @@ public class Controlador implements IControlador {
 		aliBuscado.setDescripcionProductos(alimento.getDescripcionProductos());
 		aliBuscado.setCantElemntos(alimento.getCantElementos());
 		
-		mD.modificarDonacion(aliBuscado);
+		mD.modificarDonacion(aliBuscado);			
+	}
+	
+	public void modificarArticulo(DtArticulo articulo) {
+		ManejadorDonacion mD = ManejadorDonacion.getInstancia();
+		Articulo artBuscado = (Articulo) mD.buscarDonacion(articulo.getId());
 		
+		artBuscado.setDescripcion(articulo.getDescripcion());
+		artBuscado.setPeso(articulo.getPeso());
+		artBuscado.setDimensiones(articulo.getDimensiones());
 		
+		mD.modificarDonacion(artBuscado);			
 	}
 	
 }

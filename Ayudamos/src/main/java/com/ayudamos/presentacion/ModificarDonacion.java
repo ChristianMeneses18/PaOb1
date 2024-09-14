@@ -36,6 +36,7 @@ public class ModificarDonacion extends JInternalFrame {
 	private JTable tablaArticulos;
 	private DefaultTableModel modelAlimentos;
 	private DefaultTableModel modelArticulos;
+	private JScrollPane scrollPane;
 	ArrayList<DtAlimento> listaAlimentos;
 	ArrayList<DtArticulo> listaArticulos;
 	private int selectedRow = -1;
@@ -49,6 +50,7 @@ public class ModificarDonacion extends JInternalFrame {
 	private JLabel lblCantElem;
 	private JLabel lblDim;
 	private JLabel lblPeso;
+	private JLabel lblTipoDonacion;
 	
 	private JTextField txtId;
 	private JTextField txtFecha;
@@ -66,7 +68,7 @@ public class ModificarDonacion extends JInternalFrame {
         setMaximizable(false);
         setResizable(false);
         getContentPane().setLayout(null);
-        JScrollPane scrollPane = new JScrollPane();
+        scrollPane = new JScrollPane();
 		scrollPane.setBounds(29, 160, 515, 250);
 		getContentPane().add(scrollPane);
         
@@ -77,7 +79,7 @@ public class ModificarDonacion extends JInternalFrame {
         lblTitulo.setBounds(0, 10, 567, 40);
         getContentPane().add(lblTitulo);     
         
-        JLabel lblTipoDonacion = new JLabel("Ver:");
+        lblTipoDonacion = new JLabel("Ver:");
         lblTipoDonacion.setFont(new Font("Tahoma", Font.PLAIN, 18));
         lblTipoDonacion.setBounds(10, 100, 150, 30);
         getContentPane().add(lblTipoDonacion);
@@ -86,7 +88,7 @@ public class ModificarDonacion extends JInternalFrame {
         comboBoxTipo.setModel(new DefaultComboBoxModel(new String[] {"Alimentos", "Artículos"}));
         comboBoxTipo.setFont(new Font("Tahoma", Font.PLAIN, 18));
         comboBoxTipo.setBounds(182, 100, 150, 30);
-        comboBoxTipo.setSelectedItem("Alimentos");
+        comboBoxTipo.setSelectedIndex(-1);
         getContentPane().add(comboBoxTipo);
         
         //label y text ocultos
@@ -209,20 +211,24 @@ public class ModificarDonacion extends JInternalFrame {
         tablaArticulos.setFont(new Font("Tahoma", Font.PLAIN, 15));
         
         //cargo tabla alimentos por defecto
-        cargarDatosAlimentos();
-        revalidate();
-        repaint();
+        //cargarDatosAlimentos();
+        //revalidate();
+        //repaint();
         
         //cambio de tabla y cargo segun lo elegido en combobox
 	    comboBoxTipo.addActionListener(new ActionListener() {
 	        @Override
 	        public void actionPerformed(ActionEvent e) {
-	        	if(comboBoxTipo.getSelectedItem().toString().equals("Alimentos")) {
-	    			scrollPane.setViewportView(tablaAlimentos);
-	    			cargarDatosAlimentos();
+	        	if(comboBoxTipo.getSelectedIndex()!=-1) {
+		        	if(comboBoxTipo.getSelectedItem().toString().equals("Alimentos")) {
+		    			scrollPane.setViewportView(tablaAlimentos);
+		    			cargarDatosAlimentos();
+		        	} else {
+		        		scrollPane.setViewportView(tablaArticulos);
+		        		cargarDatosArticulos();
+		        	}
 	        	} else {
-	        		scrollPane.setViewportView(tablaArticulos);
-	        		cargarDatosArticulos();
+	        		scrollPane.setVisible(false);
 	        	}
 	        revalidate();
 	        repaint();
@@ -233,95 +239,98 @@ public class ModificarDonacion extends JInternalFrame {
 	btnSeleccionar = new JButton("Seleccionar");
 	btnSeleccionar.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			if(comboBoxTipo.getSelectedItem().toString().equals("Alimentos")) {
-				//si estoy en alimentos, cargo el alimento seleccionado
-				selectedRow = tablaAlimentos.getSelectedRow();
-				if (selectedRow != -1) {
-		        	String idSel = String.valueOf(modelAlimentos.getValueAt(selectedRow, 0));
-		        	String fechaSel = (String) modelAlimentos.getValueAt(selectedRow, 1);
-		        	String descripcionProdSel = (String) modelAlimentos.getValueAt(selectedRow, 2);
-					int cantElemSel = (int)modelAlimentos.getValueAt(selectedRow, 3);
+			if(comboBoxTipo.getSelectedIndex()!=-1) {
+				if(comboBoxTipo.getSelectedItem().toString().equals("Alimentos")) {
+					//si estoy en alimentos, cargo el alimento seleccionado
+					selectedRow = tablaAlimentos.getSelectedRow();
+					if (selectedRow != -1) {
+			        	String idSel = String.valueOf(modelAlimentos.getValueAt(selectedRow, 0));
+			        	String fechaSel = (String) modelAlimentos.getValueAt(selectedRow, 1);
+			        	String descripcionProdSel = (String) modelAlimentos.getValueAt(selectedRow, 2);
+						int cantElemSel = (int)modelAlimentos.getValueAt(selectedRow, 3);
+						
+						//muestro el alimento seleccionado
+						txtId.setText(idSel);
+						txtFecha.setText(fechaSel);
+						txtAreaDesc.setText(descripcionProdSel);
+						spinnerCantElem.setValue(cantElemSel);
+						
+						//oculto ventana anterior y muestro actual
+						lblTipoDonacion.setVisible(false);
+						btnSeleccionar.setVisible(false);
+						scrollPane.setVisible(false);					
+						comboBoxTipo.setVisible(false);
+						
+						txtId.setVisible(true);					
+						txtFecha.setVisible(true);
+						txtAreaDesc.setVisible(true);
+						spinnerCantElem.setVisible(true);
+						txtId.setEditable(false);
+						txtFecha.setEditable(false);
+						
+						lblId.setVisible(true);
+						lblFecha.setVisible(true);
+						lblDescripcion.setVisible(true);
+						lblCantElem.setVisible(true);
+						
+						btnModificar.setVisible(true);
+						btnAtras.setVisible(true);
+						
+						
+			            
+					} else {
+			            JOptionPane.showMessageDialog(null, "Por favor, selecciona una donacion de la tabla.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+			        }
 					
-					//muestro el alimento seleccionado
-					txtId.setText(idSel);
-					txtFecha.setText(fechaSel);
-					txtAreaDesc.setText(descripcionProdSel);
-					spinnerCantElem.setValue(cantElemSel);
 					
-					//oculto ventana anterior y muestro actual
-					lblTipoDonacion.setVisible(false);
-					btnSeleccionar.setVisible(false);
-					scrollPane.setVisible(false);					
-					comboBoxTipo.setVisible(false);
-					
-					txtId.setVisible(true);					
-					txtFecha.setVisible(true);
-					txtAreaDesc.setVisible(true);
-					spinnerCantElem.setVisible(true);
-					txtId.setEditable(false);
-					txtFecha.setEditable(false);
-					
-					lblId.setVisible(true);
-					lblFecha.setVisible(true);
-					lblDescripcion.setVisible(true);
-					lblCantElem.setVisible(true);
-					
-					btnModificar.setVisible(true);
-					btnAtras.setVisible(true);
-					
-					
-		            
 				} else {
-		            JOptionPane.showMessageDialog(null, "Por favor, selecciona una donacion de la tabla.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-		        }
-				
-				
-			} else {
-				//si estoy en articulos, cargo el articulo seleccionado
-				selectedRow = tablaArticulos.getSelectedRow();
-				
-				if (selectedRow!= -1) {
-					String idSel = String.valueOf(modelArticulos.getValueAt(selectedRow, 0));
-		        	String fechaSel = (String) modelArticulos.getValueAt(selectedRow, 1);
-		        	String descripcionSel = (String) modelArticulos.getValueAt(selectedRow, 2);
-		        	String dimSel = (String) modelArticulos.getValueAt(selectedRow, 3);
-		        	Float pesoSel = (Float) modelArticulos.getValueAt(selectedRow, 4);
-		        	
-		        	//muestro el articulo seleccionado
-		        	txtId.setText(idSel);
-					txtFecha.setText(fechaSel);
-					txtAreaDesc.setText(descripcionSel);
-					txtDim.setText(dimSel);
-					spinnerPeso.setValue(pesoSel);
+					//si estoy en articulos, cargo el articulo seleccionado
+					selectedRow = tablaArticulos.getSelectedRow();
 					
-					//oculto ventana anterior y muestro actual
-					lblTipoDonacion.setVisible(false);
-					btnSeleccionar.setVisible(false);
-					scrollPane.setVisible(false);					
-					comboBoxTipo.setVisible(false);
-					
-					txtId.setVisible(true);					
-					txtFecha.setVisible(true);
-					txtAreaDesc.setVisible(true);
-					txtDim.setVisible(true);
-					spinnerPeso.setVisible(true);
-					txtId.setEditable(false);
-					txtFecha.setEditable(false);
-					
-					lblId.setVisible(true);
-					lblFecha.setVisible(true);
-					lblDescripcion.setVisible(true);
-					lblDim.setVisible(true);
-					lblPeso.setVisible(true);
-					
-					
-					btnModificar.setVisible(true);
-					btnAtras.setVisible(true);
-				} else {
-		            JOptionPane.showMessageDialog(null, "Por favor, selecciona una donacion de la tabla.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-		        }
-			} 
-			
+					if (selectedRow!= -1) {
+						String idSel = String.valueOf(modelArticulos.getValueAt(selectedRow, 0));
+			        	String fechaSel = (String) modelArticulos.getValueAt(selectedRow, 1);
+			        	String descripcionSel = (String) modelArticulos.getValueAt(selectedRow, 2);
+			        	String dimSel = (String) modelArticulos.getValueAt(selectedRow, 3);
+			        	Float pesoSel = (Float) modelArticulos.getValueAt(selectedRow, 4);
+			        	
+			        	//muestro el articulo seleccionado
+			        	txtId.setText(idSel);
+						txtFecha.setText(fechaSel);
+						txtAreaDesc.setText(descripcionSel);
+						txtDim.setText(dimSel);
+						spinnerPeso.setValue(pesoSel);
+						
+						//oculto ventana anterior y muestro actual
+						lblTipoDonacion.setVisible(false);
+						btnSeleccionar.setVisible(false);
+						scrollPane.setVisible(false);					
+						comboBoxTipo.setVisible(false);
+						
+						txtId.setVisible(true);					
+						txtFecha.setVisible(true);
+						txtAreaDesc.setVisible(true);
+						txtDim.setVisible(true);
+						spinnerPeso.setVisible(true);
+						txtId.setEditable(false);
+						txtFecha.setEditable(false);
+						
+						lblId.setVisible(true);
+						lblFecha.setVisible(true);
+						lblDescripcion.setVisible(true);
+						lblDim.setVisible(true);
+						lblPeso.setVisible(true);
+						
+						
+						btnModificar.setVisible(true);
+						btnAtras.setVisible(true);
+					} else {
+			            JOptionPane.showMessageDialog(null, "Por favor, selecciona una donacion de la tabla.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+			        }
+				} 
+			}else {
+				JOptionPane.showMessageDialog(null, "Por favor, selecciona un tipo de donacion.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+			}
 	        
 			
 		}
@@ -342,7 +351,9 @@ public class ModificarDonacion extends JInternalFrame {
 				
 			}
 			JOptionPane.showMessageDialog(ModificarDonacion.this, "Donacion modificada con exito", "Modificar Donacion", JOptionPane.INFORMATION_MESSAGE);
+			limpiarFormulario();
             setVisible(false);
+            scrollPane.setVisible(false);
 		}
 			
 	});
@@ -356,39 +367,21 @@ public class ModificarDonacion extends JInternalFrame {
 	btnAtras.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			//limpio datos y cargo ventana anterior
-			limpiarFormulario();
+			limpiarFormulario();	
 			
-			btnSeleccionar.setVisible(true);
-			scrollPane.setVisible(true);					
-			comboBoxTipo.setVisible(true);
-			
-			txtId.setVisible(false);					
-			txtFecha.setVisible(false);
-			txtAreaDesc.setVisible(false);
-			spinnerCantElem.setVisible(false);
-			txtDim.setVisible(false);
-			spinnerPeso.setVisible(false);
-			
-			
-			lblId.setVisible(false);
-			lblFecha.setVisible(false);
-			lblDescripcion.setVisible(false);
-			lblCantElem.setVisible(false);
-			lblDim.setVisible(false);
-			lblPeso.setVisible(false);
-			
-			btnModificar.setVisible(false);
-			btnAtras.setVisible(false);
-			
-			if(comboBoxTipo.getSelectedItem().toString().equals("Alimentos")) {
-    			scrollPane.setViewportView(tablaAlimentos);
-    			cargarDatosAlimentos();
-        	} else {
-        		scrollPane.setViewportView(tablaArticulos);
-        		cargarDatosArticulos();
-        	}
-        revalidate();
-        repaint();
+			if(comboBoxTipo.getSelectedIndex()!=-1) {
+				if(comboBoxTipo.getSelectedItem().toString().equals("Alimentos")) {
+	    			scrollPane.setViewportView(tablaAlimentos);
+	    			cargarDatosAlimentos();
+	        	} else {
+	        		scrollPane.setViewportView(tablaArticulos);
+	        		cargarDatosArticulos();
+	        	}
+			} else {
+	    		scrollPane.setVisible(false);
+	    	}
+	        revalidate();
+	        repaint();
 		}
 	});
 	btnAtras.setBounds(5, 434, 107, 39);
@@ -400,6 +393,7 @@ public class ModificarDonacion extends JInternalFrame {
 		public void actionPerformed(ActionEvent e) {
 			limpiarFormulario();
 			setVisible(false);
+			scrollPane.setVisible(false);
 		}
 	});
 	
@@ -418,6 +412,7 @@ public class ModificarDonacion extends JInternalFrame {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 			
 			if(!listaAlimentos.isEmpty()) {
+				scrollPane.setVisible(true);
 				//si hay datos, traigo los alimentos de la bd
 				for (DtAlimento a : listaAlimentos) {
 					Object[] fila = new Object[4];
@@ -444,6 +439,7 @@ public class ModificarDonacion extends JInternalFrame {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 			
 			if(!listaArticulos.isEmpty()) {
+				scrollPane.setVisible(true);
 				//si hay datos, traigo los articulos de la bd
 				for (DtArticulo a : listaArticulos) {
 					Object[] fila = new Object[5];
@@ -463,11 +459,37 @@ public class ModificarDonacion extends JInternalFrame {
 			}
 		}
 		private void limpiarFormulario() {
+			//limpia formulario y vuelve a la pantalla principal
 			txtId.setText("");
 			txtFecha.setText("");
 			txtAreaDesc.setText("");
 			spinnerCantElem.setValue(1);    
 			txtDim.setText("");
 			spinnerPeso.setValue(0);
+			comboBoxTipo.setSelectedIndex(-1);
+			
+			lblTipoDonacion.setVisible(true);
+			btnSeleccionar.setVisible(true);
+			scrollPane.setVisible(true);					
+			comboBoxTipo.setVisible(true);
+			
+			txtId.setVisible(false);					
+			txtFecha.setVisible(false);
+			txtAreaDesc.setVisible(false);
+			spinnerCantElem.setVisible(false);
+			txtDim.setVisible(false);
+			spinnerPeso.setVisible(false);
+			
+			
+			lblId.setVisible(false);
+			lblFecha.setVisible(false);
+			lblDescripcion.setVisible(false);
+			lblCantElem.setVisible(false);
+			lblDim.setVisible(false);
+			lblPeso.setVisible(false);
+			
+			btnModificar.setVisible(false);
+			btnAtras.setVisible(false);
+			
 		}
 }

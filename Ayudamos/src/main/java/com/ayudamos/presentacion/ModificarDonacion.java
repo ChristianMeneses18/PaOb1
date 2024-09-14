@@ -36,8 +36,6 @@ public class ModificarDonacion extends JInternalFrame {
 	private JTable tablaArticulos;
 	private DefaultTableModel modelAlimentos;
 	private DefaultTableModel modelArticulos;
-	private JScrollPane scrollPaneAlimentos;
-	private JScrollPane scrollPaneArticulos;
 	ArrayList<DtAlimento> listaAlimentos;
 	ArrayList<DtArticulo> listaArticulos;
 	private int selectedRow = -1;
@@ -72,6 +70,7 @@ public class ModificarDonacion extends JInternalFrame {
 		scrollPane.setBounds(29, 160, 515, 250);
 		getContentPane().add(scrollPane);
         
+		//ventana principal de ModificarDonacion
         JLabel lblTitulo = new JLabel("Modificar Donacion");
         lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 30));
         lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -92,7 +91,7 @@ public class ModificarDonacion extends JInternalFrame {
         
         //label y text ocultos
         
-        //ambos
+        //en ambos
         lblId = new JLabel("Id: ");
         lblId.setFont(new Font("Tahoma", Font.PLAIN, 18));
         lblId.setBounds(20, 126, 100, 30);
@@ -101,76 +100,76 @@ public class ModificarDonacion extends JInternalFrame {
 		
 		txtId = new JTextField();
 		txtId.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtId.setBounds(155, 126, 350, 30);
+		txtId.setBounds(212, 126, 350, 30);
         getContentPane().add(txtId);
         txtId.setColumns(10);
         txtId.setVisible(false);
 		
 		lblFecha = new JLabel("Fecha ingreso: ");
 		lblFecha.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblFecha.setBounds(20, 156, 100, 30);
+		lblFecha.setBounds(20, 156, 200, 30);
 		getContentPane().add(lblFecha);
 		lblFecha.setVisible(false);
 		
 		txtFecha = new JTextField();
         txtFecha.setFont(new Font("Tahoma", Font.PLAIN, 18));
         txtFecha.setColumns(10);
-        txtFecha.setBounds(155, 156, 350, 30);
+        txtFecha.setBounds(212, 156, 350, 30);
 		getContentPane().add(txtFecha);
 		txtFecha.setVisible(false);
 		
 		lblDescripcion = new JLabel("Descripcion: ");
 		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblDescripcion.setBounds(20, 186, 100, 30);
+		lblDescripcion.setBounds(20, 186, 200, 30);
 		getContentPane().add(lblDescripcion);
 		lblDescripcion.setVisible(false);
 		
 		txtAreaDesc = new JTextArea();
 		txtAreaDesc.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		txtAreaDesc.setColumns(10);
-		txtAreaDesc.setBounds(155, 186, 350, 30);
+		txtAreaDesc.setBounds(212, 186, 350, 90);
 		getContentPane().add(txtAreaDesc);
 		txtAreaDesc.setVisible(false);
 		
-		//alimentos
+		//en alimentos
 		lblCantElem = new JLabel("Elementos: ");
 		lblCantElem.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblCantElem.setBounds(20, 216, 100, 30);
+		lblCantElem.setBounds(20, 286, 200, 30);
 		getContentPane().add(lblCantElem);
 		lblCantElem.setVisible(false);
 		
 		spinnerCantElem = new JSpinner();
         spinnerCantElem.setFont(new Font("Tahoma", Font.PLAIN, 18));
         spinnerCantElem.setModel(new SpinnerNumberModel(Integer.valueOf(1), null, null, Integer.valueOf(1)));
-        spinnerCantElem.setBounds(182, 216, 60, 20);
+        spinnerCantElem.setBounds(212, 286, 70, 30);
         getContentPane().add(spinnerCantElem);
         spinnerCantElem.setVisible(false);
         
-		//articulos
+		//en articulos
         
         lblDim= new JLabel("Dimensiones: ");
         lblDim.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblDim.setBounds(20, 216, 100, 30);
+        lblDim.setBounds(20, 286, 200, 30);
 		getContentPane().add(lblDim);
 		lblDim.setVisible(false);
 		
 		txtDim = new JTextField();
 		txtDim.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtDim.setBounds(155, 216, 350, 30);
+		txtDim.setBounds(212, 286, 350, 30);
         getContentPane().add(txtDim);
         txtDim.setColumns(10);
         txtDim.setVisible(false);
         
         lblPeso = new JLabel("Peso: ");
         lblPeso.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblPeso.setBounds(20, 246, 100, 30);
+        lblPeso.setBounds(20, 316, 200, 30);
 		getContentPane().add(lblPeso);
 		lblPeso.setVisible(false);
 		
 		spinnerPeso = new JSpinner();
 		spinnerPeso.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		spinnerPeso.setModel(new SpinnerNumberModel(Float.valueOf((float) 0.1), null, null, Float.valueOf((float) 0.1)));
-		spinnerPeso.setBounds(182, 246, 60, 20);
+		spinnerPeso.setBounds(212, 316, 70, 30);
         getContentPane().add(spinnerPeso);
         spinnerPeso.setVisible(false);
         
@@ -209,10 +208,12 @@ public class ModificarDonacion extends JInternalFrame {
         tablaArticulos = new JTable(modelArticulos);
         tablaArticulos.setFont(new Font("Tahoma", Font.PLAIN, 15));
         
+        //cargo tabla alimentos por defecto
         cargarDatosAlimentos();
         revalidate();
         repaint();
         
+        //cambio de tabla y cargo segun lo elegido en combobox
 	    comboBoxTipo.addActionListener(new ActionListener() {
 	        @Override
 	        public void actionPerformed(ActionEvent e) {
@@ -233,6 +234,7 @@ public class ModificarDonacion extends JInternalFrame {
 	btnSeleccionar.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			if(comboBoxTipo.getSelectedItem().toString().equals("Alimentos")) {
+				//si estoy en alimentos, cargo el alimento seleccionado
 				selectedRow = tablaAlimentos.getSelectedRow();
 				if (selectedRow != -1) {
 		        	String idSel = String.valueOf(modelAlimentos.getValueAt(selectedRow, 0));
@@ -240,12 +242,13 @@ public class ModificarDonacion extends JInternalFrame {
 		        	String descripcionProdSel = (String) modelAlimentos.getValueAt(selectedRow, 2);
 					int cantElemSel = (int)modelAlimentos.getValueAt(selectedRow, 3);
 					
-					
+					//muestro el alimento seleccionado
 					txtId.setText(idSel);
 					txtFecha.setText(fechaSel);
 					txtAreaDesc.setText(descripcionProdSel);
 					spinnerCantElem.setValue(cantElemSel);
 					
+					//oculto ventana anterior y muestro actual
 					lblTipoDonacion.setVisible(false);
 					btnSeleccionar.setVisible(false);
 					scrollPane.setVisible(false);					
@@ -274,7 +277,7 @@ public class ModificarDonacion extends JInternalFrame {
 				
 				
 			} else {
-				//articulos
+				//si estoy en articulos, cargo el articulo seleccionado
 				selectedRow = tablaArticulos.getSelectedRow();
 				
 				if (selectedRow!= -1) {
@@ -284,12 +287,14 @@ public class ModificarDonacion extends JInternalFrame {
 		        	String dimSel = (String) modelArticulos.getValueAt(selectedRow, 3);
 		        	Float pesoSel = (Float) modelArticulos.getValueAt(selectedRow, 4);
 		        	
+		        	//muestro el articulo seleccionado
 		        	txtId.setText(idSel);
 					txtFecha.setText(fechaSel);
 					txtAreaDesc.setText(descripcionSel);
 					txtDim.setText(dimSel);
 					spinnerPeso.setValue(pesoSel);
 					
+					//oculto ventana anterior y muestro actual
 					lblTipoDonacion.setVisible(false);
 					btnSeleccionar.setVisible(false);
 					scrollPane.setVisible(false);					
@@ -327,6 +332,7 @@ public class ModificarDonacion extends JInternalFrame {
 	btnModificar = new JButton("Modificar");
 	btnModificar.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent ev) {
+			//creo el dt segun el tipo de donacion elegida
 			if(comboBoxTipo.getSelectedItem().toString().equals("Alimentos")) {				
 				DtAlimento Dt = new DtAlimento(Integer.parseInt(txtId.getText()),null,txtAreaDesc.getText(),(Integer)spinnerCantElem.getValue());
 				icon.modificarAlimento(Dt);
@@ -349,6 +355,7 @@ public class ModificarDonacion extends JInternalFrame {
 	btnAtras = new JButton("Atras");
 	btnAtras.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
+			//limpio datos y cargo ventana anterior
 			limpiarFormulario();
 			
 			btnSeleccionar.setVisible(true);
@@ -411,6 +418,7 @@ public class ModificarDonacion extends JInternalFrame {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 			
 			if(!listaAlimentos.isEmpty()) {
+				//si hay datos, traigo los alimentos de la bd
 				for (DtAlimento a : listaAlimentos) {
 					Object[] fila = new Object[4];
 					fila[0] = a.getId();
@@ -436,6 +444,7 @@ public class ModificarDonacion extends JInternalFrame {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 			
 			if(!listaArticulos.isEmpty()) {
+				//si hay datos, traigo los articulos de la bd
 				for (DtArticulo a : listaArticulos) {
 					Object[] fila = new Object[5];
 					fila[0] = a.getId();

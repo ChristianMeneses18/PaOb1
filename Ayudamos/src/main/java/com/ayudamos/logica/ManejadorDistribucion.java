@@ -35,25 +35,7 @@ public class ManejadorDistribucion {
 	                      "WHERE d.fecha_entrega BETWEEN :inicio AND :fin " +
 	                      "GROUP BY u.Barrio " +
 	                      "ORDER BY cantD DESC";
-	                      //"HAVING cantD = MAX(cantD)";
 	    
-	    
-	    // Forma de hacer con having (funciona en mysql pero aca no)
-	    /*
-	     SELECT u.Barrio, COUNT(*) as cantD, COUNT(DISTINCT d.beneficiario_id)
-		FROM distribucion d JOIN usuarios u ON d.beneficiario_id = u.IdUsuario
-		WHERE d.fecha_entrega BETWEEN '2024-01-01' AND '2024-02-02'
-		GROUP BY u.Barrio
-		HAVING cantD = (
-		SELECT MAX(cantD_sub)
-		FROM ( SELECT COUNT(*) as cantD_sub
-				FROM distribucion d_sub 
-				JOIN usuarios u_sub ON d_sub.beneficiario_id = u_sub.IdUsuario
-				WHERE d_sub.fecha_entrega BETWEEN '2024-01-01' AND '2024-02-02'
-				GROUP BY u_sub.Barrio) as pp
-		)
-		ORDER BY cantD DESC; 
-	     */
 
 	    Query query = em.createNativeQuery(consulta);
 	    query.setParameter("inicio", inicio);

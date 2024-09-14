@@ -44,9 +44,7 @@ public class ReporteDeZona extends JInternalFrame {
 	private JButton btnListar;
 	private JButton btnCancelar;
 	
-	/**
-	 * Create the frame.
-	 */
+	
 	public ReporteDeZona(IControlador icon) {
 		this.icon = icon;
 		setBounds(100, 100, 583, 514);

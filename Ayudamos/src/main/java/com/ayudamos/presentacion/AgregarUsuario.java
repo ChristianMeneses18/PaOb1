@@ -275,8 +275,7 @@ public class AgregarUsuario extends JInternalFrame {
 	        txtDireccion.setText("");
 	        txtLicencia.setText("");
 	        dateChooser.setCalendar(null);
-	        comboBoxBarrio.setSelectedItem(null);
-	        comboBoxEstado.setSelectedItem(null);
+	        
 	        
 	 }
 }

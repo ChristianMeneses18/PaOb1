@@ -51,25 +51,7 @@ public class ModificarUsuario extends JInternalFrame {
 	private JTextField txtEmail;
 	private String emailSeleccionado;
 
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ModificarUsuario frame = new ModificarUsuario();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	*/
-	/**
-	 * Create the frame.
-	 */
+	
 	public ModificarUsuario(IControlador icon) {
 		this.icon = icon;
 		setBounds(100, 100, 583, 514);
@@ -199,24 +181,24 @@ public class ModificarUsuario extends JInternalFrame {
 					try {
 						icon.modificarUsuario(emailSeleccionado, usr);
 						JOptionPane.showMessageDialog(ModificarUsuario.this, "Usuario modificado con exito", "Modificar Usuario", JOptionPane.INFORMATION_MESSAGE);
-			            setVisible(false);
-			            limpiar();
-			            
-			            btnSeleccionar.setVisible(true);
+						setVisible(false);
+						limpiar();
+
+						btnSeleccionar.setVisible(true);
 						lblNewLabel_1.setVisible(true);
 						btnListar.setVisible(true);
 						scrollPane.setVisible(true);
-						
+
 						txtNombre.setVisible(false);
 						txtEmail.setVisible(false);
 						lblNombre.setVisible(false);
 						lblEmail.setVisible(false);
 						btnModificar.setVisible(false);
 						btnAtras.setVisible(false);
-						
-		            } catch (UsuarioRepetidoExcepcion e) {
-			                JOptionPane.showMessageDialog(ModificarUsuario.this, e.getMessage(), "Modificar Usuario", JOptionPane.ERROR_MESSAGE);
-		            }
+
+					} catch (UsuarioRepetidoExcepcion e) {
+						JOptionPane.showMessageDialog(ModificarUsuario.this, e.getMessage(), "Modificar Usuario", JOptionPane.ERROR_MESSAGE);
+					}
 				}
 			}
 		});

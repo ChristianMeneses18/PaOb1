@@ -30,6 +30,7 @@ public class ListarDistribucionesEstado extends JInternalFrame {
 	private JTable tablaBeneficiarios;
 	private DefaultTableModel model;
 	private JButton btnListar;
+	private JButton btnListarTodo;
 	private JButton btnCancelar;
 	private JComboBox comboBoxEstado;
 	private ArrayList<DtDistribucion> datos;
@@ -40,7 +41,7 @@ public class ListarDistribucionesEstado extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 115, 515, 222);
+		scrollPane.setBounds(10, 131, 515, 222);
 		getContentPane().add(scrollPane);
 		
 		tablaBeneficiarios = new JTable();
@@ -74,25 +75,41 @@ public class ListarDistribucionesEstado extends JInternalFrame {
 			}
 		});
 		btnListar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnListar.setBounds(182, 69, 117, 30);
+		btnListar.setBounds(168, 69, 107, 30);
 		getContentPane().add(btnListar);
+		
+		 btnListarTodo = new JButton("Listar Todo");
+		 btnListarTodo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnListar.setBounds(96, 348, 117, 30);
+				btnCancelar.setBounds(324, 348, 117, 30);
+				listarDistribucionTotalActionPerformed(arg0);
+
+			}
+		});
+		 btnListarTodo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		 btnListarTodo.setBounds(279, 69, 127, 30);
+		getContentPane().add(btnListarTodo);
+		
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				listarBeneficiarioCancelarActionPerformed(arg0);
+				listarDistribucionCancelarActionPerformed(arg0);
 				
 			}
 		});
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnCancelar.setBounds(309, 69, 117, 30);
+		btnCancelar.setBounds(409, 69, 108, 30);
 		getContentPane().add(btnCancelar);
 		
 		comboBoxEstado = new JComboBox();
 		comboBoxEstado.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		comboBoxEstado.setModel(new DefaultComboBoxModel(Barrio.values()));
-		comboBoxEstado.setBounds(24, 69, 148, 30);
+		comboBoxEstado.setModel(new DefaultComboBoxModel(EstadoDistribucion.values()));
+		comboBoxEstado.setBounds(10, 69, 148, 30);
 		getContentPane().add(comboBoxEstado);
+		
+		
 	}
 	
 	protected void listarDistribucionActionPerformed(ActionEvent arg0) {
@@ -102,7 +119,7 @@ public class ListarDistribucionesEstado extends JInternalFrame {
 		if (estado.isEmpty()) {
 			JOptionPane.showMessageDialog(this, "Debera seleccionar el estado", "Listar Distribución", JOptionPane.INFORMATION_MESSAGE);
 		}else{
-			datos = icon.listarBeneficiariosZona(estado);
+			datos = icon.listarDistribucionesEstado(estado);
 		}
 		
 		if (datos.isEmpty()) {
@@ -112,7 +129,7 @@ public class ListarDistribucionesEstado extends JInternalFrame {
 					Object[] fila = new Object[3];
 					fila[0] = d.getEstado();
 					fila[1] = d.getFechaPreparacion();
-					fila[2] = d.getFechaEntrega().toString();
+					fila[2] = d.getFechaEntrega();
 					fila[3] = d.getIdBeneficiario();
 					fila[4] = d.getIdDonacion();
 					
@@ -122,10 +139,34 @@ public class ListarDistribucionesEstado extends JInternalFrame {
 				
 			}
 		
+	}
+	
+	protected void listarDistribucionTotalActionPerformed(ActionEvent arg0) {
+		model.setRowCount(0);
+		
+		datos = icon.listarDistribuciones();
+		
+		if (datos.isEmpty()) {
+			JOptionPane.showMessageDialog(this, "No existen Distribuciones a listar", "Listar Beneficiario", JOptionPane.INFORMATION_MESSAGE);
+			}else {
+				for (DtDistribucion d : datos) {
+					Object[] fila = new Object[3];
+					fila[0] = d.getEstado();
+					fila[1] = d.getFechaPreparacion();
+					fila[2] = d.getFechaEntrega();
+					fila[3] = d.getIdBeneficiario();
+					fila[4] = d.getIdDonacion();
+					
+					model.addRow(fila);
+					
+				}
+				
+			}
 		
 	}
 	
-	 protected void listarBeneficiarioCancelarActionPerformed(ActionEvent arg0) {
+	
+	 protected void listarDistribucionCancelarActionPerformed(ActionEvent arg0) {
 		 	btnListar.setBounds(182, 69, 117, 30);
 		 	btnCancelar.setBounds(309, 69, 117, 30);
 		 	model.setRowCount(0);

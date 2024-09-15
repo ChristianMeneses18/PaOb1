@@ -1,16 +1,17 @@
 package com.ayudamos.datatypes;
 
 import com.ayudamos.enums.EstadoDistribucion;
+import java.util.Date;
 
 public class DtDistribucion {
 	private int idBeneficiario;
 	private int idDonacion;
-	private DtFechaHora fechaPreparacion;
-	private DtFechaHora fechaEntrega;
+	private Date fechaPreparacion;
+	private Date fechaEntrega;
 	private EstadoDistribucion estado;
 	
 	
-	public DtDistribucion(int idBeneficiario, int idDonacion, DtFechaHora fechaPreparacion, DtFechaHora fechaEntrega, EstadoDistribucion estado){
+	public DtDistribucion(int idBeneficiario, int idDonacion, Date fechaPreparacion, Date fechaEntrega, EstadoDistribucion estado){
 		this.idBeneficiario = idBeneficiario;
 		this.idDonacion = idDonacion;
 		this.fechaPreparacion = fechaPreparacion;
@@ -25,11 +26,11 @@ public class DtDistribucion {
 	public int getIdDonacion(){
 		return idDonacion;
 	}
-	public DtFechaHora getFechaPreparacion(){
+	public Date getFechaPreparacion(){
 		return fechaPreparacion;
 	}
 	
-	public DtFechaHora getFechaEntrega(){
+	public Date getFechaEntrega(){
 		return fechaEntrega;
 	}
 	

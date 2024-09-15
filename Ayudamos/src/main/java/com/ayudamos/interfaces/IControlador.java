@@ -11,6 +11,7 @@ import com.ayudamos.datatypes.DtDonacion;
 import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
+import com.ayudamos.datatypes.DtDistribucion;
 
 public interface IControlador {
 	
@@ -39,4 +40,8 @@ public interface IControlador {
 	public void modificarArticulo(DtArticulo articulo);
 
 	public ArrayList<DtDistribucionZona> listarDistribucionesZona(String barrio);
+	
+	public ArrayList<DtDistribucion> listarDistribucionesEstado(String barrio);
+	
+	public ArrayList<DtDistribucion> listarDistribuciones();
 }

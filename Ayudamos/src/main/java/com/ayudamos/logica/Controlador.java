@@ -19,6 +19,7 @@ import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 import com.ayudamos.interfaces.IControlador;
 import com.ayudamos.logica.ManejadorUsuario;
 import com.ayudamos.logica.ManejadorDistribucion;
+import com.ayudamos.datatypes.DtDistribucion;
 
 public class Controlador implements IControlador {
 	private static EntityManager em;
@@ -251,4 +252,39 @@ public class Controlador implements IControlador {
 		return mD.obtenerDistribucionesPorZona(fechaInicio, fechaFin);
 	}
 
+	@Override
+	public ArrayList<DtDistribucion> listarDistribucionesEstado(String estado){
+		ManejadorDistribucion mDi = ManejadorDistribucion.getInstancia();
+		ArrayList<DtDistribucion> aRetornar = new ArrayList<>();
+		
+		List<Distribucion> distribuciones = mDi.obtenerDistribucionesEstado(estado);
+		for (Distribucion d : distribuciones) {		
+				int donacion = d.getDonacion().getId();
+				DtDistribucion dtDZ = new DtDistribucion(d.getBeneficiario().getIdUsuario(),donacion,d.getFechaPreparacion(),d.getFechaEntrega(), d.getEstado());
+				aRetornar.add(dtDZ);	
+			
+		}
+	return aRetornar;
+	
+	 
+}
+	
+	@Override
+	public ArrayList<DtDistribucion> listarDistribuciones(){
+		ManejadorDistribucion mDi = ManejadorDistribucion.getInstancia();
+		ArrayList<DtDistribucion> aRetornar = new ArrayList<>();
+		
+		List<Distribucion> distribuciones = mDi.obtenerDistribuciones();
+		for (Distribucion d : distribuciones) {		
+				int donacion = d.getDonacion().getId();
+				DtDistribucion dtDZ = new DtDistribucion(d.getBeneficiario().getIdUsuario(),donacion,d.getFechaPreparacion(),d.getFechaEntrega(), d.getEstado());
+				aRetornar.add(dtDZ);	
+			
+		}
+	return aRetornar;
+	
+	 
+}
+	
+	
 }

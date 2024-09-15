@@ -237,9 +237,9 @@ public class Controlador implements IControlador {
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
 		ManejadorDonacion mDo = ManejadorDonacion.getInstancia();
 		Distribucion nuevaDistribucion = null;
-		Usuario usuarioBeneficiario = mU.buscarUsuarioPorEmail(((DtDistribucion) distribucion).getBeneficiario());
+		Usuario usuarioBeneficiario = mU.buscarUsuario(((DtDistribucion) distribucion).getIdBeneficiario());
 		Beneficiario beneficiario = mU.buscarBeneficiario(usuarioBeneficiario);
-		Donacion donacion = mDo.buscarDonacion(Integer.parseInt(((DtDistribucion) distribucion).getDonacion()));
+		Donacion donacion = mDo.buscarDonacion(((DtDistribucion) distribucion).getIdDonacion());
 		
 		nuevaDistribucion = new Distribucion(
 				((DtDistribucion) distribucion).getFechaPreparacion(), 

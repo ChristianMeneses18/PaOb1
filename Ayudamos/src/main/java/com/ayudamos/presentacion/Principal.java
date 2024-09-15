@@ -30,6 +30,7 @@ public class Principal {
 	private ModificarDonacion modificarDonacionInternalFrame;
 	private ReporteDeZona reporteDeZonaFrame;
 	private AgregarDistribucion agregarDistribucionInternalFrame;
+	private ModificarDistribucion modificarDistribucionInternalFrame;
 
 	/**
 	 * Launch the application.
@@ -115,6 +116,12 @@ public class Principal {
 		agregarDistribucionInternalFrame.setLocation(x, y);
 		agregarDistribucionInternalFrame.setVisible(false);
 		frame.getContentPane().add(agregarDistribucionInternalFrame);
+		
+		modificarDistribucionInternalFrame = new ModificarDistribucion(icon);
+		jInternalFrameSize = modificarDistribucionInternalFrame.getSize();
+		modificarDistribucionInternalFrame.setLocation(x, y);
+		modificarDistribucionInternalFrame.setVisible(false);
+		frame.getContentPane().add(modificarDistribucionInternalFrame);
 		
 	}
 
@@ -209,6 +216,21 @@ public class Principal {
 		});
 		mnModificaciones.add(mntmModDonacion);
 		
+		JMenuItem mntmModDistribucion = new JMenuItem("Modificar Distribucion");
+		mntmModDistribucion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modificarDonacionInternalFrame.setVisible(true);
+				modificarUsuarioFrame.setVisible(false);
+				agregarUsuarioInternalFrame.setVisible(false);
+				listarBeneficiariosInternalFrame.setVisible(false);
+				listarBeneficiariosZonaInternalFrame.setVisible(false);
+				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				altaDonacionInternalFrame.setVisible(false);
+				
+			}
+		});
+		mnModificaciones.add(mntmModDistribucion);
+
 		
 		JMenu mnListar = new JMenu("Listar");
 		menuBar.add(mnListar);

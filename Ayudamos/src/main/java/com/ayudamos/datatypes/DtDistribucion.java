@@ -1,8 +1,10 @@
 package com.ayudamos.datatypes;
 
 import com.ayudamos.enums.EstadoDistribucion;
+
 import java.util.Calendar;
 import java.util.Date;
+
 
 public class DtDistribucion {
 	private Date fechaPreparacion;

@@ -73,7 +73,7 @@ public class ModificarDistribucion extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(52, 268, 515, 250);
+		scrollPane.setBounds(10, 145, 515, 250);
 		getContentPane().add(scrollPane);
 		
 		JLabel lblNewLabel = new JLabel("Modificar Distribución");
@@ -98,6 +98,9 @@ public class ModificarDistribucion extends JInternalFrame {
 		model.addColumn("Estado");
 		model.addColumn("Fecha de Preparación");
 		model.addColumn("Fecha de Entrega");
+		model.addColumn("Beneficiario");
+		model.addColumn("Donacion");
+
 		
 		scrollPane.setViewportView(tablaDistribuciones);
 		
@@ -152,11 +155,13 @@ public class ModificarDistribucion extends JInternalFrame {
 					JOptionPane.showMessageDialog(ModificarDistribucion.this, "No existen distribuciones a listar", "Listar Usuario", JOptionPane.INFORMATION_MESSAGE);
 				}else {
 					for (DtDistribucion d : lista) {
-						Object[] fila = new Object[3];
+						Object[] fila = new Object[5];
 						fila[0] = d.getEstado();
 						fila[1] = d.getFechaPreparacion();
 						fila[2] = d.getFechaEntrega();
-							
+						fila[3] = d.getBeneficiario();
+						fila[4] = d.getDonacion();
+								
 						model.addRow(fila);
 						
 					}
@@ -166,15 +171,13 @@ public class ModificarDistribucion extends JInternalFrame {
 		btnListar.setBounds(477, 77, 67, 23);
 		getContentPane().add(btnListar);
 		
-		
 		btnSeleccionar = new JButton("Seleccionar");
 		btnSeleccionar.addActionListener(new ActionListener() {
+		
 			public void actionPerformed(ActionEvent e) {
-				
 				int selectedRow = tablaDistribuciones.getSelectedRow();
-		        
+				
 				if (selectedRow != -1) {
-					
 		        	Date fechaEntrega = (Date) model.getValueAt(selectedRow, 2);
 		        	EstadoDistribucion estado = (EstadoDistribucion) model.getValueAt(selectedRow, 0);
 		            
@@ -213,9 +216,9 @@ public class ModificarDistribucion extends JInternalFrame {
 		btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
-				DtDistribucion usr = new DtDistribucion(txtNombre.getText(), txtEmail.getText());
+				//DtDistribucion distribucion = new DtDistribucion(, 2), txtEmail.getText());
 					try {
-						icon.modificarUsuario(emailSeleccionado, usr);
+						icon.modificarDistribucion(fechaEntrega,estado , distribucion);
 						JOptionPane.showMessageDialog(ModificarUsuario.this, "Usuario modificado con exito", "Modificar Usuario", JOptionPane.INFORMATION_MESSAGE);
 						setVisible(false);
 						limpiar();

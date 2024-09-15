@@ -286,10 +286,10 @@ public class Controlador implements IControlador {
 		ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();
 		Distribucion distribucionBuscada = (Distribucion) mD.buscarDistribucion();
 		
-		aliBuscado.setDescripcionProductos(alimento.getDescripcionProductos());
-		aliBuscado.setCantElemntos(alimento.getCantElementos());
-		
-		mD.modificarDonacion(aliBuscado);			
+		distribucionBuscada.setFechaEntrega(distribucion.getFechaEntrega());
+		distribucionBuscada.setEstado(distribucion.getEstado());
+
+		mD.modificarDistribucion(distribucionBuscada);			
 	}
 	
 

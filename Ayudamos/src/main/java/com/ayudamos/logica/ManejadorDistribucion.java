@@ -65,5 +65,15 @@ public class ManejadorDistribucion {
 		return new ArrayList<>(distribuciones);
 	}
 
+	
+	public void modificarDistribucion(Distribucion distribucion) {
+	    Conexion conexion = Conexion.getInstancia();
+	    EntityManager em = conexion.getEntityManager();
+	    em.getTransaction().begin();
+	    
+	    em.merge(distribucion);
+	    
+	    em.getTransaction().commit();
+	}
 
 }

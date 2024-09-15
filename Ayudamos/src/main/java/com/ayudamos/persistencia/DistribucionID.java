@@ -1,12 +1,16 @@
 package com.ayudamos.persistencia;
 
 import java.io.Serializable;
+import java.util.Date;
+
+import com.ayudamos.datatypes.DtFechaHora;
 
 public class DistribucionID implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private int beneficiario;  
     private int donacion;
+    private Date fechaPreparacion;
 
     public DistribucionID() {
         super();
@@ -18,6 +22,7 @@ public class DistribucionID implements Serializable {
         int result = 1;
         result = prime * result + donacion;
         result = prime * result + beneficiario;
+        result = prime * result + ((fechaPreparacion == null) ? 0 : fechaPreparacion.hashCode());
         return result;
     }
 
@@ -33,6 +38,8 @@ public class DistribucionID implements Serializable {
         if (donacion != other.donacion)
             return false;
         if (beneficiario != other.beneficiario)
+            return false;
+        if (fechaPreparacion != other.fechaPreparacion)
             return false;
         return true;
     }
@@ -52,4 +59,14 @@ public class DistribucionID implements Serializable {
     public void setDonacion(int donacion) {
         this.donacion = donacion;
     }
+
+    
+    public Date getFechaPreparacion() {
+        return fechaPreparacion;
+    }
+
+    public void setFechaPreparacion(Date fechaPreparacion) {
+        this.fechaPreparacion = fechaPreparacion;
+    }
 }
+

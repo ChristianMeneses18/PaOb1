@@ -51,11 +51,11 @@ public class ListarBeneficiariosEstado extends JInternalFrame {
 		
 		model.addColumn("Nombre");
 		model.addColumn("Direccion");
-		model.addColumn("Estado");
+		model.addColumn("Zona");
 		
 		scrollPane.setViewportView(tablaBeneficiarios);
 		
-		JLabel lblNewLabel = new JLabel("Listar Beneficiarios Por Zona");
+		JLabel lblNewLabel = new JLabel("Listar Beneficiarios Por Estado");
 		lblNewLabel.setForeground(new Color(0, 0, 0));
 		lblNewLabel.setBackground(UIManager.getColor("Button.focus"));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

@@ -11,11 +11,13 @@ import com.ayudamos.datatypes.DtAlimento;
 import com.ayudamos.datatypes.DtArticulo;
 import com.ayudamos.datatypes.DtBeneficiario;
 import com.ayudamos.datatypes.DtDonacion;
+import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.datatypes.DtRepartidor;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 import com.ayudamos.interfaces.IControlador;
 import com.ayudamos.logica.ManejadorUsuario;
+import com.ayudamos.logica.ManejadorDistribucion;
 
 public class Controlador implements IControlador {
 	private static EntityManager em;
@@ -177,8 +179,7 @@ public class Controlador implements IControlador {
 		 
 	}
 	
-	
-	
+	@Override
 	public void modificarUsuario(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion {
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
 		Usuario usuarioExistenteConMailIngresado = mU.buscarUsuarioPorEmail(usuario.getEmail());
@@ -200,7 +201,7 @@ public class Controlador implements IControlador {
 		
 	}
 	
-	
+	@Override
 	public void modificarAlimento(DtAlimento alimento) {
 		ManejadorDonacion mD = ManejadorDonacion.getInstancia();
 		Alimento aliBuscado = (Alimento) mD.buscarDonacion(alimento.getId());
@@ -211,6 +212,7 @@ public class Controlador implements IControlador {
 		mD.modificarDonacion(aliBuscado);			
 	}
 	
+	@Override
 	public void modificarArticulo(DtArticulo articulo) {
 		ManejadorDonacion mD = ManejadorDonacion.getInstancia();
 		Articulo artBuscado = (Articulo) mD.buscarDonacion(articulo.getId());
@@ -222,4 +224,10 @@ public class Controlador implements IControlador {
 		mD.modificarDonacion(artBuscado);			
 	}
 	
+	@Override
+	public ArrayList<Object[]> listarDistribucionPorZona(DtFecha fechaInicio, DtFecha fechaFin){
+		ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();
+		return mD.obtenerDistribucionesPorZona(fechaInicio, fechaFin);
+	}
+
 }

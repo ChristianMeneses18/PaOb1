@@ -7,6 +7,7 @@ import com.ayudamos.datatypes.DtAlimento;
 import com.ayudamos.datatypes.DtArticulo;
 import com.ayudamos.datatypes.DtBeneficiario;
 import com.ayudamos.datatypes.DtDonacion;
+import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 
@@ -29,6 +30,8 @@ public interface IControlador {
 	public ArrayList<DtArticulo> listarArticulos();
 	
 	public void modificarUsuario(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion;
+	
+	public ArrayList<Object[]> listarDistribucionPorZona(DtFecha fechaInicio, DtFecha fechaFin);
 
 	public void modificarAlimento(DtAlimento alimento);
 	

@@ -2,6 +2,7 @@ package com.ayudamos.logica;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -16,7 +17,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.EnumType;
 
-import com.ayudamos.datatypes.DtFechaHora;
 import com.ayudamos.enums.EstadoDistribucion;
 
 
@@ -34,13 +34,12 @@ public class Distribucion {
     @JoinColumn(name = "beneficiario_id", insertable=false, updatable=false)
     private Beneficiario beneficiario;
 	
-    @Convert(converter = com.ayudamos.datatypes.DtFechaHoraConverter.class)
+	@Id
     @Column(name = "fecha_preparacion")
-	private	DtFechaHora fechaPreparacion;
+	private	Date fechaPreparacion;
 	
-    @Convert(converter = com.ayudamos.datatypes.DtFechaHoraConverter.class)
     @Column(name = "fecha_entrega")
-	private DtFechaHora fechaEntrega;
+	private Date fechaEntrega;
 	
 	@Enumerated(EnumType.STRING)
 	private EstadoDistribucion estado;
@@ -50,7 +49,7 @@ public class Distribucion {
 		super();
 	}
 	
-	public Distribucion(DtFechaHora fechaPreparacion, DtFechaHora fechaEntrega, EstadoDistribucion estado , Beneficiario beneficiario, Donacion donacion) {
+	public Distribucion(Date fechaPreparacion, Date fechaEntrega, EstadoDistribucion estado , Beneficiario beneficiario, Donacion donacion) {
 		super();
 		this.fechaPreparacion = fechaPreparacion;
 		this.fechaEntrega = fechaEntrega;
@@ -60,16 +59,16 @@ public class Distribucion {
 	}
 	
 	
-	public DtFechaHora getFechaPreparacion() {
+	public Date getFechaPreparacion() {
 		return fechaPreparacion;
 	}
-	public void setFechaPreparacion(DtFechaHora fechaPreparacion) {
+	public void setFechaPreparacion(Date fechaPreparacion) {
 		this.fechaPreparacion = fechaPreparacion;
 	}
-	public DtFechaHora getFechaEntrega() {
+	public Date getFechaEntrega() {
 		return fechaEntrega;
 	}
-	public void setFechaEntrega(DtFechaHora fechaEntrega) {
+	public void setFechaEntrega(Date fechaEntrega) {
 		this.fechaEntrega = fechaEntrega;
 	}
 	public EstadoDistribucion getEstado() {

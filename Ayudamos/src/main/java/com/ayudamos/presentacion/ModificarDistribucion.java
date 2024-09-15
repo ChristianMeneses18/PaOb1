@@ -73,7 +73,7 @@ public class ModificarDistribucion extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 128, 515, 250);
+		scrollPane.setBounds(30, 124, 515, 250);
 		getContentPane().add(scrollPane);
 		
 		JLabel lblNewLabel = new JLabel("Modificar Distribución");
@@ -120,28 +120,39 @@ public class ModificarDistribucion extends JInternalFrame {
 		lblHoras.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblHoras.setBounds(87, 186, 54, 30);
 		getContentPane().add(lblHoras);
+		lblHoras.setVisible(false);
 		
 		lblMinutos = new JLabel("Minutos:");
 		lblMinutos.setBounds(252, 186, 79, 30);
 		lblMinutos.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		getContentPane().add(lblMinutos);
+		lblMinutos.setVisible(false);
 		
 		dateChooserFechaEntrega = new JDateChooser();
 		dateChooserFechaEntrega.setBounds(180, 145, 212, 30);
         getContentPane().add(dateChooserFechaEntrega);
+        dateChooserFechaEntrega.setVisible(false);
+
+        
 		
 	    comboBoxHora = new JComboBox(this.agregarHoras());
 	    comboBoxHora.setBounds(148, 193, 62, 22);
 	    getContentPane().add(comboBoxHora);
+	    comboBoxHora.setVisible(false);
+
 	    
 	    comboBoxMinutos = new JComboBox(this.agregarMinutos());
 	    comboBoxMinutos.setBounds(341, 193, 62, 22);
 	    getContentPane().add(comboBoxMinutos);
+	    comboBoxMinutos.setVisible(false);
+
 	    
 	    comboBoxEstado = new JComboBox<>(new String[] {"Pendiente", "En camino", "Entregado"});
 	    comboBoxEstado.setModel(new DefaultComboBoxModel(new String[] {"Pendiente", "En camino", "Entregado"}));
 	    comboBoxEstado.setBounds(147, 230, 245, 30);
 	    getContentPane().add(comboBoxEstado);
+	    comboBoxEstado.setVisible(false);
+
 		
 		
 		btnListar = new JButton("Listar");
@@ -219,11 +230,11 @@ public class ModificarDistribucion extends JInternalFrame {
 				int selectedRow = tablaDistribuciones.getSelectedRow();
 				
 				DtDistribucion distribucion = new DtDistribucion(
+						(int) model.getValueAt(selectedRow, 3),
+						(int) model.getValueAt(selectedRow, 4),
 						(Date) model.getValueAt(selectedRow, 1),
 						(Date) model.getValueAt(selectedRow, 2),
-						(EstadoDistribucion) model.getValueAt(selectedRow, 0),
-						(int) model.getValueAt(selectedRow, 3),
-						(int) model.getValueAt(selectedRow, 4)
+						(EstadoDistribucion) model.getValueAt(selectedRow, 0)
 						);
 				
 				

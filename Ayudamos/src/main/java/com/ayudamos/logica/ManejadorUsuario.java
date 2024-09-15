@@ -98,7 +98,6 @@ public class ManejadorUsuario {
 	        Beneficiario beneficiario= (Beneficiario) query.getSingleResult();
 	        return beneficiario;
 	    } catch (NoResultException e) {
-	        
 	        return null;
 	    }
 	}

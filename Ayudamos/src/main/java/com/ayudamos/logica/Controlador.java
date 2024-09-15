@@ -241,7 +241,7 @@ public class Controlador implements IControlador {
 		ManejadorDonacion mDo = ManejadorDonacion.getInstancia();
 		Distribucion nuevaDistribucion = null;
 		Usuario usuarioBeneficiario = mU.buscarUsuario(((DtDistribucion) distribucion).getIdBeneficiario());
-		Beneficiario beneficiario = mU.buscarBeneficiario(usuarioBeneficiario);
+		Beneficiario beneficiario = mU.buscarBeneficiario(usuarioBeneficiario); //////TESTEAR
 		Donacion donacion = mDo.buscarDonacion(((DtDistribucion) distribucion).getIdDonacion());
 		
 		nuevaDistribucion = new Distribucion(
@@ -270,7 +270,7 @@ public class Controlador implements IControlador {
 			//EXPLOTA SI GET_FECHA_ENTREGA ES NULL EN LA BD?
 			int beneficiario = d.getBeneficiario().getIdUsuario();
 			int donacion = d.getDonacion().getId();
-			DtDistribucion dtDistribucion = new DtDistribucion(d.getFechaPreparacion(),d.getFechaEntrega(), d.getEstado(), beneficiario, donacion);
+			DtDistribucion dtDistribucion = new DtDistribucion( beneficiario, donacion, d.getFechaPreparacion(),d.getFechaEntrega(), d.getEstado());
 			aRetornar.add(dtDistribucion);	
 			
 		}
@@ -292,5 +292,22 @@ public class Controlador implements IControlador {
 		mD.modificarDistribucion(distribucionBuscada);			
 	}
 	
+	
+	@Override
+	public ArrayList<DtDistribucion> listarDistribucionesEstado(String estado){
+		ManejadorDistribucion mDi = ManejadorDistribucion.getInstancia();
+		ArrayList<DtDistribucion> aRetornar = new ArrayList<>();
+		
+		List<Distribucion> distribuciones = mDi.obtenerDistribucionesEstado(estado);
+		for (Distribucion d : distribuciones) {		
+				int donacion = d.getDonacion().getId();
+				DtDistribucion dtDZ = new DtDistribucion(d.getBeneficiario().getIdUsuario(),donacion,d.getFechaPreparacion(),d.getFechaEntrega(), d.getEstado());
+				aRetornar.add(dtDZ);	
+			
+		}
+	return aRetornar;
+	
+	 
+	}
 
 }

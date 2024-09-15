@@ -77,7 +77,7 @@ public class AgregarDistribucion extends JInternalFrame {
         dateChooserFechaPreparacion.setBounds(182, 159, 212, 30);
         getContentPane().add(dateChooserFechaPreparacion);
         
-        lblBeneficiario = new JLabel("Email Beneficiario:");
+        lblBeneficiario = new JLabel("Id de Beneficiario:");
         lblBeneficiario.setFont(new Font("Tahoma", Font.PLAIN, 18));
         lblBeneficiario.setBounds(10, 242, 150, 30);
         getContentPane().add(lblBeneficiario);
@@ -167,9 +167,8 @@ public class AgregarDistribucion extends JInternalFrame {
 		Calendar calendar;
 		int dia , mes , anio;
 		
-		String beneficiario = this.txtBeneficiario.getText();
-		String donacion = this.txtDonacion.getText();
-		DtDistribucion dt = null;
+		int beneficiario = Integer.parseInt(this.txtBeneficiario.getText());
+		int donacion = Integer.parseInt(this.txtDonacion.getText());
 		
 		selectedDate = dateChooserFechaPreparacion.getDate();
 		calendar = Calendar.getInstance();
@@ -186,14 +185,10 @@ public class AgregarDistribucion extends JInternalFrame {
 	    Date fechaPreparacion = calendar.getTime();
 		System.out.print(fechaPreparacion);
 		
-		dt = new DtDistribucion(fechaPreparacion,null,EstadoDistribucion.PENDIENTE, txtBeneficiario.getText(), txtDonacion.getText());
+		DtDistribucion dt = new DtDistribucion(beneficiario, donacion, fechaPreparacion,null,EstadoDistribucion.PENDIENTE);
 
-		this.icon.agregarDistribucion(dt);
-	    JOptionPane.showMessageDialog(this, "Distribución agregada con exito", "Agregar Distribución", JOptionPane.INFORMATION_MESSAGE);
-	    setVisible(false);
-	    limpiarFormulario();
-	          
-          
+            this.icon.agregarDistribucion(dt);
+           
     }
     
       

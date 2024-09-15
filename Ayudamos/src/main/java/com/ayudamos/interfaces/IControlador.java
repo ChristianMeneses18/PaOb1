@@ -45,4 +45,7 @@ public interface IControlador {
 	public ArrayList<DtDistribucion> listarDistribuciones();
 	
 	public void modificarDistribucion(Date fechaEntrega, EstadoDistribucion estado, DtDistribucion distribucion);
+	
+	public ArrayList<DtDistribucion> listarDistribucionesEstado(String barrio);
+
 }

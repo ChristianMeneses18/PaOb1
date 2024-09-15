@@ -26,12 +26,12 @@ public class Distribucion {
 	
 	@Id 
 	@ManyToOne
-    @JoinColumn(name = "donacion_id", insertable=false, updatable=false)
+    @JoinColumn(name = "donacion_id")
     private Donacion donacion;
 	
 	@Id 
 	@ManyToOne
-    @JoinColumn(name = "beneficiario_id", insertable=false, updatable=false)
+    @JoinColumn(name = "beneficiario_id")
     private Beneficiario beneficiario;
 	
 	@Id

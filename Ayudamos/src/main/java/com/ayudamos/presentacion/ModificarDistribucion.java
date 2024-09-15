@@ -29,7 +29,7 @@ import org.eclipse.wb.swing.FocusTraversalOnArray;
 import com.ayudamos.datatypes.DtDistribucion;
 import com.ayudamos.datatypes.DtRepartidor;
 import com.ayudamos.datatypes.DtUsuario;
-import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
+import com.ayudamos.excepciones.DistribucionRepetidaExcepcion;
 import com.ayudamos.interfaces.IControlador;
 import com.toedter.calendar.JDateChooser;
 
@@ -73,7 +73,7 @@ public class ModificarDistribucion extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 145, 515, 250);
+		scrollPane.setBounds(10, 128, 515, 250);
 		getContentPane().add(scrollPane);
 		
 		JLabel lblNewLabel = new JLabel("Modificar Distribución");
@@ -159,8 +159,8 @@ public class ModificarDistribucion extends JInternalFrame {
 						fila[0] = d.getEstado();
 						fila[1] = d.getFechaPreparacion();
 						fila[2] = d.getFechaEntrega();
-						fila[3] = d.getBeneficiario();
-						fila[4] = d.getDonacion();
+						fila[3] = d.getIdBeneficiario();
+						fila[4] = d.getIdDonacion();
 								
 						model.addRow(fila);
 						
@@ -216,10 +216,19 @@ public class ModificarDistribucion extends JInternalFrame {
 		btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
-				//DtDistribucion distribucion = new DtDistribucion(, 2), txtEmail.getText());
-					try {
-						icon.modificarDistribucion(fechaEntrega,estado , distribucion);
-						JOptionPane.showMessageDialog(ModificarUsuario.this, "Usuario modificado con exito", "Modificar Usuario", JOptionPane.INFORMATION_MESSAGE);
+				int selectedRow = tablaDistribuciones.getSelectedRow();
+				
+				DtDistribucion distribucion = new DtDistribucion(
+						(Date) model.getValueAt(selectedRow, 1),
+						(Date) model.getValueAt(selectedRow, 2),
+						(EstadoDistribucion) model.getValueAt(selectedRow, 0),
+						(int) model.getValueAt(selectedRow, 3),
+						(int) model.getValueAt(selectedRow, 4)
+						);
+				
+				
+						icon.modificarDistribucion((Date) model.getValueAt(selectedRow, 2), (EstadoDistribucion) model.getValueAt(selectedRow, 0), distribucion);
+						JOptionPane.showMessageDialog(ModificarDistribucion.this, "Usuario modificado con exito", "Modificar Usuario", JOptionPane.INFORMATION_MESSAGE);
 						setVisible(false);
 						limpiar();
 
@@ -228,16 +237,15 @@ public class ModificarDistribucion extends JInternalFrame {
 						btnListar.setVisible(true);
 						scrollPane.setVisible(true);
 
-						txtNombre.setVisible(false);
-						txtEmail.setVisible(false);
+						comboBoxEstado.setVisible(false);
+						comboBoxHora.setVisible(false);
+						comboBoxMinutos.setVisible(false);
 						lblFechaEntrega.setVisible(false);
 						lblEstado.setVisible(false);
 						btnModificar.setVisible(false);
 						btnAtras.setVisible(false);
 
-					} catch (UsuarioRepetidoExcepcion e) {
-						JOptionPane.showMessageDialog(ModificarUsuario.this, e.getMessage(), "Modificar Usuario", JOptionPane.ERROR_MESSAGE);
-					}
+
 			}
 		});
 		btnModificar.setBounds(450, 434, 107, 39);
@@ -255,12 +263,14 @@ public class ModificarDistribucion extends JInternalFrame {
 				btnListar.setVisible(true);
 				scrollPane.setVisible(true);
 				
-				txtNombre.setVisible(false);
-				txtEmail.setVisible(false);
-				lblNombre.setVisible(false);
-				lblEmail.setVisible(false);
+				comboBoxEstado.setVisible(false);
+				comboBoxHora.setVisible(false);
+				comboBoxMinutos.setVisible(false);
+				lblFechaEntrega.setVisible(false);
+				lblEstado.setVisible(false);
 				btnModificar.setVisible(false);
 				btnAtras.setVisible(false);
+
 			}
 		});
 		btnAtras.setBounds(5, 434, 107, 39);
@@ -284,8 +294,10 @@ public class ModificarDistribucion extends JInternalFrame {
 	}
 
 	private void limpiar() {
-        txtNombre.setText("");
-        txtEmail.setText("");
+		comboBoxEstado.setSelectedIndex(1);
+		comboBoxHora.setSelectedIndex(1);
+		comboBoxMinutos.setSelectedIndex(1);
+        dateChooserFechaEntrega.setDate(null);
         model.setRowCount(0);
 
 	}

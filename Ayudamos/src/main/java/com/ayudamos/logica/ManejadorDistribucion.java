@@ -11,6 +11,7 @@ import javax.persistence.TypedQuery;
 import com.ayudamos.datatypes.DtDistribucion;
 import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.persistencia.Conexion;
+import java.util.Date;
 
 
 public class ManejadorDistribucion {
@@ -74,6 +75,20 @@ public class ManejadorDistribucion {
 	    em.merge(distribucion);
 	    
 	    em.getTransaction().commit();
+	}
+	
+	public Distribucion buscarDistribucion(DtDistribucion d) {
+		Conexion conexion = Conexion.getInstancia();
+		EntityManager em = conexion.getEntityManager();
+		
+		Date fechaPreparacion = d.getFechaPreparacion();
+		int beneficiario = d.getIdBeneficiario();
+		int donacion = d.getIdDonacion();
+		
+		Query query = em.createQuery("SELECT d FROM Distribuciones d WHERE d.beneficiario_id = :beneficiario AND d.donacion_id = :donacion AND fecha_preparacion = DATE_FORMAT(':fechaPreparacion', '%Y-%m-%d')", Distribucion.class);
+		Distribucion distribucion = em.find(Distribucion.class, query);
+		
+		return  distribucion;
 	}
 
 }

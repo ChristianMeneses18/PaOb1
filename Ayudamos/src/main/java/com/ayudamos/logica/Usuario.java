@@ -53,6 +53,9 @@ public class Usuario{
 		this.email = email;
 	}
 	
+	public int getIdUsuario() {
+		return idUsuario;
+	}
 	
 
 }

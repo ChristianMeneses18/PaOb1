@@ -240,9 +240,9 @@ public class Controlador implements IControlador {
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
 		ManejadorDonacion mDo = ManejadorDonacion.getInstancia();
 		Distribucion nuevaDistribucion = null;
-		Usuario usuarioBeneficiario = mU.buscarUsuarioPorEmail(((DtDistribucion) distribucion).getBeneficiario());
+		Usuario usuarioBeneficiario = mU.buscarUsuario(((DtDistribucion) distribucion).getIdBeneficiario());
 		Beneficiario beneficiario = mU.buscarBeneficiario(usuarioBeneficiario);
-		Donacion donacion = mDo.buscarDonacion(Integer.parseInt(((DtDistribucion) distribucion).getDonacion()));
+		Donacion donacion = mDo.buscarDonacion(((DtDistribucion) distribucion).getIdDonacion());
 		
 		nuevaDistribucion = new Distribucion(
 				((DtDistribucion) distribucion).getFechaPreparacion(), 
@@ -268,8 +268,8 @@ public class Controlador implements IControlador {
 		List<Distribucion> distribuciones = mD.obtenerDistribuciones();
 		for (Distribucion d : distribuciones) {
 			//EXPLOTA SI GET_FECHA_ENTREGA ES NULL EN LA BD?
-			String beneficiario = d.getBeneficiario().getNombre();
-			String donacion = d.getDonacion().getId().toString();
+			int beneficiario = d.getBeneficiario().getIdUsuario();
+			int donacion = d.getDonacion().getId();
 			DtDistribucion dtDistribucion = new DtDistribucion(d.getFechaPreparacion(),d.getFechaEntrega(), d.getEstado(), beneficiario, donacion);
 			aRetornar.add(dtDistribucion);	
 			
@@ -284,7 +284,7 @@ public class Controlador implements IControlador {
 	@Override
 	public void modificarDistribucion(Date fechaEntrega, EstadoDistribucion estado, DtDistribucion distribucion) {
 		ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();
-		Distribucion distribucionBuscada = (Distribucion) mD.buscarDistribucion();
+		Distribucion distribucionBuscada = (Distribucion) mD.buscarDistribucion(distribucion);
 		
 		distribucionBuscada.setFechaEntrega(distribucion.getFechaEntrega());
 		distribucionBuscada.setEstado(distribucion.getEstado());

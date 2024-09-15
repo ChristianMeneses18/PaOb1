@@ -10,16 +10,16 @@ public class DtDistribucion {
 	private Date fechaPreparacion;
 	private Date fechaEntrega;
 	private EstadoDistribucion estado;
-	private String beneficiario;
-	private String donacion;
+	private int idBeneficiario;
+	private int idDonacion;
 	
 	
-	public DtDistribucion(Date fechaPreparacion, Date fechaEntrega, EstadoDistribucion estado, String beneficiario, String donacion){
+	public DtDistribucion(Date fechaPreparacion, Date fechaEntrega, EstadoDistribucion estado, int beneficiario, int donacion){
 		this.fechaPreparacion = fechaPreparacion;
 		this.fechaEntrega = fechaEntrega;
 		this.estado = estado;
-		this.beneficiario = beneficiario;
-		this.donacion = donacion;
+		this.idBeneficiario = beneficiario;
+		this.idDonacion = donacion;
 	}
 	public Date getFechaPreparacion(){
 		return fechaPreparacion;
@@ -33,12 +33,12 @@ public class DtDistribucion {
 		return estado;
 	}
 	
-	public String getBeneficiario(){
-		return beneficiario;
+	public int getIdBeneficiario(){
+		return idBeneficiario;
 	}
 	
-	public String getDonacion(){
-		return donacion;
+	public int getIdDonacion(){
+		return idDonacion;
 	}
 	
 	@Override

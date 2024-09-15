@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Date;
 
 import com.ayudamos.datatypes.DtAlimento;
 import com.ayudamos.datatypes.DtArticulo;
@@ -19,6 +20,8 @@ import com.ayudamos.interfaces.IControlador;
 import com.ayudamos.logica.ManejadorUsuario;
 import com.ayudamos.logica.ManejadorDistribucion;
 import com.ayudamos.datatypes.DtDistribucion;
+import com.ayudamos.excepciones.DistribucionRepetidaExcepcion;
+import com.ayudamos.enums.EstadoDistribucion;
 
 public class Controlador implements IControlador {
 	private static EntityManager em;
@@ -232,7 +235,7 @@ public class Controlador implements IControlador {
 	}
 	
 	@Override
-	public void agregarDistribucion(DtDistribucion distribucion) {
+	public void agregarDistribucion(DtDistribucion distribucion)  {
 		ManejadorDistribucion mDi = ManejadorDistribucion.getInstancia();
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
 		ManejadorDonacion mDo = ManejadorDonacion.getInstancia();
@@ -249,10 +252,45 @@ public class Controlador implements IControlador {
 				donacion
 		);
 		
-			
 		//nuevaDistribucion.setFechaIngresada(donacion.getFechaIngresada());
 		mDi.agregarDistribucion(nuevaDistribucion);
+		
+		
 		 
 	}
+	
+	@Override
+	public ArrayList<DtDistribucion> listarDistribuciones() {
+		
+		ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();
+        
+		ArrayList<DtDistribucion> aRetornar = new ArrayList<>();
+		List<Distribucion> distribuciones = mD.obtenerDistribuciones();
+		for (Distribucion d : distribuciones) {
+			//EXPLOTA SI GET_FECHA_ENTREGA ES NULL EN LA BD?
+			String beneficiario = d.getBeneficiario().getNombre();
+			String donacion = d.getDonacion().getId().toString();
+			DtDistribucion dtDistribucion = new DtDistribucion(d.getFechaPreparacion(),d.getFechaEntrega(), d.getEstado(), beneficiario, donacion);
+			aRetornar.add(dtDistribucion);	
+			
+		}
+		
+		
+		return aRetornar;
+		
+		 
+	}
+	
+	@Override
+	public void modificarDistribucion(Date fechaEntrega, EstadoDistribucion estado, DtDistribucion distribucion) {
+		ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();
+		Distribucion distribucionBuscada = (Distribucion) mD.buscarDistribucion();
+		
+		aliBuscado.setDescripcionProductos(alimento.getDescripcionProductos());
+		aliBuscado.setCantElemntos(alimento.getCantElementos());
+		
+		mD.modificarDonacion(aliBuscado);			
+	}
+	
 
 }

@@ -10,7 +10,9 @@ import com.ayudamos.datatypes.DtDistribucion;
 import com.ayudamos.datatypes.DtDonacion;
 import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.datatypes.DtUsuario;
+import com.ayudamos.excepciones.DistribucionRepetidaExcepcion;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
+import com.ayudamos.enums.EstadoDistribucion;
 
 public interface IControlador {
 	
@@ -38,6 +40,9 @@ public interface IControlador {
 	
 	public void modificarArticulo(DtArticulo articulo);
 	
-	public void agregarDistribucion(DtDistribucion distribucion);
+	public void agregarDistribucion(DtDistribucion distribucion) ;
 
+	public ArrayList<DtDistribucion> listarDistribuciones();
+	
+	public void modificarDistribucion(Date fechaEntrega, EstadoDistribucion estado, DtDistribucion distribucion);
 }

@@ -27,6 +27,7 @@ import com.ayudamos.interfaces.IControlador;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JSpinner;
 import javax.swing.JFormattedTextField;
+import com.ayudamos.excepciones.DistribucionRepetidaExcepcion;
 
 public class AgregarDistribucion extends JInternalFrame {
 
@@ -187,8 +188,12 @@ public class AgregarDistribucion extends JInternalFrame {
 		
 		dt = new DtDistribucion(fechaPreparacion,null,EstadoDistribucion.PENDIENTE, txtBeneficiario.getText(), txtDonacion.getText());
 
-            this.icon.agregarDistribucion(dt);
-           
+		this.icon.agregarDistribucion(dt);
+	    JOptionPane.showMessageDialog(this, "Distribución agregada con exito", "Agregar Distribución", JOptionPane.INFORMATION_MESSAGE);
+	    setVisible(false);
+	    limpiarFormulario();
+	          
+          
     }
     
       

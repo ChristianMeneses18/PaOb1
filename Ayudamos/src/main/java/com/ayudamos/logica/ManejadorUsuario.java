@@ -87,5 +87,20 @@ public class ManejadorUsuario {
 	    
 	    em.getTransaction().commit();
 	}
+	
+	public Beneficiario buscarBeneficiario(Usuario usuario) {
+		Conexion conexion = Conexion.getInstancia();
+		EntityManager em = conexion.getEntityManager();
+
+		TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.email = :email", Usuario.class);
+	    query.setParameter("email", usuario.getEmail());
+	    try {
+	        Beneficiario beneficiario= (Beneficiario) query.getSingleResult();
+	        return beneficiario;
+	    } catch (NoResultException e) {
+	        
+	        return null;
+	    }
+	}
 
 }

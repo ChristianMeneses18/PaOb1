@@ -29,6 +29,7 @@ public class Principal {
 	private AltaDonacion altaDonacionInternalFrame;
 	private ModificarDonacion modificarDonacionInternalFrame;
 	private ReporteDeZona reporteDeZonaFrame;
+	private AgregarDistribucion agregarDistribucionInternalFrame;
 
 	/**
 	 * Launch the application.
@@ -109,6 +110,12 @@ public class Principal {
 		frame.getContentPane().add(reporteDeZonaFrame);
 		
 		
+		agregarDistribucionInternalFrame = new AgregarDistribucion(icon);
+		jInternalFrameSize = agregarDistribucionInternalFrame.getSize();
+		agregarDistribucionInternalFrame.setLocation(x, y);
+		agregarDistribucionInternalFrame.setVisible(false);
+		frame.getContentPane().add(agregarDistribucionInternalFrame);
+		
 	}
 
 	/**
@@ -154,6 +161,20 @@ public class Principal {
 			}
 		});
 		mnAltas.add(mntmDonacion);
+		
+		JMenuItem mntmDistribucion = new JMenuItem("Alta Distribución");
+		mntmDistribucion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				agregarDistribucionInternalFrame.setVisible(true);
+				agregarUsuarioInternalFrame.setVisible(false);
+				listarBeneficiariosInternalFrame.setVisible(false);
+				listarBeneficiariosZonaInternalFrame.setVisible(false);
+				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				modificarUsuarioFrame.setVisible(false);
+				
+			}
+		});
+		mnAltas.add(mntmDistribucion);
 		
 		JMenu mnModificaciones = new JMenu("Modificaciones");
 		menuBar.add(mnModificaciones);

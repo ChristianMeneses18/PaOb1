@@ -44,5 +44,15 @@ public class ManejadorDistribucion {
 	    List<Object[]> resultados = query.getResultList();
 	    return new ArrayList<>(resultados);
 	}
+	
+	public void agregarDistribucion(Distribucion distribucion) {
+		Conexion conexion = Conexion.getInstancia();
+		EntityManager em = conexion.getEntityManager();
+		em.getTransaction().begin();
+		
+		em.persist(distribucion);
+		
+		em.getTransaction().commit();
+	}
 
 }

@@ -25,6 +25,7 @@ public class Principal {
 	private ListarBeneficiarios listarBeneficiariosInternalFrame;
 	private ListarBeneficiariosZona listarBeneficiariosZonaInternalFrame;
 	private ListarBeneficiariosEstado listarBeneficiariosEstadoInternalFrame;
+	private ListarDistribucionesZona listarDistribucionesZonaInternalFrame;
 	private ModificarUsuario modificarUsuarioFrame;
 	private AltaDonacion altaDonacionInternalFrame;
 	private ModificarDonacion modificarDonacionInternalFrame;
@@ -89,6 +90,12 @@ public class Principal {
 		listarBeneficiariosEstadoInternalFrame.setVisible(false);
 		frame.getContentPane().add(listarBeneficiariosEstadoInternalFrame);
 		
+		listarDistribucionesZonaInternalFrame = new ListarDistribucionesZona(icon);
+		jInternalFrameSize = listarDistribucionesZonaInternalFrame.getSize();
+		listarDistribucionesZonaInternalFrame.setLocation(x, y);
+		listarDistribucionesZonaInternalFrame.setVisible(false);
+		frame.getContentPane().add(listarDistribucionesZonaInternalFrame);
+		
 		modificarUsuarioFrame = new ModificarUsuario(icon);
 		jInternalFrameSize = modificarUsuarioFrame.getSize();
 		modificarUsuarioFrame.setLocation(x, y);
@@ -132,6 +139,7 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				listarDistribucionesZonaInternalFrame.setVisible(false);
 				modificarUsuarioFrame.setVisible(false);
 				modificarDonacionInternalFrame.setVisible(false);
 				altaDonacionInternalFrame.setVisible(false);
@@ -149,6 +157,7 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				listarDistribucionesZonaInternalFrame.setVisible(false);
 				modificarDonacionInternalFrame.setVisible(false);
 				reporteDeZonaFrame.setVisible(false);
 			}
@@ -166,6 +175,7 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				listarDistribucionesZonaInternalFrame.setVisible(false);
 				modificarDonacionInternalFrame.setVisible(false);
 				altaDonacionInternalFrame.setVisible(false);
 				reporteDeZonaFrame.setVisible(false);
@@ -182,6 +192,7 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				listarDistribucionesZonaInternalFrame.setVisible(false);
 				altaDonacionInternalFrame.setVisible(false);
 				
 			}
@@ -199,6 +210,7 @@ public class Principal {
 				agregarUsuarioInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				listarDistribucionesZonaInternalFrame.setVisible(false);
 				modificarUsuarioFrame.setVisible(false);
 				modificarDonacionInternalFrame.setVisible(false);
 				altaDonacionInternalFrame.setVisible(false);
@@ -214,6 +226,7 @@ public class Principal {
 				listarBeneficiariosInternalFrame.setVisible(false);
 				agregarUsuarioInternalFrame.setVisible(false);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				listarDistribucionesZonaInternalFrame.setVisible(false);
 				modificarUsuarioFrame.setVisible(false);
 				modificarDonacionInternalFrame.setVisible(false);
 				altaDonacionInternalFrame.setVisible(false);
@@ -228,6 +241,7 @@ public class Principal {
 				listarBeneficiariosEstadoInternalFrame.setVisible(true);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosInternalFrame.setVisible(false);
+				listarDistribucionesZonaInternalFrame.setVisible(false);
 				agregarUsuarioInternalFrame.setVisible(false);
 				modificarUsuarioFrame.setVisible(false);
 				modificarDonacionInternalFrame.setVisible(false);
@@ -241,6 +255,23 @@ public class Principal {
 		mntmReporteDeZona.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				reporteDeZonaFrame.setVisible(true);
+				listarBeneficiariosInternalFrame.setVisible(false);
+				agregarUsuarioInternalFrame.setVisible(false);
+				listarBeneficiariosZonaInternalFrame.setVisible(false);
+				listarBeneficiariosEstadoInternalFrame.setVisible(false);
+				listarDistribucionesZonaInternalFrame.setVisible(false);
+				modificarUsuarioFrame.setVisible(false);
+				modificarDonacionInternalFrame.setVisible(false);
+				altaDonacionInternalFrame.setVisible(false);
+							
+			}
+		});
+		mnListar.add(mntmReporteDeZona);
+		
+		JMenuItem mntmDistribucionZona = new JMenuItem("Listar Distribuciones por Zona");
+		mntmDistribucionZona.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listarDistribucionesZonaInternalFrame.setVisible(true);
 				listarBeneficiariosEstadoInternalFrame.setVisible(false);
 				listarBeneficiariosZonaInternalFrame.setVisible(false);
 				listarBeneficiariosInternalFrame.setVisible(false);
@@ -248,7 +279,7 @@ public class Principal {
 				modificarUsuarioFrame.setVisible(false);
 			}
 		});
-		mnListar.add(mntmReporteDeZona);
+		mnListar.add(mntmDistribucionZona);
 		frame.getContentPane().setLayout(null);
 	}
 }

@@ -10,6 +10,7 @@ import javax.persistence.Persistence;
 import com.ayudamos.datatypes.DtAlimento;
 import com.ayudamos.datatypes.DtArticulo;
 import com.ayudamos.datatypes.DtBeneficiario;
+import com.ayudamos.datatypes.DtDistribucionZona;
 import com.ayudamos.datatypes.DtDonacion;
 import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.datatypes.DtUsuario;
@@ -125,6 +126,26 @@ public class Controlador implements IControlador {
 		
 		 
 	}
+	
+	@Override
+	public ArrayList<DtDistribucionZona> listarDistribucionesZona(String barrio){
+		ManejadorDistribucion mDi = ManejadorDistribucion.getInstancia();
+    
+		ArrayList<DtDistribucionZona> aRetornar = new ArrayList<>();
+		List<Distribucion> distribuciones = mDi.obtenerDistribuciones();
+		for (Distribucion d : distribuciones) {
+			
+			if (d.getBeneficiario().getBarrio().toString()==barrio) {				
+				
+				DtDistribucionZona dtDZ = new DtDistribucionZona(d.getFechaEntrega(),d.getBeneficiario().getNombre(), d.getEstado());
+				aRetornar.add(dtDZ);	
+			}
+			
+		}
+	return aRetornar;
+	
+	 
+}
 	
 	@Override
 	public ArrayList<DtUsuario> listarUsuarios() {

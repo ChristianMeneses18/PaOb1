@@ -45,4 +45,14 @@ public class ManejadorDistribucion {
 	    return new ArrayList<>(resultados);
 	}
 
+
+	public ArrayList<Distribucion> obtenerDistribuciones(){
+		Conexion conexion = Conexion.getInstancia();
+		EntityManager em = conexion.getEntityManager();
+		
+		Query query = em.createQuery("SELECT d FROM Distribucion d ", Distribucion.class);
+		List<Distribucion> distribuciones = query.getResultList();
+
+		return new ArrayList<>(distribuciones);
+	}
 }

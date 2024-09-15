@@ -6,6 +6,7 @@ import java.util.Date;
 import com.ayudamos.datatypes.DtAlimento;
 import com.ayudamos.datatypes.DtArticulo;
 import com.ayudamos.datatypes.DtBeneficiario;
+import com.ayudamos.datatypes.DtDistribucionZona;
 import com.ayudamos.datatypes.DtDonacion;
 import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
@@ -33,4 +34,6 @@ public interface IControlador {
 	public void modificarAlimento(DtAlimento alimento);
 	
 	public void modificarArticulo(DtArticulo articulo);
+
+	public ArrayList<DtDistribucionZona> listarDistribucionesZona(String barrio);
 }

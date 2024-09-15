@@ -37,6 +37,9 @@ public class Usuario{
 		this.email = email;
 	}
 
+	public int getIdUsuario() {
+		return idUsuario;
+	}
 	public String getNombre() {
 		return nombre;
 	}

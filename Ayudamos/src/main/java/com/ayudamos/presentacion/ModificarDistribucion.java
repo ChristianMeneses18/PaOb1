@@ -73,7 +73,7 @@ public class ModificarDistribucion extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(30, 124, 515, 250);
+		scrollPane.setBounds(10, 120, 534, 257);
 		getContentPane().add(scrollPane);
 		
 		JLabel lblNewLabel = new JLabel("Modificar Distribución");
@@ -148,7 +148,7 @@ public class ModificarDistribucion extends JInternalFrame {
 
 	    
 	    comboBoxEstado = new JComboBox<>(new String[] {"Pendiente", "En camino", "Entregado"});
-	    comboBoxEstado.setModel(new DefaultComboBoxModel(new String[] {"Pendiente", "En camino", "Entregado"}));
+	    comboBoxEstado.setModel(new DefaultComboBoxModel(EstadoDistribucion.values()));
 	    comboBoxEstado.setBounds(147, 230, 245, 30);
 	    getContentPane().add(comboBoxEstado);
 	    comboBoxEstado.setVisible(false);
@@ -207,6 +207,7 @@ public class ModificarDistribucion extends JInternalFrame {
 					btnListar.setVisible(false);
 					scrollPane.setVisible(false);
 					
+					dateChooserFechaEntrega.setVisible(true);
 					comboBoxEstado.setVisible(true);
 					comboBoxHora.setVisible(true);
 					comboBoxMinutos.setVisible(true);
@@ -228,6 +229,8 @@ public class ModificarDistribucion extends JInternalFrame {
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				int selectedRow = tablaDistribuciones.getSelectedRow();
+				Date selectedDateEntrega;
+				Calendar calendar;
 				
 				DtDistribucion distribucion = new DtDistribucion(
 						(int) model.getValueAt(selectedRow, 3),
@@ -237,24 +240,35 @@ public class ModificarDistribucion extends JInternalFrame {
 						(EstadoDistribucion) model.getValueAt(selectedRow, 0)
 						);
 				
+				selectedDateEntrega = dateChooserFechaEntrega.getDate();
+				calendar = Calendar.getInstance();
+				calendar.setTime(selectedDateEntrega);
+			    int horaSeleccionadaEntrega = Integer.parseInt(comboBoxHora.getSelectedItem().toString());
+			    int minutosSeleccionadosEntrega = Integer.parseInt(comboBoxMinutos.getSelectedItem().toString());
+			    
+			    calendar.setTime(selectedDateEntrega);
+			    calendar.set(Calendar.HOUR_OF_DAY, horaSeleccionadaEntrega);
+			    calendar.set(Calendar.MINUTE, minutosSeleccionadosEntrega);
+			    Date fechaEntrega = calendar.getTime();
 				
-						icon.modificarDistribucion((Date) model.getValueAt(selectedRow, 2), (EstadoDistribucion) model.getValueAt(selectedRow, 0), distribucion);
-						JOptionPane.showMessageDialog(ModificarDistribucion.this, "Usuario modificado con exito", "Modificar Usuario", JOptionPane.INFORMATION_MESSAGE);
-						setVisible(false);
-						limpiar();
+				icon.modificarDistribucion(fechaEntrega,(EstadoDistribucion) comboBoxEstado.getSelectedItem(), distribucion);
+				JOptionPane.showMessageDialog(ModificarDistribucion.this, "Distribucion modificado con exito", "Modificar Usuario", JOptionPane.INFORMATION_MESSAGE);
+				setVisible(false);
+				limpiar();
 
-						btnSeleccionar.setVisible(true);
-						lblNewLabel_1.setVisible(true);
-						btnListar.setVisible(true);
-						scrollPane.setVisible(true);
+				btnSeleccionar.setVisible(true);
+				lblNewLabel_1.setVisible(true);
+				btnListar.setVisible(true);
+				scrollPane.setVisible(true);
 
-						comboBoxEstado.setVisible(false);
-						comboBoxHora.setVisible(false);
-						comboBoxMinutos.setVisible(false);
-						lblFechaEntrega.setVisible(false);
-						lblEstado.setVisible(false);
-						btnModificar.setVisible(false);
-						btnAtras.setVisible(false);
+				dateChooserFechaEntrega.setVisible(false);
+				comboBoxEstado.setVisible(false);
+				comboBoxHora.setVisible(false);
+				comboBoxMinutos.setVisible(false);
+				lblFechaEntrega.setVisible(false);
+				lblEstado.setVisible(false);
+				btnModificar.setVisible(false);
+				btnAtras.setVisible(false);
 
 
 			}
@@ -308,7 +322,7 @@ public class ModificarDistribucion extends JInternalFrame {
 		comboBoxEstado.setSelectedIndex(1);
 		comboBoxHora.setSelectedIndex(1);
 		comboBoxMinutos.setSelectedIndex(1);
-        dateChooserFechaEntrega.setDate(null);
+      //  dateChooserFechaEntrega.setDate(null);
         model.setRowCount(0);
 
 	}

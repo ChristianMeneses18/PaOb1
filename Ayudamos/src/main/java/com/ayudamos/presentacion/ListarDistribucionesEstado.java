@@ -58,7 +58,7 @@ public class ListarDistribucionesEstado extends JInternalFrame {
 		
 		scrollPane.setViewportView(tablaBeneficiarios);
 		
-		JLabel lblNewLabel = new JLabel("Listar Distribuciones Por Zona");
+		JLabel lblNewLabel = new JLabel("Listar Distribuciones Por Estado");
 		lblNewLabel.setForeground(new Color(0, 0, 0));
 		lblNewLabel.setBackground(UIManager.getColor("Button.focus"));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -69,8 +69,6 @@ public class ListarDistribucionesEstado extends JInternalFrame {
 		btnListar = new JButton("Listar");
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				btnListar.setBounds(96, 348, 117, 30);
-				btnCancelar.setBounds(324, 348, 117, 30);
 				listarDistribucionActionPerformed(arg0);
 			}
 		});
@@ -81,8 +79,6 @@ public class ListarDistribucionesEstado extends JInternalFrame {
 		 btnListarTodo = new JButton("Listar Todo");
 		 btnListarTodo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				btnListar.setBounds(96, 348, 117, 30);
-				btnCancelar.setBounds(324, 348, 117, 30);
 				listarDistribucionTotalActionPerformed(arg0);
 
 			}
@@ -126,7 +122,7 @@ public class ListarDistribucionesEstado extends JInternalFrame {
 			JOptionPane.showMessageDialog(this, "No existen Distribuciones a listar", "Listar Beneficiario", JOptionPane.INFORMATION_MESSAGE);
 			}else {
 				for (DtDistribucion d : datos) {
-					Object[] fila = new Object[3];
+					Object[] fila = new Object[5];
 					fila[0] = d.getEstado();
 					fila[1] = d.getFechaPreparacion();
 					fila[2] = d.getFechaEntrega();
@@ -150,7 +146,7 @@ public class ListarDistribucionesEstado extends JInternalFrame {
 			JOptionPane.showMessageDialog(this, "No existen Distribuciones a listar", "Listar Beneficiario", JOptionPane.INFORMATION_MESSAGE);
 			}else {
 				for (DtDistribucion d : datos) {
-					Object[] fila = new Object[3];
+					Object[] fila = new Object[5];
 					fila[0] = d.getEstado();
 					fila[1] = d.getFechaPreparacion();
 					fila[2] = d.getFechaEntrega();

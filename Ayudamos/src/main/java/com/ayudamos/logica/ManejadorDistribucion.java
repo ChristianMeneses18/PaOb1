@@ -12,6 +12,7 @@ import com.ayudamos.persistencia.Conexion;
 import com.ayudamos.datatypes.DtDistribucion;
 import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.persistencia.Conexion;
+import com.ayudamos.persistencia.DistribucionID;
 import java.util.Date;
 
 
@@ -57,11 +58,11 @@ public class ManejadorDistribucion {
 		em.getTransaction().commit();
 	}
 	
-	public ArrayList<Distribucion> obtenerDistribuciones() {
+	public ArrayList<Distribucion> obtenerDistribuciones(){
 		Conexion conexion = Conexion.getInstancia();
 		EntityManager em = conexion.getEntityManager();
 		
-		Query query = em.createQuery("SELECT d FROM distribucion d", Distribucion.class);
+		Query query = em.createQuery("SELECT d FROM Distribucion d ", Distribucion.class);
 		List<Distribucion> distribuciones = query.getResultList();
 
 		return new ArrayList<>(distribuciones);
@@ -86,12 +87,14 @@ public class ManejadorDistribucion {
 		int beneficiario = d.getIdBeneficiario();
 		int donacion = d.getIdDonacion();
 		
-		Query query = em.createQuery("SELECT d FROM distribucion d WHERE d.beneficiario_id = :beneficiario AND d.donacion_id = :donacion AND fecha_preparacion = DATE_FORMAT(':fechaPreparacion', '%Y-%m-%d')", Distribucion.class);
-		query.setParameter("donacion", donacion);
-		query.setParameter("beneficiario", beneficiario);
-		query.setParameter("fechaPreparacion", fechaPreparacion);
-		List<Distribucion> distribuciones = query.getResultList();
-		Distribucion distribucion = distribuciones.get(0);
+		DistribucionID distribucionID = new DistribucionID();
+		distribucionID.setBeneficiario(beneficiario);
+		distribucionID.setDonacion(donacion);
+		distribucionID.setFechaPreparacion(fechaPreparacion);
+		
+		
+		Distribucion distribucion = em.find(Distribucion.class, distribucionID);
+
 		return  distribucion;
 	}
 	

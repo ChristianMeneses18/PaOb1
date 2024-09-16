@@ -40,9 +40,12 @@ public class AgregarDistribucion extends JInternalFrame {
 		    private JLabel lblBeneficiario;
 		    private JLabel lblMinutosPreparacion;
 		    private JLabel lblHorasPreparacion;
-		    private JComboBox<String> comboBoxHora;
-		    private JComboBox<String> comboBoxMinutos;
+		    private JComboBox<String> comboBoxHoraPreparacion;
+		    private JComboBox<String> comboBoxMinutosPreparacion;
+		    private JComboBox<String> comboBoxHoraEntrega;
+		    private JComboBox<String> comboBoxMinutosEntrega;
 		    private JDateChooser dateChooserFechaPreparacion;
+		    private JDateChooser dateChooserFechaEntrega;
 		    private JLabel lblDonacion;
 		    private JButton btnAgregar;
 		    private JButton btnCancelar;
@@ -54,7 +57,7 @@ public class AgregarDistribucion extends JInternalFrame {
 		
 		this.icon = icon;
         setTitle("Alta de Distribución");
-        setBounds(100, 100, 583, 515);
+        setBounds(100, 100, 643, 515);
         setClosable(false);
         setIconifiable(false);
         setMaximizable(false);
@@ -68,34 +71,34 @@ public class AgregarDistribucion extends JInternalFrame {
         lblTitulo.setBounds(0, 10, 567, 40);
         getContentPane().add(lblTitulo);
 
-        JLabel lblFechaPreparacion = new JLabel("Fecha Preparación:");
-        lblFechaPreparacion.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblFechaPreparacion.setBounds(10, 159, 150, 30);
-        getContentPane().add(lblFechaPreparacion);
+        JLabel lblFechaEntrega = new JLabel("Fecha Entrega:");
+        lblFechaEntrega.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblFechaEntrega.setBounds(23, 233, 150, 30);
+        getContentPane().add(lblFechaEntrega);
 
         dateChooserFechaPreparacion = new JDateChooser();
-        dateChooserFechaPreparacion.setBounds(182, 159, 212, 30);
+        dateChooserFechaPreparacion.setBounds(182, 192, 212, 30);
         getContentPane().add(dateChooserFechaPreparacion);
         
         lblBeneficiario = new JLabel("Id de Beneficiario:");
         lblBeneficiario.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblBeneficiario.setBounds(10, 242, 150, 30);
+        lblBeneficiario.setBounds(23, 274, 150, 30);
         getContentPane().add(lblBeneficiario);
 
         txtBeneficiario = new JTextField();
         txtBeneficiario.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        txtBeneficiario.setBounds(182, 242, 350, 30);
+        txtBeneficiario.setBounds(195, 274, 350, 30);
         getContentPane().add(txtBeneficiario);
         txtBeneficiario.setColumns(10);
         
         lblDonacion = new JLabel("ID de Donación:");
         lblDonacion.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblDonacion.setBounds(10, 283, 150, 30);
+        lblDonacion.setBounds(23, 315, 150, 30);
         getContentPane().add(lblDonacion);
 
         txtDonacion = new JTextField();
         txtDonacion.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        txtDonacion.setBounds(182, 283, 350, 30);
+        txtDonacion.setBounds(195, 315, 350, 30);
         getContentPane().add(txtDonacion);
         txtDonacion.setColumns(10);
 		
@@ -121,24 +124,51 @@ public class AgregarDistribucion extends JInternalFrame {
         btnCancelar.setBounds(315, 413, 117, 30);
         getContentPane().add(btnCancelar);
         
-        JLabel lblHoraPreparacin = new JLabel("Hora:");
-        lblHoraPreparacin.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblHoraPreparacin.setBounds(101, 201, 56, 30);
-        getContentPane().add(lblHoraPreparacin);
+        JLabel lblHoraPreparacion = new JLabel("H:");
+        lblHoraPreparacion.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblHoraPreparacion.setBounds(407, 192, 25, 30);
+        getContentPane().add(lblHoraPreparacion);
         
-        lblMinutosPreparacion = new JLabel("Minutos:");
+        lblMinutosPreparacion = new JLabel("M:");
         lblMinutosPreparacion.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        lblMinutosPreparacion.setBounds(239, 200, 76, 30);
+        lblMinutosPreparacion.setBounds(500, 192, 25, 30);
         getContentPane().add(lblMinutosPreparacion);
         
 
-        comboBoxHora = new JComboBox(this.agregarHoras());
-        comboBoxHora.setBounds(164, 209, 62, 22);
-        getContentPane().add(comboBoxHora);
+        comboBoxHoraPreparacion = new JComboBox(this.agregarHoras());
+        comboBoxHoraPreparacion.setBounds(428, 199, 62, 22);
+        getContentPane().add(comboBoxHoraPreparacion);
         
-        comboBoxMinutos = new JComboBox(this.agregarMinutos());
-        comboBoxMinutos.setBounds(325, 209, 62, 22);
-        getContentPane().add(comboBoxMinutos);
+        comboBoxMinutosPreparacion = new JComboBox(this.agregarMinutos());
+        comboBoxMinutosPreparacion.setBounds(535, 199, 62, 22);
+        getContentPane().add(comboBoxMinutosPreparacion);
+        
+        JLabel lblFechaPreparacion = new JLabel("Fecha Preparación:");
+        lblFechaPreparacion.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblFechaPreparacion.setBounds(23, 192, 150, 30);
+        getContentPane().add(lblFechaPreparacion);
+        
+        dateChooserFechaEntrega = new JDateChooser();
+        dateChooserFechaEntrega.setBounds(183, 233, 212, 30);
+        getContentPane().add(dateChooserFechaEntrega);
+        
+        comboBoxMinutosEntrega = new JComboBox(this.agregarMinutos());
+        comboBoxMinutosEntrega.setBounds(535, 240, 62, 22);
+        getContentPane().add(comboBoxMinutosEntrega);
+        
+        JLabel lblMinutosEntrega = new JLabel("M:");
+        lblMinutosEntrega.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblMinutosEntrega.setBounds(500, 233, 25, 30);
+        getContentPane().add(lblMinutosEntrega);
+        
+        comboBoxHoraEntrega = new JComboBox(this.agregarHoras());
+        comboBoxHoraEntrega.setBounds(428, 240, 62, 22);
+        getContentPane().add(comboBoxHoraEntrega);
+        
+        JLabel lblHoraEntrega = new JLabel("H:");
+        lblHoraEntrega.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblHoraEntrega.setBounds(405, 233, 25, 30);
+        getContentPane().add(lblHoraEntrega);
 	}
 	
 	private String[] agregarHoras() {
@@ -163,37 +193,57 @@ public class AgregarDistribucion extends JInternalFrame {
 	}
 	
     protected void agregarDistribucionAceptarActionPerformed(ActionEvent arg0) {
-    	Date selectedDate;
+    	Date selectedDatePreparacion;
+    	Date selectedDateEntrega;
 		Calendar calendar;
 		int dia , mes , anio;
 		
 		int beneficiario = Integer.parseInt(this.txtBeneficiario.getText());
 		int donacion = Integer.parseInt(this.txtDonacion.getText());
 		
-		selectedDate = dateChooserFechaPreparacion.getDate();
+		selectedDatePreparacion = dateChooserFechaPreparacion.getDate();
 		calendar = Calendar.getInstance();
-		calendar.setTime(selectedDate);
-		
-	
-	    int horaSeleccionada = Integer.parseInt(comboBoxHora.getSelectedItem().toString());
-	    int minutosSeleccionados = Integer.parseInt(comboBoxMinutos.getSelectedItem().toString());
-
-	    calendar.setTime(selectedDate);
-	    calendar.set(Calendar.HOUR_OF_DAY, horaSeleccionada);
-	    calendar.set(Calendar.MINUTE, minutosSeleccionados);
-
+		calendar.setTime(selectedDatePreparacion);
+	    int horaSeleccionadaPreparacion = Integer.parseInt(comboBoxHoraPreparacion.getSelectedItem().toString());
+	    int minutosSeleccionadosPreparacion = Integer.parseInt(comboBoxMinutosPreparacion.getSelectedItem().toString());
+	    
+	    calendar.setTime(selectedDatePreparacion);
+	    calendar.set(Calendar.HOUR_OF_DAY, horaSeleccionadaPreparacion);
+	    calendar.set(Calendar.MINUTE, minutosSeleccionadosPreparacion);
 	    Date fechaPreparacion = calendar.getTime();
-		System.out.print(fechaPreparacion);
+	    
+	    selectedDateEntrega = dateChooserFechaEntrega.getDate();
+		calendar = Calendar.getInstance();
+		calendar.setTime(selectedDateEntrega);
+	    
+	    int horaSeleccionadaEntrega = Integer.parseInt(comboBoxHoraEntrega.getSelectedItem().toString());
+	    int minutosSeleccionadosEntrega = Integer.parseInt(comboBoxMinutosEntrega.getSelectedItem().toString());
+
+	    calendar.setTime(selectedDateEntrega);
+	    calendar.set(Calendar.HOUR_OF_DAY, horaSeleccionadaEntrega);
+	    calendar.set(Calendar.MINUTE, minutosSeleccionadosEntrega);
+	    Date fechaEntrega = calendar.getTime();
+	   
 		
-		DtDistribucion dt = new DtDistribucion(beneficiario, donacion, fechaPreparacion,null,EstadoDistribucion.PENDIENTE);
+		
+		DtDistribucion dt = new DtDistribucion(beneficiario, donacion, fechaPreparacion,fechaEntrega,EstadoDistribucion.PENDIENTE);
 
             this.icon.agregarDistribucion(dt);
+        
+            JOptionPane.showMessageDialog(this, "Distribucion agregado con exito", "Agregar Distribucion", JOptionPane.INFORMATION_MESSAGE);
+            setVisible(false);
+            limpiarFormulario();
            
     }
     
       
 	 private void limpiarFormulario() {
 	        dateChooserFechaPreparacion.setCalendar(null);
+	        dateChooserFechaEntrega.setCalendar(null);
+	        comboBoxHoraPreparacion.setSelectedIndex(-1);
+	        comboBoxMinutosPreparacion.setSelectedIndex(-1);
+	        comboBoxHoraEntrega.setSelectedIndex(-1);
+	        comboBoxMinutosEntrega.setSelectedIndex(-1);
 	        txtBeneficiario.setText("");
 	        txtDonacion.setText(""); 
 	 }

@@ -12,6 +12,7 @@ import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.excepciones.DistribucionRepetidaExcepcion;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
+import com.ayudamos.datatypes.DtDistribucionZona;
 import com.ayudamos.enums.EstadoDistribucion;
 
 public interface IControlador {
@@ -46,6 +47,8 @@ public interface IControlador {
 	
 	public void modificarDistribucion(Date fechaEntrega, EstadoDistribucion estado, DtDistribucion distribucion);
 	
-	public ArrayList<DtDistribucion> listarDistribucionesEstado(String barrio);
+	public ArrayList<DtDistribucion> listarDistribucionesEstado(String estado);
+	
+	public ArrayList<DtDistribucionZona> listarDistribucionesZona(String barrio);
 
 }

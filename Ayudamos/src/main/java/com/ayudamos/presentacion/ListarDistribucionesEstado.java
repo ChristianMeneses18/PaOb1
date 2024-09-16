@@ -113,13 +113,13 @@ public class ListarDistribucionesEstado extends JInternalFrame {
 		String estado = comboBoxEstado.getSelectedItem().toString();
 		
 		if (estado.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "Debera seleccionar el estado", "Listar Distribución", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Debera seleccionar el estado", "Listar Distribuciones", JOptionPane.INFORMATION_MESSAGE);
 		}else{
 			datos = icon.listarDistribucionesEstado(estado);
 		}
 		
 		if (datos.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "No existen Distribuciones a listar", "Listar Beneficiario", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No existen Distribuciones a listar", "Listar Distribuciones", JOptionPane.INFORMATION_MESSAGE);
 			}else {
 				for (DtDistribucion d : datos) {
 					Object[] fila = new Object[5];
@@ -161,8 +161,6 @@ public class ListarDistribucionesEstado extends JInternalFrame {
 	
 	
 	 protected void listarDistribucionCancelarActionPerformed(ActionEvent arg0) {
-		 	btnListar.setBounds(182, 69, 117, 30);
-		 	btnCancelar.setBounds(309, 69, 117, 30);
 		 	model.setRowCount(0);
 	        setVisible(false);
 		}

@@ -242,7 +242,7 @@ public class Controlador implements IControlador {
 		ManejadorDonacion mDo = ManejadorDonacion.getInstancia();
 		Distribucion nuevaDistribucion = null;
 		Usuario usuarioBeneficiario = mU.buscarUsuario(((DtDistribucion) distribucion).getIdBeneficiario());
-		Beneficiario beneficiario = mU.buscarBeneficiario(usuarioBeneficiario); //////TESTEAR
+		Beneficiario beneficiario = mU.buscarBeneficiario(usuarioBeneficiario);
 		Donacion donacion = mDo.buscarDonacion(((DtDistribucion) distribucion).getIdDonacion());
 		
 		nuevaDistribucion = new Distribucion(
@@ -253,7 +253,6 @@ public class Controlador implements IControlador {
 				donacion
 		);
 		
-		//nuevaDistribucion.setFechaIngresada(donacion.getFechaIngresada());
 		mDi.agregarDistribucion(nuevaDistribucion);
 		
 		
@@ -268,7 +267,6 @@ public class Controlador implements IControlador {
 		ArrayList<DtDistribucion> aRetornar = new ArrayList<>();
 		List<Distribucion> distribuciones = mD.obtenerDistribuciones();
 		for (Distribucion d : distribuciones) {
-			//EXPLOTA SI GET_FECHA_ENTREGA ES NULL EN LA BD?
 			int beneficiario = d.getBeneficiario().getIdUsuario();
 			int donacion = d.getDonacion().getId();
 			DtDistribucion dtDistribucion = new DtDistribucion( beneficiario, donacion, d.getFechaPreparacion(),d.getFechaEntrega(), d.getEstado());

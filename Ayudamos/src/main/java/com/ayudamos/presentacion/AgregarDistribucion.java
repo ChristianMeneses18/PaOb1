@@ -63,7 +63,6 @@ public class AgregarDistribucion extends JInternalFrame {
         setMaximizable(false);
         setResizable(false);
         getContentPane().setLayout(null);
-	//	initialize();
 		
         JLabel lblTitulo = new JLabel("Alta de Distribución");
         lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 30));

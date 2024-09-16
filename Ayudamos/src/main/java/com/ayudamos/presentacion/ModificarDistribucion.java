@@ -252,7 +252,7 @@ public class ModificarDistribucion extends JInternalFrame {
 			    Date fechaEntrega = calendar.getTime();
 				
 				icon.modificarDistribucion(fechaEntrega,(EstadoDistribucion) comboBoxEstado.getSelectedItem(), distribucion);
-				JOptionPane.showMessageDialog(ModificarDistribucion.this, "Distribucion modificado con exito", "Modificar Usuario", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(ModificarDistribucion.this, "Distribucion modificado con exito", "Modificar Distribucion", JOptionPane.INFORMATION_MESSAGE);
 				setVisible(false);
 				limpiar();
 
@@ -320,9 +320,8 @@ public class ModificarDistribucion extends JInternalFrame {
 
 	private void limpiar() {
 		comboBoxEstado.setSelectedIndex(1);
-		comboBoxHora.setSelectedIndex(1);
-		comboBoxMinutos.setSelectedIndex(1);
-      //  dateChooserFechaEntrega.setDate(null);
+		comboBoxHora.setSelectedIndex(-1);
+		comboBoxMinutos.setSelectedIndex(-1);
         model.setRowCount(0);
 
 	}

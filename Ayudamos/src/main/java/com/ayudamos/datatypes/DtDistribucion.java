@@ -1,21 +1,35 @@
 package com.ayudamos.datatypes;
 
 import com.ayudamos.enums.EstadoDistribucion;
+import java.util.Calendar;
+import java.util.Date;
 
 public class DtDistribucion {
 	private int idBeneficiario;
 	private int idDonacion;
-	private DtFechaHora fechaPreparacion;
-	private DtFechaHora fechaEntrega;
+	private Date fechaPreparacion;
+	private Date fechaEntrega;
 	private EstadoDistribucion estado;
 	
 	
-	public DtDistribucion(int idBeneficiario, int idDonacion, DtFechaHora fechaPreparacion, DtFechaHora fechaEntrega, EstadoDistribucion estado){
-		this.idBeneficiario = idBeneficiario;
-		this.idDonacion = idDonacion;
+	public DtDistribucion(int beneficiario, int donacion, Date fechaPreparacion, Date fechaEntrega, EstadoDistribucion estado){
+		this.idBeneficiario = beneficiario;
+		this.idDonacion = donacion;
 		this.fechaPreparacion = fechaPreparacion;
 		this.fechaEntrega = fechaEntrega;
 		this.estado = estado;
+	}
+	
+	public Date getFechaPreparacion(){
+		return fechaPreparacion;
+	}
+	
+	public Date getFechaEntrega(){
+		return fechaEntrega;
+	}
+	
+	public EstadoDistribucion getEstado(){
+		return estado;
 	}
 	
 	public int getIdBeneficiario(){
@@ -24,17 +38,6 @@ public class DtDistribucion {
 	
 	public int getIdDonacion(){
 		return idDonacion;
-	}
-	public DtFechaHora getFechaPreparacion(){
-		return fechaPreparacion;
-	}
-	
-	public DtFechaHora getFechaEntrega(){
-		return fechaEntrega;
-	}
-	
-	public EstadoDistribucion getEstado(){
-		return estado;
 	}
 	
 	@Override

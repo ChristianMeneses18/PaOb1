@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Date;
 
 import com.ayudamos.datatypes.DtAlimento;
 import com.ayudamos.datatypes.DtArticulo;
@@ -19,6 +20,10 @@ import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 import com.ayudamos.interfaces.IControlador;
 import com.ayudamos.logica.ManejadorUsuario;
 import com.ayudamos.logica.ManejadorDistribucion;
+import com.ayudamos.datatypes.DtDistribucion;
+import com.ayudamos.excepciones.DistribucionRepetidaExcepcion;
+import com.ayudamos.enums.EstadoDistribucion;
+import com.ayudamos.datatypes.DtDistribucionZona;
 
 public class Controlador implements IControlador {
 	private static EntityManager em;
@@ -127,25 +132,6 @@ public class Controlador implements IControlador {
 		 
 	}
 	
-	@Override
-	public ArrayList<DtDistribucionZona> listarDistribucionesZona(String barrio){
-		ManejadorDistribucion mDi = ManejadorDistribucion.getInstancia();
-    
-		ArrayList<DtDistribucionZona> aRetornar = new ArrayList<>();
-		List<Distribucion> distribuciones = mDi.obtenerDistribuciones();
-		for (Distribucion d : distribuciones) {
-			
-			if (d.getBeneficiario().getBarrio().toString()==barrio) {				
-				
-				DtDistribucionZona dtDZ = new DtDistribucionZona(d.getFechaEntrega(),d.getBeneficiario().getNombre(), d.getEstado());
-				aRetornar.add(dtDZ);	
-			}
-			
-		}
-	return aRetornar;
-	
-	 
-}
 	
 	@Override
 	public ArrayList<DtUsuario> listarUsuarios() {
@@ -250,5 +236,103 @@ public class Controlador implements IControlador {
 		ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();
 		return mD.obtenerDistribucionesPorZona(fechaInicio, fechaFin);
 	}
+	
+	@Override
+	public void agregarDistribucion(DtDistribucion distribucion)  {
+		ManejadorDistribucion mDi = ManejadorDistribucion.getInstancia();
+		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
+		ManejadorDonacion mDo = ManejadorDonacion.getInstancia();
+		Distribucion nuevaDistribucion = null;
+		Usuario usuarioBeneficiario = mU.buscarUsuario(((DtDistribucion) distribucion).getIdBeneficiario());
+		Beneficiario beneficiario = mU.buscarBeneficiario(usuarioBeneficiario);
+		Donacion donacion = mDo.buscarDonacion(((DtDistribucion) distribucion).getIdDonacion());
+		
+		nuevaDistribucion = new Distribucion(
+				((DtDistribucion) distribucion).getFechaPreparacion(), 
+				((DtDistribucion) distribucion).getFechaEntrega(), 
+				((DtDistribucion) distribucion).getEstado(),
+				beneficiario,
+				donacion
+		);
+		
+		mDi.agregarDistribucion(nuevaDistribucion);
+		
+		
+		 
+	}
+	
+	@Override
+	public ArrayList<DtDistribucion> listarDistribuciones() {
+		
+		ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();
+        
+		ArrayList<DtDistribucion> aRetornar = new ArrayList<>();
+		List<Distribucion> distribuciones = mD.obtenerDistribuciones();
+		for (Distribucion d : distribuciones) {
+			int beneficiario = d.getBeneficiario().getIdUsuario();
+			int donacion = d.getDonacion().getId();
+			DtDistribucion dtDistribucion = new DtDistribucion( beneficiario, donacion, d.getFechaPreparacion(),d.getFechaEntrega(), d.getEstado());
+			aRetornar.add(dtDistribucion);	
+			
+		}
+		
+		
+		return aRetornar;
+		
+		 
+	}
+	
+	@Override
+	public void modificarDistribucion(Date fechaEntrega, EstadoDistribucion estado, DtDistribucion distribucion) {
+		ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();
+		Distribucion distribucionBuscada = (Distribucion) mD.buscarDistribucion(distribucion);
+		
+		
+		
+		distribucionBuscada.setFechaEntrega(fechaEntrega);
+		distribucionBuscada.setEstado(estado);
+
+		mD.modificarDistribucion(distribucionBuscada);			
+	}
+	
+	
+	@Override
+	public ArrayList<DtDistribucion> listarDistribucionesEstado(String estado){
+		ManejadorDistribucion mDi = ManejadorDistribucion.getInstancia();
+	    
+		ArrayList<DtDistribucion> aRetornar = new ArrayList<>();
+		List<Distribucion> distribuciones = mDi.obtenerDistribuciones();
+		for (Distribucion d : distribuciones) {
+			
+			if (d.getEstado().toString()==estado) {				
+				int donacion = d.getDonacion().getId();
+				DtDistribucion dtD = new DtDistribucion(d.getBeneficiario().getIdUsuario(),donacion, d.getFechaPreparacion(),d.getFechaEntrega(), d.getEstado());
+				aRetornar.add(dtD);	
+			}
+			
+		}
+	return aRetornar;
+	 
+	}
+	
+	
+	@Override
+	public ArrayList<DtDistribucionZona> listarDistribucionesZona(String barrio){
+		ManejadorDistribucion mDi = ManejadorDistribucion.getInstancia();
+    
+		ArrayList<DtDistribucionZona> aRetornar = new ArrayList<>();
+		List<Distribucion> distribuciones = mDi.obtenerDistribuciones();
+		for (Distribucion d : distribuciones) {
+			
+			if (d.getBeneficiario().getBarrio().toString()==barrio) {				
+				
+				DtDistribucionZona dtDZ = new DtDistribucionZona(d.getFechaEntrega(),d.getBeneficiario().getNombre(), d.getEstado());
+				aRetornar.add(dtDZ);	
+			}
+			
+		}
+	return aRetornar;
+	
+}
 
 }

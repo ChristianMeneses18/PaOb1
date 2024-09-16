@@ -7,10 +7,14 @@ import com.ayudamos.datatypes.DtAlimento;
 import com.ayudamos.datatypes.DtArticulo;
 import com.ayudamos.datatypes.DtBeneficiario;
 import com.ayudamos.datatypes.DtDistribucionZona;
+import com.ayudamos.datatypes.DtDistribucion;
 import com.ayudamos.datatypes.DtDonacion;
 import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.datatypes.DtUsuario;
+import com.ayudamos.excepciones.DistribucionRepetidaExcepcion;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
+import com.ayudamos.datatypes.DtDistribucionZona;
+import com.ayudamos.enums.EstadoDistribucion;
 
 public interface IControlador {
 	
@@ -37,6 +41,15 @@ public interface IControlador {
 	public void modificarAlimento(DtAlimento alimento);
 	
 	public void modificarArticulo(DtArticulo articulo);
+	
+	public void agregarDistribucion(DtDistribucion distribucion) ;
 
+	public ArrayList<DtDistribucion> listarDistribuciones();
+	
+	public void modificarDistribucion(Date fechaEntrega, EstadoDistribucion estado, DtDistribucion distribucion);
+	
+	public ArrayList<DtDistribucion> listarDistribucionesEstado(String estado);
+	
 	public ArrayList<DtDistribucionZona> listarDistribucionesZona(String barrio);
+
 }

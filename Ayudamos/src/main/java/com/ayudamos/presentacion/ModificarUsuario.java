@@ -24,13 +24,17 @@ import java.util.regex.Pattern;
 import java.awt.FlowLayout;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
+import com.ayudamos.datatypes.DtBeneficiario;
 import com.ayudamos.datatypes.DtRepartidor;
 import com.ayudamos.datatypes.DtUsuario;
+import com.ayudamos.enums.EstadoBeneficiario;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 import com.ayudamos.interfaces.IControlador;
 
 import java.awt.Component;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -50,6 +54,8 @@ public class ModificarUsuario extends JInternalFrame {
 	private JButton btnCancelar;
 	private JTextField txtEmail;
 	private String emailSeleccionado;
+	private DtUsuario usuarioSeleccionado = null;
+	private DtBeneficiario beneficiarioSeleccionado = null;
 
 	
 	public ModificarUsuario(IControlador icon) {
@@ -97,6 +103,12 @@ public class ModificarUsuario extends JInternalFrame {
 		getContentPane().add(lblEmail);
 		lblEmail.setVisible(false);
 		
+		JLabel lblEstado = new JLabel("Estado:");
+        lblEstado.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblEstado.setBounds(20, 186, 100, 30);
+        getContentPane().add(lblEstado);
+        lblEstado.setVisible(false);
+		
 		txtNombre = new JTextField();
         txtNombre.setFont(new Font("Tahoma", Font.PLAIN, 18));
         txtNombre.setBounds(155, 126, 350, 30);
@@ -110,6 +122,12 @@ public class ModificarUsuario extends JInternalFrame {
 		txtEmail.setBounds(155, 156, 350, 30);
 		getContentPane().add(txtEmail);
 		txtEmail.setVisible(false);
+		
+		JComboBox<EstadoBeneficiario> comboBoxEstado = new JComboBox<>(EstadoBeneficiario.values());
+        comboBoxEstado.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        comboBoxEstado.setBounds(155, 186, 350, 30);
+        getContentPane().add(comboBoxEstado);
+        comboBoxEstado.setVisible(false);
 		
 		
 		btnListar = new JButton("Listar");
@@ -144,23 +162,54 @@ public class ModificarUsuario extends JInternalFrame {
 				int selectedRow = tablaUsuarios.getSelectedRow();
 		        
 				if (selectedRow != -1) {
-		        	String nombreSeleccionado = (String) model.getValueAt(selectedRow, 0);
-		        	emailSeleccionado = (String) model.getValueAt(selectedRow, 1);
-		            
-		        	txtNombre.setText(nombreSeleccionado);
-		            txtEmail.setText(emailSeleccionado);
-		            
-		            btnSeleccionar.setVisible(false);
-					lblNewLabel_1.setVisible(false);
-					btnListar.setVisible(false);
-					scrollPane.setVisible(false);
 					
-					txtNombre.setVisible(true);
-					txtEmail.setVisible(true);
-					lblNombre.setVisible(true);
-					lblEmail.setVisible(true);
-					btnModificar.setVisible(true);
-					btnAtras.setVisible(true);
+					emailSeleccionado = (String) model.getValueAt(selectedRow, 1);
+					
+					//DtUsuario usuarioSeleccionado = null;
+					for (DtUsuario usuario : lista) {
+					    if (usuario.getEmail().equals(emailSeleccionado)) {
+					        usuarioSeleccionado = usuario;
+					        break;
+					    }
+					}
+					
+					if (usuarioSeleccionado instanceof DtBeneficiario) {
+						beneficiarioSeleccionado = (DtBeneficiario) usuarioSeleccionado;
+						
+			            comboBoxEstado.setSelectedItem(beneficiarioSeleccionado.getEstadoBeneficiario());
+			            
+			            btnSeleccionar.setVisible(false);
+						lblNewLabel_1.setVisible(false);
+						btnListar.setVisible(false);
+						scrollPane.setVisible(false);
+						
+						txtNombre.setVisible(true);
+						txtEmail.setVisible(true);
+						comboBoxEstado.setVisible(true);
+						lblNombre.setVisible(true);
+						lblEmail.setVisible(true);
+						lblEstado.setVisible(true);
+						btnModificar.setVisible(true);
+						btnAtras.setVisible(true);
+					}else {
+			        	
+			            btnSeleccionar.setVisible(false);
+						lblNewLabel_1.setVisible(false);
+						btnListar.setVisible(false);
+						scrollPane.setVisible(false);
+						comboBoxEstado.setVisible(false);
+						lblEstado.setVisible(false);
+						
+						txtNombre.setVisible(true);
+						txtEmail.setVisible(true);
+						lblNombre.setVisible(true);
+						lblEmail.setVisible(true);
+						btnModificar.setVisible(true);
+						btnAtras.setVisible(true);
+					}
+					
+					txtNombre.setText(usuarioSeleccionado.getNombre());
+		            txtEmail.setText(usuarioSeleccionado.getEmail());
 		            
 				} else {
 		            JOptionPane.showMessageDialog(null, "Por favor, selecciona un usuario de la tabla.", "Advertencia", JOptionPane.WARNING_MESSAGE);
@@ -174,12 +223,23 @@ public class ModificarUsuario extends JInternalFrame {
 		btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
-				DtUsuario usr = new DtUsuario(txtNombre.getText(), txtEmail.getText());
-				if (ValidarEmail(usr.getEmail()) == false || usr.getEmail().isEmpty()) {
+				
+				if (ValidarEmail(txtEmail.getText()) == false || txtEmail.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Verificar correo electronico");
 				}else {
 					try {
-						icon.modificarUsuario(emailSeleccionado, usr);
+						if (usuarioSeleccionado instanceof DtBeneficiario) {
+							//DtFecha f = new DtFecha();
+							EstadoBeneficiario estado = (EstadoBeneficiario) comboBoxEstado.getSelectedItem();
+							DtBeneficiario datosBeneficiario = new DtBeneficiario(txtNombre.getText(), txtEmail.getText(), null, null, estado, null);
+							
+							icon.modificarBeneficiario(emailSeleccionado, datosBeneficiario);
+							
+						}else {
+							DtUsuario datosUsr = new DtUsuario(txtNombre.getText(), txtEmail.getText());
+							icon.modificarUsuario(emailSeleccionado, datosUsr);
+						}
+						
 						JOptionPane.showMessageDialog(ModificarUsuario.this, "Usuario modificado con exito", "Modificar Usuario", JOptionPane.INFORMATION_MESSAGE);
 						setVisible(false);
 						limpiar();
@@ -191,8 +251,10 @@ public class ModificarUsuario extends JInternalFrame {
 
 						txtNombre.setVisible(false);
 						txtEmail.setVisible(false);
+						comboBoxEstado.setVisible(false);
 						lblNombre.setVisible(false);
 						lblEmail.setVisible(false);
+						lblEstado.setVisible(false);
 						btnModificar.setVisible(false);
 						btnAtras.setVisible(false);
 
@@ -219,8 +281,10 @@ public class ModificarUsuario extends JInternalFrame {
 				
 				txtNombre.setVisible(false);
 				txtEmail.setVisible(false);
+				comboBoxEstado.setVisible(false);
 				lblNombre.setVisible(false);
 				lblEmail.setVisible(false);
+				lblEstado.setVisible(false);
 				btnModificar.setVisible(false);
 				btnAtras.setVisible(false);
 			}

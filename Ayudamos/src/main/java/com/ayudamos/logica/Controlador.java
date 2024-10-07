@@ -140,8 +140,16 @@ public class Controlador implements IControlador {
 		List<Usuario> usuarios = mU.obtenerUsuarios();
 		
 		for (Usuario u : usuarios) {
-			DtUsuario dtUsuario = new DtUsuario(u.getNombre(), u.getEmail());
-			listaDT.add(dtUsuario);
+			if (u instanceof Beneficiario) {
+	            Beneficiario b = (Beneficiario) u;
+
+	            DtBeneficiario dtBeneficiario = new DtBeneficiario(b.getNombre(), b.getEmail(), b.getDireccion(), b.getFechaNacimiento(), b.getEstado(), b.getBarrio());
+	            listaDT.add(dtBeneficiario);
+	        } else {
+	        	DtUsuario dtUsuario = new DtUsuario(u.getNombre(), u.getEmail());
+	        	listaDT.add(dtUsuario);
+		
+	        }
 		}
 		
 		return listaDT;
@@ -188,6 +196,7 @@ public class Controlador implements IControlador {
 	
 	@Override
 	public void modificarUsuario(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion {
+		
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
 		Usuario usuarioExistenteConMailIngresado = mU.buscarUsuarioPorEmail(usuario.getEmail());
 		
@@ -206,6 +215,41 @@ public class Controlador implements IControlador {
 			mU.modificarUsuario(usuarioAModificar);
 		}
 		
+	}
+	
+
+	public void modificarBeneficiario(String emailViejo, DtBeneficiario beneficiario) throws UsuarioRepetidoExcepcion{
+		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
+		Usuario usuarioExistenteConMailIngresado = mU.buscarUsuarioPorEmail(beneficiario.getEmail());
+		
+		Beneficiario beneficiarioAModificar = (Beneficiario) mU.buscarUsuarioPorEmail(emailViejo);
+		
+		if (emailViejo.equals(beneficiario.getEmail())) {
+			beneficiarioAModificar.setNombre(beneficiario.getNombre());
+			beneficiarioAModificar.setEstado(beneficiario.getEstadoBeneficiario());
+			/*
+			if (beneficiarioAModificar instanceof Beneficiario) {
+				Beneficiario beneficiarioAModificar = (Beneficiario) beneficiarioAModificar;
+				DtBeneficiario dtBeneficiario = (DtBeneficiario) beneficiario;
+				beneficiarioAModificar.setEstado(dtBeneficiario.getEstadoBeneficiario());
+			}
+			*/
+			mU.modificarUsuario(beneficiarioAModificar);
+		}else if (usuarioExistenteConMailIngresado != null) {
+			throw new UsuarioRepetidoExcepcion("El usuario con email: " + beneficiario.getEmail() + " ya está registrado");
+		}else {
+			beneficiarioAModificar.setEmail(beneficiario.getEmail()); 
+			beneficiarioAModificar.setNombre(beneficiario.getNombre());
+			beneficiarioAModificar.setEstado(beneficiario.getEstadoBeneficiario());
+			/*
+			if (beneficiarioAModificar instanceof Beneficiario) {
+				Beneficiario beneficiarioAModificar = (Beneficiario) beneficiarioAModificar;
+				DtBeneficiario dtBeneficiario = (DtBeneficiario) beneficiario;
+				beneficiarioAModificar.setEstado(dtBeneficiario.getEstadoBeneficiario());
+			}
+			*/
+			mU.modificarUsuario(beneficiarioAModificar);
+		}
 	}
 	
 	@Override

@@ -15,6 +15,8 @@ import javax.swing.JMenuItem;
 
 import com.ayudamos.interfaces.Fabrica;
 import com.ayudamos.interfaces.IControlador;
+import com.ayudamos.publicadores.ControladorPublish;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -55,7 +57,8 @@ public class Principal {
 	 */
 	public Principal() {
 		initialize();
-		
+		ControladorPublish cp = new ControladorPublish();
+		cp.publicar();	
 		Fabrica fabrica = Fabrica.getInstancia();
         IControlador icon = fabrica.getIControlador();
         

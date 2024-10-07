@@ -36,6 +36,8 @@ public interface IControlador {
 	
 	public void modificarUsuario(String emailViejo, DtUsuario usuario) throws UsuarioRepetidoExcepcion;
 	
+	public void modificarBeneficiario(String emailViejo, DtBeneficiario beneficiario) throws UsuarioRepetidoExcepcion;
+	
 	public ArrayList<Object[]> listarDistribucionPorZona(DtFecha fechaInicio, DtFecha fechaFin);
 
 	public void modificarAlimento(DtAlimento alimento);

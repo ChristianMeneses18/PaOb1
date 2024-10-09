@@ -243,10 +243,10 @@ public class AgregarUsuario extends JInternalFrame {
 				mes = calendar.get(Calendar.MONTH) + 1;
 				anio = calendar.get(Calendar.YEAR);
 				DtFecha fechaNacimiento = new DtFecha(dia,mes,anio);
-				dt = new DtBeneficiario(nombre,email,direccion,fechaNacimiento,estado,barrio);
+				dt = new DtBeneficiario(nombre, email, "0000000", direccion, fechaNacimiento, estado, barrio);
 				
 			}else{
-				dt = new DtRepartidor(nombre ,email,licencia);
+				dt = new DtRepartidor(nombre, email, "0000000", licencia);
 				
 			}
 			

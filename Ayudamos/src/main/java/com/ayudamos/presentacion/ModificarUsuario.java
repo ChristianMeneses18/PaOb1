@@ -229,14 +229,13 @@ public class ModificarUsuario extends JInternalFrame {
 				}else {
 					try {
 						if (usuarioSeleccionado instanceof DtBeneficiario) {
-							//DtFecha f = new DtFecha();
 							EstadoBeneficiario estado = (EstadoBeneficiario) comboBoxEstado.getSelectedItem();
-							DtBeneficiario datosBeneficiario = new DtBeneficiario(txtNombre.getText(), txtEmail.getText(), null, null, estado, null);
+							DtBeneficiario datosBeneficiario = new DtBeneficiario(txtNombre.getText(), txtEmail.getText(), null, null, null, estado, null);
 							
 							icon.modificarBeneficiario(emailSeleccionado, datosBeneficiario);
 							
 						}else {
-							DtUsuario datosUsr = new DtUsuario(txtNombre.getText(), txtEmail.getText());
+							DtUsuario datosUsr = new DtUsuario(txtNombre.getText(), txtEmail.getText(), null);
 							icon.modificarUsuario(emailSeleccionado, datosUsr);
 						}
 						

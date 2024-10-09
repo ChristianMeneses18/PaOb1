@@ -14,10 +14,10 @@ public class Repartidor extends Usuario {
 	
 	public Repartidor() {
 		super();
-	};
+	}
 	
-	public Repartidor(String nombre, String email, String numeroLicencia) {
-		super(nombre,email);
+	public Repartidor(String nombre, String email, String contrasenia, String numeroLicencia) {
+		super(nombre,email,contrasenia);
 		this.numeroLicencia = numeroLicencia;
 	}
 

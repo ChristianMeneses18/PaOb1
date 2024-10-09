@@ -26,15 +26,18 @@ public class Usuario{
 	private String email;
 	@Column(name="Nombre")
 	private String nombre;
+	@Column(name="Contrasenia")
+	private String contrasenia;
 	
 	public Usuario() {
 		super();
 	}
 
-	public Usuario(String nombre, String email) {
+	public Usuario(String nombre, String email, String contrasenia) {
 		super();
 		this.nombre = nombre;
 		this.email = email;
+		this.contrasenia = contrasenia;
 	}
 
 	
@@ -56,6 +59,14 @@ public class Usuario{
 	
 	public int getIdUsuario() {
 		return idUsuario;
+	}
+	
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 	
 

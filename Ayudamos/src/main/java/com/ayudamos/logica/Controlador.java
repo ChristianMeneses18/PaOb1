@@ -41,6 +41,7 @@ public class Controlador implements IControlador {
             nuevoUsuario = new Beneficiario(
                 usuario.getNombre(),
                 usuario.getEmail(),
+                usuario.getContrasenia(),
                 ((DtBeneficiario) usuario).getDireccion(),
                 ((DtBeneficiario) usuario).getFechaNacimiento(),
                 ((DtBeneficiario) usuario).getEstadoBeneficiario(),
@@ -50,6 +51,7 @@ public class Controlador implements IControlador {
             nuevoUsuario = new Repartidor(
                 usuario.getNombre(),
                 usuario.getEmail(),
+                usuario.getContrasenia(),
                 ((DtRepartidor) usuario).getNumeroLicencia()
             );
         }
@@ -80,7 +82,7 @@ public class Controlador implements IControlador {
 		ArrayList<DtBeneficiario> aRetornar = new ArrayList<>();
 		List<Beneficiario> beneficiarios = mU.obtenerBeneficiarios();
 		for (Beneficiario b : beneficiarios) {
-			DtBeneficiario dtBeneficiario = new DtBeneficiario(b.getNombre(),b.getEmail(), b.getDireccion(), b.getFechaNacimiento() , b.getEstado(), b.getBarrio());
+			DtBeneficiario dtBeneficiario = new DtBeneficiario(b.getNombre(), b.getEmail(), null, b.getDireccion(), b.getFechaNacimiento(), b.getEstado(), b.getBarrio());
 			aRetornar.add(dtBeneficiario);
 		}
 		
@@ -99,7 +101,7 @@ public class Controlador implements IControlador {
 		List<Beneficiario> beneficiarios = mU.obtenerBeneficiarios();
 		for (Beneficiario b : beneficiarios) {
 			if (b.getBarrio().toString().equals(Barrio)) {
-				DtBeneficiario dtBeneficiario = new DtBeneficiario(b.getNombre(),b.getEmail(), b.getDireccion(), b.getFechaNacimiento() , b.getEstado(), b.getBarrio());
+				DtBeneficiario dtBeneficiario = new DtBeneficiario(b.getNombre(),b.getEmail(), null, b.getDireccion(), b.getFechaNacimiento() , b.getEstado(), b.getBarrio());
 				aRetornar.add(dtBeneficiario);	
 			}
 			
@@ -120,7 +122,7 @@ public class Controlador implements IControlador {
 		List<Beneficiario> beneficiarios = mU.obtenerBeneficiarios();
 		for (Beneficiario b : beneficiarios) {
 			if (b.getEstado().toString().equals(estado)) {
-				DtBeneficiario dtBeneficiario = new DtBeneficiario(b.getNombre(),b.getEmail(), b.getDireccion(), b.getFechaNacimiento() , b.getEstado(), b.getBarrio());
+				DtBeneficiario dtBeneficiario = new DtBeneficiario(b.getNombre(), b.getEmail(), null, b.getDireccion(), b.getFechaNacimiento(), b.getEstado(), b.getBarrio());
 				aRetornar.add(dtBeneficiario);	
 			}
 			
@@ -143,10 +145,10 @@ public class Controlador implements IControlador {
 			if (u instanceof Beneficiario) {
 	            Beneficiario b = (Beneficiario) u;
 
-	            DtBeneficiario dtBeneficiario = new DtBeneficiario(b.getNombre(), b.getEmail(), b.getDireccion(), b.getFechaNacimiento(), b.getEstado(), b.getBarrio());
+	            DtBeneficiario dtBeneficiario = new DtBeneficiario(b.getNombre(), b.getEmail(), null, b.getDireccion(), b.getFechaNacimiento(), b.getEstado(), b.getBarrio());
 	            listaDT.add(dtBeneficiario);
 	        } else {
-	        	DtUsuario dtUsuario = new DtUsuario(u.getNombre(), u.getEmail());
+	        	DtUsuario dtUsuario = new DtUsuario(u.getNombre(), u.getEmail(), null);
 	        	listaDT.add(dtUsuario);
 		
 	        }
@@ -227,13 +229,7 @@ public class Controlador implements IControlador {
 		if (emailViejo.equals(beneficiario.getEmail())) {
 			beneficiarioAModificar.setNombre(beneficiario.getNombre());
 			beneficiarioAModificar.setEstado(beneficiario.getEstadoBeneficiario());
-			/*
-			if (beneficiarioAModificar instanceof Beneficiario) {
-				Beneficiario beneficiarioAModificar = (Beneficiario) beneficiarioAModificar;
-				DtBeneficiario dtBeneficiario = (DtBeneficiario) beneficiario;
-				beneficiarioAModificar.setEstado(dtBeneficiario.getEstadoBeneficiario());
-			}
-			*/
+			
 			mU.modificarUsuario(beneficiarioAModificar);
 		}else if (usuarioExistenteConMailIngresado != null) {
 			throw new UsuarioRepetidoExcepcion("El usuario con email: " + beneficiario.getEmail() + " ya está registrado");
@@ -241,13 +237,7 @@ public class Controlador implements IControlador {
 			beneficiarioAModificar.setEmail(beneficiario.getEmail()); 
 			beneficiarioAModificar.setNombre(beneficiario.getNombre());
 			beneficiarioAModificar.setEstado(beneficiario.getEstadoBeneficiario());
-			/*
-			if (beneficiarioAModificar instanceof Beneficiario) {
-				Beneficiario beneficiarioAModificar = (Beneficiario) beneficiarioAModificar;
-				DtBeneficiario dtBeneficiario = (DtBeneficiario) beneficiario;
-				beneficiarioAModificar.setEstado(dtBeneficiario.getEstadoBeneficiario());
-			}
-			*/
+			
 			mU.modificarUsuario(beneficiarioAModificar);
 		}
 	}

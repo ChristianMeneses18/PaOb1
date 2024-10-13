@@ -57,8 +57,8 @@ public class Principal {
 	 */
 	public Principal() {
 		initialize();
-		//ControladorPublish cp = new ControladorPublish();
-		//cp.publicar();	
+		ControladorPublish cp = new ControladorPublish();
+		cp.publicar();	
 		Fabrica fabrica = Fabrica.getInstancia();
         IControlador icon = fabrica.getIControlador();
         

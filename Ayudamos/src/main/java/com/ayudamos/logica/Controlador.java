@@ -368,5 +368,29 @@ public class Controlador implements IControlador {
 	return aRetornar;
 	
 }
+	
+	@Override
+	public DtUsuario obtenerUsuario(String email){
+		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
+		Usuario usuario = mU.buscarUsuarioPorEmail(email);
+		
+		if(usuario instanceof Beneficiario) {
+			DtUsuario aRetornar = new DtUsuario(usuario.getNombre(),usuario.getEmail(),usuario.getContrasenia(),"B");
+			return aRetornar;
+		}else {
+			DtUsuario aRetornar = new DtUsuario(usuario.getNombre(),usuario.getEmail(),usuario.getContrasenia(),"R");
+			return aRetornar;
+		}
+}
+	
+	@Override
+	public void modificarContrasenia(DtUsuario usuario , String nuevaContrasenia) {
+		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
+		Usuario usuarioBuscado = mU.buscarUsuarioPorEmail(usuario.getEmail());
+		
+		usuarioBuscado.setContrasenia(nuevaContrasenia);
+		
+		mU.modificarContrasenia(usuarioBuscado);		
+	}
 
 }

@@ -19,6 +19,9 @@ import com.ayudamos.enums.EstadoDistribucion;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 import com.ayudamos.interfaces.Fabrica;
 import com.ayudamos.interfaces.IControlador;
+import com.ayudamos.logica.Beneficiario;
+import com.ayudamos.logica.ManejadorUsuario;
+import com.ayudamos.logica.Usuario;
 
 
 
@@ -71,5 +74,16 @@ public class ControladorPublish {
 	public ArrayList<DtUsuario> listarUsuarios(){
 		ArrayList<DtUsuario> aRetornar = icon.listarUsuarios();
 		return aRetornar;
+	}
+	
+	@WebMethod
+	public DtUsuario obtenerUsuario(String email){
+		DtUsuario aRetornar = icon.obtenerUsuario(email);
+		return aRetornar;
+}
+	
+	@WebMethod
+	public void modificarContrasenia(DtUsuario usuario , String nuevaContrasenia) {
+		icon.modificarContrasenia(usuario, nuevaContrasenia);	
 	}
 }

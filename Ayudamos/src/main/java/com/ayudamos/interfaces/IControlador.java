@@ -53,5 +53,9 @@ public interface IControlador {
 	public ArrayList<DtDistribucion> listarDistribucionesEstado(String estado);
 	
 	public ArrayList<DtDistribucionZona> listarDistribucionesZona(String barrio);
+	
+	public DtUsuario obtenerUsuario(String email);
+	
+	public void modificarContrasenia(DtUsuario usuario , String nuevaContrasenia);
 
 }

@@ -101,5 +101,15 @@ public class ManejadorUsuario {
 	        return null;
 	    }
 	}
+	
+	public void modificarContrasenia(Usuario usuario) {
+	    Conexion conexion = Conexion.getInstancia();
+	    EntityManager em = conexion.getEntityManager();
+	    em.getTransaction().begin();
+	    
+	    em.merge(usuario);
+	    
+	    em.getTransaction().commit();
+	}
 
 }

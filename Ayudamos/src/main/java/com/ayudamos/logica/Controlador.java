@@ -375,10 +375,12 @@ public class Controlador implements IControlador {
 		Usuario usuario = mU.buscarUsuarioPorEmail(email);
 		
 		if(usuario instanceof Beneficiario) {
-			DtUsuario aRetornar = new DtUsuario(usuario.getNombre(),usuario.getEmail(),usuario.getContrasenia(),"B");
+			DtBeneficiario aRetornar = new DtBeneficiario(usuario.getNombre(),usuario.getEmail(),usuario.getContrasenia(),"B",
+					((Beneficiario) usuario).getDireccion(),((Beneficiario) usuario).getFechaNacimiento(),
+					((Beneficiario) usuario).getEstado(), ((Beneficiario) usuario).getBarrio());
 			return aRetornar;
 		}else {
-			DtUsuario aRetornar = new DtUsuario(usuario.getNombre(),usuario.getEmail(),usuario.getContrasenia(),"R");
+			DtRepartidor aRetornar = new DtRepartidor(usuario.getNombre(),usuario.getEmail(),usuario.getContrasenia(),"R",((Repartidor) usuario).getNumeroLicencia());
 			return aRetornar;
 		}
 }

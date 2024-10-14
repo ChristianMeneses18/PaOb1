@@ -1,12 +1,13 @@
 package com.ayudamos.datatypes;
-
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "dtUsuario") // Nombre del elemento raíz en XML
-@XmlAccessorType(XmlAccessType.FIELD) // Acceso a los campos directamente
+@XmlAccessorType(XmlAccessType.FIELD) 
+@XmlSeeAlso({DtBeneficiario.class, DtRepartidor.class})
 public class DtUsuario {
 
     @XmlElement(name = "nombre") // Nombre del elemento en XML

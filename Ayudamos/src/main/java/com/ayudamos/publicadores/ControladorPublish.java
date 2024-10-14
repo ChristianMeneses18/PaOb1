@@ -83,7 +83,7 @@ public class ControladorPublish {
 }
 	
 	@WebMethod
-	public void modificarContrasenia(DtUsuario usuario , String nuevaContrasenia) {
-		icon.modificarContrasenia(usuario, nuevaContrasenia);	
+	public void modificarContrasenia(String email , String nuevaContrasenia) {
+		icon.modificarContrasenia(email, nuevaContrasenia);	
 	}
 }

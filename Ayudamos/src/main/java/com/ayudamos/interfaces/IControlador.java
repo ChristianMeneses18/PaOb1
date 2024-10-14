@@ -56,6 +56,6 @@ public interface IControlador {
 	
 	public DtUsuario obtenerUsuario(String email);
 	
-	public void modificarContrasenia(DtUsuario usuario , String nuevaContrasenia);
+	public void modificarContrasenia(String email , String nuevaContrasenia);
 
 }

@@ -384,9 +384,9 @@ public class Controlador implements IControlador {
 }
 	
 	@Override
-	public void modificarContrasenia(DtUsuario usuario , String nuevaContrasenia) {
+	public void modificarContrasenia(String email , String nuevaContrasenia) {
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
-		Usuario usuarioBuscado = mU.buscarUsuarioPorEmail(usuario.getEmail());
+		Usuario usuarioBuscado = mU.buscarUsuarioPorEmail(email);
 		
 		usuarioBuscado.setContrasenia(nuevaContrasenia);
 		

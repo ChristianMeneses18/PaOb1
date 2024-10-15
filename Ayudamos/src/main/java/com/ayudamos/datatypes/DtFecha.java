@@ -1,11 +1,20 @@
 package com.ayudamos.datatypes;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 
+@XmlRootElement(name = "dtFecha") 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DtFecha {
+	@XmlElement(name = "dia")
 	private int dia;
+	@XmlElement(name = "mes")
 	private int mes;
+	@XmlElement(name = "anio")
 	private int anio;
 	
 	public DtFecha() {

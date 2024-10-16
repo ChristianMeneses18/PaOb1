@@ -380,7 +380,7 @@ public class Controlador implements IControlador {
 					((Beneficiario) usuario).getEstado(), ((Beneficiario) usuario).getBarrio());
 			return aRetornar;
 		}else {
-			DtRepartidor aRetornar = new DtRepartidor(usuario.getNombre(),usuario.getEmail(),usuario.getContrasenia(),"R",((Repartidor) usuario).getNumeroLicencia());
+			DtRepartidor aRetornar = new DtRepartidor(usuario.getNombre(),usuario.getEmail(),usuario.getContrasenia(),((Repartidor) usuario).getNumeroLicencia(),"R");
 			return aRetornar;
 		}
 }

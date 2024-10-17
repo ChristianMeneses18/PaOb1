@@ -27,7 +27,10 @@ public class DtDistribucion {
 
     @XmlElement(name = "estado") // Nombre del elemento en XML
     private EstadoDistribucion estado;
-
+    
+    @XmlElement(name = "descripcionDonacion") // Nombre del elemento en XML
+    private String descripcionDonacion;
+    
     
     public DtDistribucion() {}
     
@@ -37,8 +40,17 @@ public class DtDistribucion {
         this.fechaPreparacion = fechaPreparacion;
         this.fechaEntrega = fechaEntrega;
         this.estado = estado;
+        this.descripcionDonacion = null;
     }
-
+    
+    public DtDistribucion(String descripcionDonacion,int beneficiario, int donacion, Date fechaPreparacion, Date fechaEntrega, EstadoDistribucion estado) {
+        this.idBeneficiario = beneficiario;
+        this.idDonacion = donacion;
+        this.fechaPreparacion = fechaPreparacion;
+        this.fechaEntrega = fechaEntrega;
+        this.estado = estado;
+        this.descripcionDonacion = descripcionDonacion;
+    }
     // Getters
     public Date getFechaPreparacion() {
         return fechaPreparacion;
@@ -58,6 +70,10 @@ public class DtDistribucion {
 
     public int getIdDonacion() {
         return idDonacion;
+    }
+    
+    public String getDescripcionDonacion() {
+    	return descripcionDonacion;
     }
 
     @Override

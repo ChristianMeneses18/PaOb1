@@ -2,6 +2,7 @@ package com.ayudamos.interfaces;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.ayudamos.datatypes.DtAlimento;
 import com.ayudamos.datatypes.DtArticulo;
@@ -57,5 +58,7 @@ public interface IControlador {
 	public DtUsuario obtenerUsuario(String email);
 	
 	public void modificarContrasenia(String email , String nuevaContrasenia);
+	
+	public List<DtDistribucion> obtenerDistribucionesBeneficiario(int id);
 
 }

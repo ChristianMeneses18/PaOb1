@@ -86,4 +86,10 @@ public class ControladorPublish {
 	public void modificarContrasenia(String email , String nuevaContrasenia) {
 		icon.modificarContrasenia(email, nuevaContrasenia);	
 	}
+	
+	@WebMethod
+	public ArrayList<DtDistribucion> obtenerDistribucionesBeneficiario(int id) {
+	    ArrayList<DtDistribucion> aRetornar = new ArrayList<>(icon.obtenerDistribucionesBeneficiario(id));
+	    return aRetornar;
+	}
 }

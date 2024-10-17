@@ -314,7 +314,8 @@ public class Controlador implements IControlador {
 		return aRetornar;
 		
 		 
-	}
+	}	
+	
 	
 	@Override
 	public void modificarDistribucion(Date fechaEntrega, EstadoDistribucion estado, DtDistribucion distribucion) {
@@ -393,6 +394,33 @@ public class Controlador implements IControlador {
 		usuarioBuscado.setContrasenia(nuevaContrasenia);
 		
 		mU.modificarContrasenia(usuarioBuscado);		
+	}
+	
+	@Override
+	public List<DtDistribucion> obtenerDistribucionesBeneficiario(int id) {
+		
+		ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();
+        
+		List<DtDistribucion> aRetornar = new ArrayList<>();
+		List<Distribucion> distribuciones = mD.obtenerDistribuciones();
+		for (Distribucion d : distribuciones) {
+			if(d.getBeneficiario().getIdUsuario()==id){
+				int beneficiario = d.getBeneficiario().getIdUsuario();
+				int donacion = d.getDonacion().getId();
+				String descripcionDonacion;
+				
+				if(d.getDonacion() instanceof Alimento) {
+					descripcionDonacion= ((Alimento) d.getDonacion()).getDescripcionProductos();
+				} else {
+					descripcionDonacion= ((Articulo) d.getDonacion()).getDescripcion();
+				}
+				DtDistribucion dtDistribucion = new DtDistribucion(descripcionDonacion, beneficiario, donacion, d.getFechaPreparacion(),d.getFechaEntrega(), d.getEstado());	
+				aRetornar.add(dtDistribucion);
+			}
+		}
+		return aRetornar;
+		
+		 
 	}
 
 }

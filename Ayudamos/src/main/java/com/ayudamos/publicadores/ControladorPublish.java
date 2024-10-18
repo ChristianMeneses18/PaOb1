@@ -65,15 +65,27 @@ public class ControladorPublish {
 	}
 
 	@WebMethod
-	public ArrayList<DtDistribucion> listarDistribuciones(){
-		ArrayList<DtDistribucion> aRetornar = icon.listarDistribuciones();
-		return aRetornar;
+	public DtDistribucion[] listarDistribuciones(){
+		List<DtDistribucion> dtdistribucion = icon.listarDistribuciones();
+		int i = 0;
+	    DtDistribucion[] ret = new  DtDistribucion[dtdistribucion.size()];
+        for(DtDistribucion d : dtdistribucion) {
+            ret[i]=d;
+            i++;
+        }
+        return ret;
 	}
 	
 	@WebMethod
-	public ArrayList<DtUsuario> listarUsuarios(){
-		ArrayList<DtUsuario> aRetornar = icon.listarUsuarios();
-		return aRetornar;
+	public DtUsuario[] listarUsuarios(){
+		List<DtUsuario> dtusuario = icon.listarUsuarios();
+		int i = 0;
+		DtUsuario[] ret = new DtUsuario[dtusuario.size()];
+        for(DtUsuario u : dtusuario) {
+            ret[i]=u;
+            i++;
+        }
+        return ret;
 	}
 	
 	@WebMethod
@@ -88,8 +100,14 @@ public class ControladorPublish {
 	}
 	
 	@WebMethod
-	public ArrayList<DtDistribucion> obtenerDistribucionesBeneficiario(int id) {
-	    ArrayList<DtDistribucion> aRetornar = new ArrayList<>(icon.obtenerDistribucionesBeneficiario(id));
-	    return aRetornar;
+	public DtDistribucion[] obtenerDistribucionesBeneficiario(int id) {
+	    List<DtDistribucion> dtdistribucion = icon.obtenerDistribucionesBeneficiario(id);
+		int i = 0;
+	    DtDistribucion[] ret = new  DtDistribucion[dtdistribucion.size()];
+        for(DtDistribucion d : dtdistribucion) {
+            ret[i]=d;
+            i++;
+        }
+        return ret;
 	}
 }

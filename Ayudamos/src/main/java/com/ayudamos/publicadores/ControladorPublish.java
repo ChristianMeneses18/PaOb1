@@ -14,6 +14,7 @@ import javax.xml.ws.Endpoint;
 
 import com.ayudamos.configuraciones.WebServiceConfiguracion;
 import com.ayudamos.datatypes.DtDistribucion;
+import com.ayudamos.datatypes.DtListaDistribucion;
 import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.enums.EstadoDistribucion;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
@@ -88,8 +89,8 @@ public class ControladorPublish {
 	}
 	
 	@WebMethod
-	public ArrayList<DtDistribucion> obtenerDistribucionesBeneficiario(int id) {
-	    ArrayList<DtDistribucion> aRetornar = new ArrayList<>(icon.obtenerDistribucionesBeneficiario(id));
+	public DtListaDistribucion obtenerDistribucionesBeneficiario(String email) {
+		DtListaDistribucion aRetornar = icon.obtenerDistribucionesBeneficiario(email);
 	    return aRetornar;
 	}
 }

@@ -423,5 +423,25 @@ public class Controlador implements IControlador {
 		
 		 
 	}
+	
+	@Override
+	public void modificarDatosUsuario(String email, DtUsuario usuario) {
+		
+		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
+		
+		Usuario usuarioAModificar = mU.buscarUsuarioPorEmail(email);
+		
+		if (usuario instanceof DtBeneficiario) {
+			((Beneficiario) usuarioAModificar).setNombre(((DtBeneficiario) usuario).getNombre());
+			((Beneficiario) usuarioAModificar).setDireccion(((DtBeneficiario) usuario).getDireccion());
+			((Beneficiario) usuarioAModificar).setFechaNacimiento(((DtBeneficiario) usuario).getFechaNacimiento());
+			((Beneficiario) usuarioAModificar).setBarrio(((DtBeneficiario) usuario).getBarrio());
+		}else if (usuario instanceof DtRepartidor) {
+			((Repartidor) usuarioAModificar).setNombre(((DtRepartidor) usuario).getNombre());
+			((Repartidor) usuarioAModificar).setNumeroLicencia(((DtRepartidor) usuario).getNumeroLicencia());
+		}
+		
+		
+	}
 
 }

@@ -105,4 +105,9 @@ public class ControladorPublish {
 		DtListaDistribucion aRetornar = icon.obtenerDistribucionesBeneficiario(email);
 	    return aRetornar;
 	}
+	
+	@WebMethod
+	public void modificarDatosUsuario(String email, DtUsuario usuario) {
+		icon.modificarDatosUsuario(email, usuario);
+	}
 }

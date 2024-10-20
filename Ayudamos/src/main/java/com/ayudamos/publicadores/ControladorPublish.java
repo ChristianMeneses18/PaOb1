@@ -99,17 +99,6 @@ public class ControladorPublish {
 	public void modificarContrasenia(String email , String nuevaContrasenia) {
 		icon.modificarContrasenia(email, nuevaContrasenia);	
 	}
-	
-	@WebMethod
-	public DtDistribucion[] obtenerDistribucionesBeneficiario(int id) {
-	    List<DtDistribucion> dtdistribucion = icon.obtenerDistribucionesBeneficiario(id);
-		int i = 0;
-	    DtDistribucion[] ret = new  DtDistribucion[dtdistribucion.size()];
-        for(DtDistribucion d : dtdistribucion) {
-            ret[i]=d;
-            i++;
-        }
-        return ret;
 		
 	@WebMethod
 	public DtListaDistribucion obtenerDistribucionesBeneficiario(String email) {

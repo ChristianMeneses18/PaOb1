@@ -101,6 +101,7 @@ public class ControladorPublish {
 	}
 	
 	@WebMethod
+<<<<<<< HEAD
 	public DtDistribucion[] obtenerDistribucionesBeneficiario(int id) {
 	    List<DtDistribucion> dtdistribucion = icon.obtenerDistribucionesBeneficiario(id);
 		int i = 0;
@@ -110,10 +111,10 @@ public class ControladorPublish {
             i++;
         }
         return ret;
-		
-	@WebMethod
+=======
 	public DtListaDistribucion obtenerDistribucionesBeneficiario(String email) {
 		DtListaDistribucion aRetornar = icon.obtenerDistribucionesBeneficiario(email);
 	    return aRetornar;
+>>>>>>> origin/verDistribucionBeneficiario
 	}
 }

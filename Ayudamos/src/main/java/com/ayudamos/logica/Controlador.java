@@ -14,6 +14,7 @@ import com.ayudamos.datatypes.DtBeneficiario;
 import com.ayudamos.datatypes.DtDistribucionZona;
 import com.ayudamos.datatypes.DtDonacion;
 import com.ayudamos.datatypes.DtFecha;
+import com.ayudamos.datatypes.DtListaDistribucion;
 import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.datatypes.DtRepartidor;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
@@ -397,14 +398,14 @@ public class Controlador implements IControlador {
 	}
 	
 	@Override
-	public List<DtDistribucion> obtenerDistribucionesBeneficiario(int id) {
+	public DtListaDistribucion obtenerDistribucionesBeneficiario(String email) {
 		
 		ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();
         
-		List<DtDistribucion> aRetornar = new ArrayList<>();
+		ArrayList<DtDistribucion> aRetornar = new ArrayList<>();
 		List<Distribucion> distribuciones = mD.obtenerDistribuciones();
 		for (Distribucion d : distribuciones) {
-			if(d.getBeneficiario().getIdUsuario()==id){
+			if(email.equals(d.getBeneficiario().getEmail())) {
 				int beneficiario = d.getBeneficiario().getIdUsuario();
 				int donacion = d.getDonacion().getId();
 				String descripcionDonacion;
@@ -418,7 +419,7 @@ public class Controlador implements IControlador {
 				aRetornar.add(dtDistribucion);
 			}
 		}
-		return aRetornar;
+		return new DtListaDistribucion(aRetornar);
 		
 		 
 	}

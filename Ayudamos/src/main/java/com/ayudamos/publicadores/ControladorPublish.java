@@ -17,6 +17,7 @@ import com.ayudamos.datatypes.DtDistribucion;
 import com.ayudamos.datatypes.DtListaDistribucion;
 import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.enums.EstadoDistribucion;
+import com.ayudamos.enums.EstadoDistribucion;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 import com.ayudamos.interfaces.Fabrica;
 import com.ayudamos.interfaces.IControlador;
@@ -103,6 +104,12 @@ public class ControladorPublish {
 	@WebMethod
 	public DtListaDistribucion obtenerDistribucionesBeneficiario(String email) {
 		DtListaDistribucion aRetornar = icon.obtenerDistribucionesBeneficiario(email);
+	    return aRetornar;
+	}
+	
+	@WebMethod
+	public DtListaDistribucion obtenerDistribucionesBeneficiarioFiltradas(String email, EstadoDistribucion estadoSelect) {
+		DtListaDistribucion aRetornar = icon.obtenerDistribucionesBeneficiarioFiltradas(email, estadoSelect);
 	    return aRetornar;
 	}
 	

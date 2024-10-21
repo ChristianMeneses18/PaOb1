@@ -16,6 +16,7 @@ import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.excepciones.DistribucionRepetidaExcepcion;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 import com.ayudamos.datatypes.DtDistribucionZona;
+import com.ayudamos.enums.EstadoBeneficiario;
 import com.ayudamos.enums.EstadoDistribucion;
 
 public interface IControlador {
@@ -61,6 +62,8 @@ public interface IControlador {
 	public void modificarContrasenia(String email , String nuevaContrasenia);
 	
 	public DtListaDistribucion obtenerDistribucionesBeneficiario(String email);
+	
+	public DtListaDistribucion obtenerDistribucionesBeneficiarioFiltradas(String email, EstadoDistribucion estadoSelect);
 	
 	public void modificarDatosUsuario(String email, DtUsuario usuario);
 

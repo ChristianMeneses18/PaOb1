@@ -110,4 +110,10 @@ public class ControladorPublish {
 	public void modificarDatosUsuario(String email, DtUsuario usuario) {
 		icon.modificarDatosUsuario(email, usuario);
 	}
+	
+	@WebMethod
+	public DtListaDistribucion obtenerDistribucionesBeneficiarioFiltradas(String email, EstadoDistribucion estadoSelect) {
+		DtListaDistribucion aRetornar = icon.obtenerDistribucionesBeneficiarioFiltradas(email, estadoSelect);
+	    return aRetornar;
+	}
 }

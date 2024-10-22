@@ -63,5 +63,7 @@ public interface IControlador {
 	public DtListaDistribucion obtenerDistribucionesBeneficiario(String email);
 	
 	public void modificarDatosUsuario(String email, DtUsuario usuario);
+	
+	public DtListaDistribucion obtenerDistribucionesBeneficiarioFiltradas(String email, EstadoDistribucion estadoSelect);
 
 }

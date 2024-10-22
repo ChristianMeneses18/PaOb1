@@ -444,4 +444,30 @@ public class Controlador implements IControlador {
 		mU.modificarUsuario(usuarioAModificar);
 	}
 
+	
+	@Override
+	public DtListaDistribucion obtenerDistribucionesBeneficiarioFiltradas(String email, EstadoDistribucion estadoSelect) {
+		ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();        
+		ArrayList<DtDistribucion> aRetornar = new ArrayList<>();
+		List<Distribucion> distribuciones = mD.obtenerDistribuciones();
+		
+		for (Distribucion d : distribuciones) {
+			if(email.equals(d.getBeneficiario().getEmail()) && estadoSelect.equals(d.getEstado())) {
+				int beneficiario = d.getBeneficiario().getIdUsuario();
+				int donacion = d.getDonacion().getId();
+				String descripcionDonacion;
+				
+				if(d.getDonacion() instanceof Alimento) {
+					descripcionDonacion= ((Alimento) d.getDonacion()).getDescripcionProductos();
+				} else {
+					descripcionDonacion= ((Articulo) d.getDonacion()).getDescripcion();
+				}
+				DtDistribucion dtDistribucion = new DtDistribucion(descripcionDonacion, beneficiario, donacion, d.getFechaPreparacion(),d.getFechaEntrega(), d.getEstado());	
+				aRetornar.add(dtDistribucion);
+			}
+		}
+		return new DtListaDistribucion(aRetornar);
+	}
+	
+	
 }

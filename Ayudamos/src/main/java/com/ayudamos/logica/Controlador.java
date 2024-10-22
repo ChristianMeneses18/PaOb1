@@ -441,7 +441,7 @@ public class Controlador implements IControlador {
 			((Repartidor) usuarioAModificar).setNumeroLicencia(((DtRepartidor) usuario).getNumeroLicencia());
 		}
 		
-		
+		mU.modificarUsuario(usuarioAModificar);
 	}
 
 }

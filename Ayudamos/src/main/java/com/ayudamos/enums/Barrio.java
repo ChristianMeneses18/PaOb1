@@ -5,5 +5,6 @@ public enum Barrio {
 	CORDON,
 	PARQUE_RODO,
 	CENTRO,
-	PALERMO
+	PALERMO,
+	TODAS
 }

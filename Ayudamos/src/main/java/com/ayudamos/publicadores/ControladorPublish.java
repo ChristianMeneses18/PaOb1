@@ -15,7 +15,9 @@ import javax.xml.ws.Endpoint;
 import com.ayudamos.configuraciones.WebServiceConfiguracion;
 import com.ayudamos.datatypes.DtDistribucion;
 import com.ayudamos.datatypes.DtListaDistribucion;
+import com.ayudamos.datatypes.DtListaDistribucionB;
 import com.ayudamos.datatypes.DtUsuario;
+import com.ayudamos.enums.Barrio;
 import com.ayudamos.enums.EstadoDistribucion;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 import com.ayudamos.interfaces.Fabrica;
@@ -114,6 +116,12 @@ public class ControladorPublish {
 	@WebMethod
 	public DtListaDistribucion obtenerDistribucionesBeneficiarioFiltradas(String email, EstadoDistribucion estadoSelect) {
 		DtListaDistribucion aRetornar = icon.obtenerDistribucionesBeneficiarioFiltradas(email, estadoSelect);
+	    return aRetornar;
+	}
+	
+	@WebMethod
+	public DtListaDistribucionB obtenerDistribucionesFiltradas(Barrio barrioSelect) {
+		DtListaDistribucionB aRetornar = icon.obtenerDistribucionesFiltradas(barrioSelect);
 	    return aRetornar;
 	}
 }

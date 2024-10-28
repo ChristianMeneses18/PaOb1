@@ -15,6 +15,7 @@ import com.ayudamos.datatypes.DtDistribucionZona;
 import com.ayudamos.datatypes.DtDonacion;
 import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.datatypes.DtListaDistribucion;
+import com.ayudamos.datatypes.DtListaDistribucionB;
 import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.datatypes.DtRepartidor;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
@@ -22,7 +23,9 @@ import com.ayudamos.interfaces.IControlador;
 import com.ayudamos.logica.ManejadorUsuario;
 import com.ayudamos.logica.ManejadorDistribucion;
 import com.ayudamos.datatypes.DtDistribucion;
+import com.ayudamos.datatypes.DtDistribucionBeneficiario;
 import com.ayudamos.excepciones.DistribucionRepetidaExcepcion;
+import com.ayudamos.enums.Barrio;
 import com.ayudamos.enums.EstadoDistribucion;
 import com.ayudamos.datatypes.DtDistribucionZona;
 
@@ -470,4 +473,32 @@ public class Controlador implements IControlador {
 	}
 	
 	
-}
+	@Override
+	public DtListaDistribucionB obtenerDistribucionesFiltradas(Barrio barrioSelect) {
+	    ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();
+	    ArrayList<DtDistribucionBeneficiario> aRetornar = new ArrayList<>();
+	    List<Distribucion> distribuciones = mD.obtenerDistribuciones();
+	    
+	    for (Distribucion d : distribuciones) {
+	        // Si barrioSelect es TODAS, se agregan todas las distribuciones sin filtrar por barrio
+	        if (barrioSelect == Barrio.TODAS || barrioSelect.equals(d.getBeneficiario().getBarrio())) {
+	            String nombre = d.getBeneficiario().getNombre();
+	            String email = d.getBeneficiario().getEmail();
+	            Barrio barrio = d.getBeneficiario().getBarrio();
+	            String descripcionDonacion;
+	            
+	            if (d.getDonacion() instanceof Alimento) {
+	                descripcionDonacion = ((Alimento) d.getDonacion()).getDescripcionProductos();
+	            } else {
+	                descripcionDonacion = ((Articulo) d.getDonacion()).getDescripcion();
+	            }
+	            
+	            DtDistribucionBeneficiario dtDistribucion = new DtDistribucionBeneficiario(
+	                nombre, email, barrio, d.getDonacion().getId(), descripcionDonacion, d.getFechaPreparacion(), d.getEstado()
+	            );    
+	            aRetornar.add(dtDistribucion);
+	        }
+	    }
+	    return new DtListaDistribucionB(aRetornar);
+	}
+}	

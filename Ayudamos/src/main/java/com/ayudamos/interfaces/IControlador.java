@@ -12,10 +12,12 @@ import com.ayudamos.datatypes.DtDistribucion;
 import com.ayudamos.datatypes.DtDonacion;
 import com.ayudamos.datatypes.DtFecha;
 import com.ayudamos.datatypes.DtListaDistribucion;
+import com.ayudamos.datatypes.DtListaDistribucionB;
 import com.ayudamos.datatypes.DtUsuario;
 import com.ayudamos.excepciones.DistribucionRepetidaExcepcion;
 import com.ayudamos.excepciones.UsuarioRepetidoExcepcion;
 import com.ayudamos.datatypes.DtDistribucionZona;
+import com.ayudamos.enums.Barrio;
 import com.ayudamos.enums.EstadoDistribucion;
 
 public interface IControlador {
@@ -65,5 +67,7 @@ public interface IControlador {
 	public void modificarDatosUsuario(String email, DtUsuario usuario);
 	
 	public DtListaDistribucion obtenerDistribucionesBeneficiarioFiltradas(String email, EstadoDistribucion estadoSelect);
+	
+	public DtListaDistribucionB obtenerDistribucionesFiltradas(Barrio barrioSelect);
 
 }

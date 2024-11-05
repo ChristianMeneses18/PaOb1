@@ -482,6 +482,7 @@ public class Controlador implements IControlador {
 	    for (Distribucion d : distribuciones) {
 	        // Si barrioSelect es TODAS, se agregan todas las distribuciones sin filtrar por barrio
 	        if (barrioSelect == Barrio.TODAS || barrioSelect.equals(d.getBeneficiario().getBarrio())) {
+	        	int idBeneficiario = d.getBeneficiario().getIdUsuario();
 	            String nombre = d.getBeneficiario().getNombre();
 	            String email = d.getBeneficiario().getEmail();
 	            Barrio barrio = d.getBeneficiario().getBarrio();
@@ -494,11 +495,20 @@ public class Controlador implements IControlador {
 	            }
 	            
 	            DtDistribucionBeneficiario dtDistribucion = new DtDistribucionBeneficiario(
-	                nombre, email, barrio, d.getDonacion().getId(), descripcionDonacion, d.getFechaPreparacion(), d.getEstado()
+	                idBeneficiario,nombre, email, barrio, d.getDonacion().getId(), descripcionDonacion, d.getFechaPreparacion(), d.getEstado()
 	            );    
 	            aRetornar.add(dtDistribucion);
 	        }
 	    }
 	    return new DtListaDistribucionB(aRetornar);
+	}
+	
+	@Override
+	public void modificarEstadoDistribucion(int idBeneficiario, int idDonacion, Date fechaPreparacion, EstadoDistribucion estado) {
+		ManejadorDistribucion mD = ManejadorDistribucion.getInstancia();
+		Distribucion distribucionBuscada = mD.buscarDistribucionId(idBeneficiario, idDonacion , fechaPreparacion);
+		distribucionBuscada.setEstado(estado);
+		mD.modificarDistribucion(distribucionBuscada);	
+		
 	}
 }	

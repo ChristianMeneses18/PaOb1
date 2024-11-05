@@ -51,6 +51,15 @@ public class DtDistribucion {
         this.estado = estado;
         this.descripcionDonacion = descripcionDonacion;
     }
+    
+    public DtDistribucion(int donacion, String descripcionDonacion, Date fechaPreparacion) {
+        this.idBeneficiario = 0;
+        this.idDonacion = donacion;
+        this.fechaPreparacion = fechaPreparacion;
+        this.fechaEntrega = fechaEntrega;
+        this.estado = null;
+        this.descripcionDonacion = descripcionDonacion;
+    }
     // Getters
     public Date getFechaPreparacion() {
         return fechaPreparacion;

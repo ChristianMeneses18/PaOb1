@@ -124,4 +124,9 @@ public class ControladorPublish {
 		DtListaDistribucionB aRetornar = icon.obtenerDistribucionesFiltradas(barrioSelect);
 	    return aRetornar;
 	}
+	
+	@WebMethod
+	public void modificarEstadoDistribucion(int idBeneficiario, int idDonacion, Date fechaPreparacion, EstadoDistribucion estado) {
+		icon.modificarEstadoDistribucion(idBeneficiario, idDonacion , fechaPreparacion , estado);
+	}
 }

@@ -110,6 +110,17 @@ public class ManejadorDistribucion {
 		return new ArrayList<>(distribuciones);
 	}
 
-
+	public Distribucion buscarDistribucionId(int idBeneficiario , int idDonacion , Date fechaPreparacion) {
+		Conexion conexion = Conexion.getInstancia();
+		EntityManager em = conexion.getEntityManager();
+		DistribucionID distribucionID = new DistribucionID();
+		distribucionID.setBeneficiario(idBeneficiario);
+		distribucionID.setDonacion(idDonacion);
+		distribucionID.setFechaPreparacion(fechaPreparacion);
+		
+		Distribucion distribucion = em.find(Distribucion.class, distribucionID);
+		return distribucion;
+		
+	}
 	
 }

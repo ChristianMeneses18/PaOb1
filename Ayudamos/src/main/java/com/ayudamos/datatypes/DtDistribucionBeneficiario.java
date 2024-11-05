@@ -14,7 +14,10 @@ import java.util.Calendar;
 @XmlAccessorType(XmlAccessType.FIELD) // Acceso a los campos directamente
 public class DtDistribucionBeneficiario {
     
-    @XmlElement(name = "nombre") // Nombre del elemento en XML
+	@XmlElement(name = "idBeneficiario") 
+	private int idBeneficiario;
+	
+    @XmlElement(name = "nombre") 
     private String nombre;
 
     @XmlElement(name = "email") // Nombre del elemento en XML
@@ -40,7 +43,8 @@ public class DtDistribucionBeneficiario {
     
     public DtDistribucionBeneficiario() {}
     
-    public DtDistribucionBeneficiario(String nombre, String email, Barrio barrio , int idDonacion, String descripcionDonacion, Date fechaPreparacion, EstadoDistribucion estado) {
+    public DtDistribucionBeneficiario(int idBeneficiario , String nombre, String email, Barrio barrio , int idDonacion, String descripcionDonacion, Date fechaPreparacion, EstadoDistribucion estado) {
+       this.idBeneficiario = idBeneficiario;
        this.nombre = nombre;
        this.email = email;
        this.barrio = barrio;
@@ -50,7 +54,15 @@ public class DtDistribucionBeneficiario {
        this.estado = estado;
     }
     
-    // Getters
+    public int getIdBeneficiario() {
+		return idBeneficiario;
+	}
+
+	public void setIdBeneficiario(int idBeneficiario) {
+		this.idBeneficiario = idBeneficiario;
+	}
+
+	// Getters
     public Date getFechaPreparacion() {
         return fechaPreparacion;
     }
